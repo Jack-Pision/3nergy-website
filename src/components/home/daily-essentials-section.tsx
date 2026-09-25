@@ -175,7 +175,7 @@ export function DailyEssentialsSection() {
           })}
         </div>
 
-        {/* Doctor Proof & Gauge Split Banner (Matches Inspiration Exactly) */}
+        {/* Clinical Rigor & Sourcing Banner */}
         <div className="rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] p-8 sm:p-12 lg:p-14 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
@@ -186,11 +186,11 @@ export function DailyEssentialsSection() {
               </span>
               
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#141b17] leading-[1.05]">
-                Meet Your Daily <br />
-                Essentials
+                Formulated by Physicians, <br />
+                Verified by Clinical Data.
               </h3>
 
-              <p className="text-sm text-[#5a6660] leading-relaxed font-sans">
+              <p className="text-sm text-[#5a6660] leading-relaxed">
                 You shouldn&apos;t need a chemistry degree to understand what&apos;s in your supplements. 3NERGY keeps every formula intentional, transparent, and easy to understand — so you can focus on feeling your best every single day.
               </p>
 

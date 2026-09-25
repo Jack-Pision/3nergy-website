@@ -62,12 +62,12 @@ export function ShopPage() {
           </span>
 
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-[#141b17] leading-[1.05]">
-            Meet Your Daily <br />
-            Essentials.
+            Daily Formulations <br />
+            for Optimal Living.
           </h1>
 
           <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed max-w-xl mx-auto">
-            Clean, science-backed supplements designed to support your everyday energy, recovery, and sleep. Free shipping on all orders over $50.
+            Direct-from-source botanical extracts and active chelated minerals. 30-day risk-free trial with free carbon-neutral shipping on orders over $50.
           </p>
         </section>
 

@@ -13,19 +13,19 @@ export function RoutineSection() {
     <section id="routine" className="w-full py-16 sm:py-24 px-4 sm:px-8 bg-[#fcfcfb]">
       <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* Top Philosophy & 3 Feature Badges */}
+        {/* Sourcing & Formulation Philosophy */}
         <div className="space-y-12">
           {/* Header Row */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-black/[0.06]">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-[#141b17] max-w-3xl leading-snug">
-              Clean, science-backed supplements designed to support your energy, recovery, focus, and everyday wellness{" "}
-              <span className="text-[#6c7a72] font-normal">— without the unnecessary extras.</span>
+              Consistency compounds.{" "}
+              <span className="text-[#6c7a72] font-normal">Daily nutrition engineered around how human biology actually functions across morning, midday, and night.</span>
             </h2>
             <Link
               href="/science"
               className="self-start md:self-center px-6 py-2 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold tracking-wide transition-all shadow-sm shrink-0"
             >
-              Guidelines
+              Our Standards
             </Link>
           </div>
 

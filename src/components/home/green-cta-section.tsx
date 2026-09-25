@@ -29,17 +29,6 @@ export function GreenCtaSection() {
         <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none" />
 
-        {/* Decorative Floating Capsules (Clean anti-slop CSS vector) */}
-        <div className="absolute top-12 left-10 hidden sm:flex items-center gap-2 opacity-80 pointer-events-none">
-          <div className="w-9 h-4 rounded-full bg-gradient-to-r from-[#2f5e3f] to-[#183a24] border border-white/20 -rotate-45 shadow-lg" />
-          <div className="w-9 h-4 rounded-full bg-gradient-to-r from-[#b37446] to-[#783e18] border border-white/20 rotate-12 shadow-lg" />
-        </div>
-
-        <div className="absolute bottom-16 right-10 hidden sm:flex items-center gap-2 opacity-80 pointer-events-none">
-          <div className="w-9 h-4 rounded-full bg-gradient-to-r from-[#b37446] to-[#783e18] border border-white/20 -rotate-12 shadow-lg" />
-          <div className="w-9 h-4 rounded-full bg-gradient-to-r from-[#2f5e3f] to-[#183a24] border border-white/20 45 shadow-lg" />
-        </div>
-
         {/* Main CTA Content */}
         <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
           
@@ -48,8 +37,8 @@ export function GreenCtaSection() {
             Best Every Day?
           </h2>
 
-          <p className="text-xs sm:text-sm text-white/80 max-w-xl mx-auto leading-relaxed">
-            Join thousands who trust 3NERGY for clean, science-backed daily nutrition — without the unnecessary extras.
+          <p className="text-xs sm:text-sm text-white/85 max-w-xl mx-auto leading-relaxed">
+            Experience the Daily Trio risk-free for 30 days. If your energy, focus, and sleep quality don’t noticeably improve, enjoy an immediate full refund.
           </p>
 
           {/* Action Buttons */}

@@ -43,8 +43,8 @@ export function CircadianHero() {
 
           {/* Center: Circular Shop Now Button & Subtext */}
           <div className="lg:col-span-4 flex flex-col items-center text-center space-y-4 px-2">
-            <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-sm">
-              Clean, science-backed supplements designed to support your energy, recovery, focus, and everyday wellness — without the unnecessary extras.
+            <p className="text-xs sm:text-sm text-white/95 leading-relaxed max-w-sm">
+              Three bio-timed daily formulations aligned with your natural cortisol and melatonin rhythms. Clean morning alertness, steady afternoon stamina, and deep restorative sleep.
             </p>
 
             {/* Circular Green Shop Button */}
@@ -69,13 +69,6 @@ export function CircadianHero() {
 
         {/* Center Translucent Glass Container with Grounded Bottle */}
         <div className="relative z-10 max-w-4xl mx-auto rounded-[2rem] bg-white/25 backdrop-blur-md border border-white/35 p-6 sm:p-10 shadow-2xl overflow-hidden">
-          
-          {/* Subtle concentric wellness rings in container */}
-          <div className="absolute inset-0 pointer-events-none opacity-20 flex items-center justify-center">
-            <div className="w-[600px] h-[600px] rounded-full border border-white" />
-            <div className="w-[450px] h-[450px] rounded-full border border-white absolute" />
-            <div className="w-[300px] h-[300px] rounded-full border border-white absolute" />
-          </div>
 
           <div className="relative grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             

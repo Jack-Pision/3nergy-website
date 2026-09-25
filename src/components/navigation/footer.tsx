@@ -20,7 +20,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-xs sm:text-sm text-[#5a6660] max-w-sm leading-relaxed">
-              Clean, science-backed daily supplements designed to support your energy, recovery, focus, and everyday wellness—without unnecessary extras or synthetic fillers.
+              Targeted 24-hour nutrition aligned with human circadian biology. Pure active compounds, certified third-party testing, zero synthetic fillers.
             </p>
             <div className="flex items-center gap-2 text-xs text-[#1f3d2b] font-medium pt-1">
               <ShieldCheck className="w-4 h-4 text-[#1f3d2b]" />

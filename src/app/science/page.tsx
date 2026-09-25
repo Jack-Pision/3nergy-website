@@ -8,8 +8,6 @@ import { ChronoBottle } from "@/components/visuals/chrono-bottle";
 
 export function SciencePage() {
   const [selectedProductId, setSelectedProductId] = useState<string>("daily-energy");
-  const [activeLot, setActiveLot] = useState("LOT-3N-2026-A1");
-  const [lotVerified, setLotVerified] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const selectedProduct =
@@ -189,71 +187,137 @@ export function SciencePage() {
           </div>
         </section>
 
-        {/* Section 3: Live Certificate of Analysis (COA) Verification */}
-        <section id="coa" className="rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] p-8 sm:p-12 space-y-6">
+        {/* Section 3: Traceable Sourcing & Laboratory Standards */}
+        <section id="sourcing" className="rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] p-8 sm:p-12 space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <span className="text-xs font-semibold text-[#1f3d2b] block mb-1">
-                Quality Assurance
+                Radical Traceability
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#141b17] mt-1">
-                Batch Quality &amp; Lab Verification
+                Where Your Ingredients Come From
               </h2>
-              <p className="text-xs sm:text-sm text-[#5a6660] mt-1 max-w-xl">
-                Every bottle features a stamped production lot number on the base. Enter your batch code to inspect verified laboratory assay results.
+              <p className="text-xs sm:text-sm text-[#5a6660] mt-1 max-w-xl leading-relaxed">
+                We reject proprietary blends and undisclosed origins. Every botanical and chelate is sourced from its optimal geographic terroir and validated by ISO-17025 accredited laboratory assays.
               </p>
             </div>
-
-            <div className="flex items-center gap-2 self-start md:self-auto">
-              <input
-                type="text"
-                value={activeLot}
-                onChange={(e) => setActiveLot(e.target.value)}
-                className="px-4 py-2.5 rounded-full bg-white border border-black/15 text-xs font-medium text-[#141b17] focus:outline-none focus:ring-2 focus:ring-[#1f3d2b]"
-              />
-              <button
-                onClick={() => setLotVerified(true)}
-                className="px-5 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold transition-all shadow-sm"
-              >
-                Verify
-              </button>
+            <div className="flex items-center gap-2">
+              <span className="px-3.5 py-1.5 rounded-full bg-white border border-black/10 text-xs font-semibold text-[#1f3d2b] shadow-xs">
+                100% Disclosed Origins
+              </span>
             </div>
           </div>
 
-          {lotVerified && (
-            <div className="bg-white rounded-2xl p-6 border border-black/[0.08] shadow-sm space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-black/[0.06] text-xs">
-                <div className="flex items-center gap-2 text-emerald-700 font-bold">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>Batch {activeLot}: Passed Accredited Laboratory Screening</span>
+          {/* Sourcing Origin Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <div className="bg-white rounded-2xl p-5 border border-black/[0.06] shadow-xs space-y-3 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#1f3d2b] bg-[#eaf1ed] px-2.5 py-0.5 rounded-full">
+                    Japan
+                  </span>
+                  <span className="text-[11px] text-[#5a6660]">Morning Energy</span>
                 </div>
-                <span className="text-xs text-[#5a6660] font-medium">ISO-17025 Certified Partner Labs</span>
+                <h3 className="font-bold text-sm text-[#141b17]">Ceremonial Matcha</h3>
+                <p className="text-xs text-[#5a6660] leading-relaxed">
+                  Shade-grown volcanic soil harvests in Kagoshima. Stone-ground at cold temperatures to preserve natural L-theanine and EGCG catechins.
+                </p>
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-                <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
-                  <span className="text-[#5a6660] text-xs font-semibold block">Heavy Metals</span>
-                  <div className="font-bold text-emerald-700">&lt; 0.005 ppm (Passed)</div>
-                  <span className="text-[11px] text-[#5a6660] block">USP &lt;2232&gt; compliant</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
-                  <span className="text-[#5a6660] text-xs font-semibold block">Microbial Safety</span>
-                  <div className="font-bold text-emerald-700">0 CFU/g (Absent)</div>
-                  <span className="text-[11px] text-[#5a6660] block">USP &lt;2021&gt; compliant</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
-                  <span className="text-[#5a6660] text-xs font-semibold block">Purity &amp; Potency</span>
-                  <div className="font-bold text-[#141b17]">100.2% Measured Potency</div>
-                  <span className="text-[11px] text-[#5a6660] block">HPLC verified</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
-                  <span className="text-[#5a6660] text-xs font-semibold block">Solvent Residues</span>
-                  <div className="font-bold text-emerald-700">None Detected (0%)</div>
-                  <span className="text-[11px] text-[#5a6660] block">Clean extraction</span>
-                </div>
+              <div className="pt-2 border-t border-black/[0.04] text-[11px] text-[#1f3d2b] font-medium">
+                Clinical Ref: <em>J. Nutr. Biochem. (2021)</em>
               </div>
             </div>
-          )}
+
+            <div className="bg-white rounded-2xl p-5 border border-black/[0.06] shadow-xs space-y-3 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#8b6a3e] bg-[#f7f2ea] px-2.5 py-0.5 rounded-full">
+                    Michigan, USA
+                  </span>
+                  <span className="text-[11px] text-[#5a6660]">Midday Recovery</span>
+                </div>
+                <h3 className="font-bold text-sm text-[#141b17]">Montmorency Tart Cherry</h3>
+                <p className="text-xs text-[#5a6660] leading-relaxed">
+                  Orchard-grown in Leelanau County. 50:1 freeze-concentrated to retain natural anthocyanins that accelerate muscle recovery post-exercise.
+                </p>
+              </div>
+              <div className="pt-2 border-t border-black/[0.04] text-[11px] text-[#8b6a3e] font-medium">
+                Clinical Ref: <em>Br. J. Sports Med. (2018)</em>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-5 border border-black/[0.06] shadow-xs space-y-3 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#8b6a3e] bg-[#f7f2ea] px-2.5 py-0.5 rounded-full">
+                    Utah, USA
+                  </span>
+                  <span className="text-[11px] text-[#5a6660]">Cellular Energy</span>
+                </div>
+                <h3 className="font-bold text-sm text-[#141b17]">TRAACS® Dimagnesium Malate</h3>
+                <p className="text-xs text-[#5a6660] leading-relaxed">
+                  Patented chelate engineered by Albion Laboratories. Bound to malic acid for maximum gut absorption without laxative side effects.
+                </p>
+              </div>
+              <div className="pt-2 border-t border-black/[0.04] text-[11px] text-[#8b6a3e] font-medium">
+                Clinical Ref: <em>Am. J. Clin. Nutr. (2020)</em>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-5 border border-black/[0.06] shadow-xs space-y-3 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#5b4e78] bg-[#f1eff6] px-2.5 py-0.5 rounded-full">
+                    France
+                  </span>
+                  <span className="text-[11px] text-[#5a6660]">Evening Rest</span>
+                </div>
+                <h3 className="font-bold text-sm text-[#141b17]">Chamomile Apigenin</h3>
+                <p className="text-xs text-[#5a6660] leading-relaxed">
+                  Loire Valley floral extract standardized to 1.2% active apigenin. Selectively binds to neural GABA-A receptors to encourage restful slow-wave sleep.
+                </p>
+              </div>
+              <div className="pt-2 border-t border-black/[0.04] text-[11px] text-[#5b4e78] font-medium">
+                Clinical Ref: <em>Mol. Med. Reports (2019)</em>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Analytical Laboratory Standards Card */}
+          <div className="bg-white rounded-2xl p-6 border border-black/[0.08] shadow-sm space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-black/[0.06] text-xs">
+              <div className="flex items-center gap-2 text-emerald-700 font-bold">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>Certified Third-Party Release Specifications (Every Batch)</span>
+              </div>
+              <span className="text-xs text-[#5a6660] font-medium">ISO-17025 Accredited Analytical Partners</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+              <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
+                <span className="text-[#5a6660] text-xs font-semibold block">Heavy Metals (ICP-MS)</span>
+                <div className="font-bold text-emerald-700">&lt; 0.005 ppm Pass Limit</div>
+                <span className="text-[11px] text-[#5a6660] block">Lead, Cadmium, Arsenic, Mercury</span>
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
+                <span className="text-[#5a6660] text-xs font-semibold block">Microbial Safety</span>
+                <div className="font-bold text-emerald-700">0 CFU/g (Absent)</div>
+                <span className="text-[11px] text-[#5a6660] block">USP &lt;2021&gt; &amp; &lt;2022&gt; compliant</span>
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
+                <span className="text-[#5a6660] text-xs font-semibold block">Active Compound Potency</span>
+                <div className="font-bold text-[#141b17]">100%–105% Label Claim</div>
+                <span className="text-[11px] text-[#5a6660] block">HPLC chromatogram verified</span>
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
+                <span className="text-[#5a6660] text-xs font-semibold block">Chemical Solvents &amp; Flow Agents</span>
+                <div className="font-bold text-emerald-700">Zero (0%) Detected</div>
+                <span className="text-[11px] text-[#5a6660] block">No stearates or silicon dioxide</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Section 4: FAQ Accordion */}
