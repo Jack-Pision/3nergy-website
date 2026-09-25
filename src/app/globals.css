@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-syne), sans-serif;
-  --font-sans: var(--font-sans), sans-serif;
-  --font-mono: var(--font-mono), monospace;
+  --font-display: var(--font-satoshi), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-satoshi), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-satoshi), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --color-brand-forest: #1f3d2b;
   --color-brand-forest-hover: #162e20;
@@ -29,7 +29,7 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-satoshi), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

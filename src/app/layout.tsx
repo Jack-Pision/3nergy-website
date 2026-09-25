@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/navigation/navbar";
@@ -8,23 +8,30 @@ import { Footer } from "@/components/navigation/footer";
 import { QuizModal } from "@/components/quiz/quiz-modal";
 import { WellnessCalculatorModal } from "@/components/calculator/wellness-calculator-modal";
 
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  display: "swap",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
+const satoshi = localFont({
+  src: [
+    {
+      path: "../fonts/Satoshi-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Satoshi-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Satoshi-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Satoshi-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-satoshi",
   display: "swap",
 });
 
@@ -55,11 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${syne.variable} ${jakarta.variable} ${geistMono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={satoshi.variable} suppressHydrationWarning>
       <body className="min-h-screen bg-[#fcfcfb] text-[#141b17] font-sans antialiased selection:bg-[#1f3d2b]/15 selection:text-[#1f3d2b] overflow-x-hidden relative flex flex-col">
         <Providers>
           {/* Minimalist Floating Navigation */}
