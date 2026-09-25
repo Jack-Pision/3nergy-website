@@ -29,7 +29,7 @@ export function GreenCtaSection() {
       <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none" />
 
       {/* Main Wide Content */}
-      <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto relative z-10 text-center space-y-8">
+      <div className="w-full max-w-[1500px] 2xl:max-w-[1680px] mx-auto relative z-10 text-center space-y-8">
         
         <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
           Ready to Feel Your <br />

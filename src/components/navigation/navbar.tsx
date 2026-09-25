@@ -53,7 +53,7 @@ export function Navbar() {
             : "bg-white/90 backdrop-blur-md shadow-xs border-b border-black/[0.06] py-3.5"
         }`}
       >
-        <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-6 sm:px-12 lg:px-16 flex items-center justify-between">
+        <div className="w-full max-w-[1500px] 2xl:max-w-[1680px] mx-auto px-6 sm:px-12 lg:px-16 flex items-center justify-between">
           
           {/* Brand Wordmark & Nav Links */}
           <div className="flex items-center gap-6 sm:gap-8">

@@ -34,7 +34,7 @@ export function SciencePage() {
 
   return (
     <div className="flex flex-col w-full min-h-screen pt-28 pb-16 px-6 sm:px-12 lg:px-16 bg-[#fcfcfb] text-[#141b17]">
-      <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto space-y-20">
+      <div className="w-full max-w-[1500px] 2xl:max-w-[1680px] mx-auto space-y-20">
         
         {/* Editorial Header */}
         <section className="text-center max-w-3xl mx-auto pt-4 space-y-4">
