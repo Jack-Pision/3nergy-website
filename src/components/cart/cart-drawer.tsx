@@ -63,8 +63,8 @@ export function CartDrawer() {
           <div className="p-6 border-b border-black/[0.08] flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <ShoppingBag className="w-5 h-5 text-[#1f3d2b]" />
-              <span className="font-display font-bold text-lg text-[#141b17]">Your Cart</span>
-              <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-[#f4f6f4] text-[#5a6660]">
+              <span className="font-bold text-lg text-[#141b17]">Your Cart</span>
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#f4f6f4] text-[#5a6660]">
                 {cart.length} {cart.length === 1 ? "item" : "items"}
               </span>
             </div>
@@ -85,7 +85,7 @@ export function CartDrawer() {
                 </span>
               ) : (
                 <span>
-                  Add <strong className="text-[#141b17] font-mono">${(freeShippingThreshold - subtotal).toFixed(2)}</strong> more for Free Shipping
+                  Add <strong className="text-[#141b17] font-bold">${(freeShippingThreshold - subtotal).toFixed(2)}</strong> more for Free Shipping
                 </span>
               )}
             </div>
@@ -104,12 +104,12 @@ export function CartDrawer() {
                 <div className="w-16 h-16 rounded-full bg-[#eaf1ed] text-[#1f3d2b] mx-auto flex items-center justify-center">
                   <Check className="w-8 h-8" />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-[#141b17]">Order Placed!</h3>
+                <h3 className="text-2xl font-bold text-[#141b17]">Order Placed!</h3>
                 <p className="text-xs text-[#5a6660] max-w-xs mx-auto leading-relaxed">
                   Thank you for your order. Your fresh 3NERGY supplements are being packed and prepared for express dispatch.
                 </p>
-                <div className="bg-[#f4f6f4] p-3.5 rounded-2xl max-w-xs mx-auto text-left text-xs font-mono space-y-1 border border-black/5">
-                  <div className="text-[#5a6660]">Order ID: 3N-2026-8842</div>
+                <div className="bg-[#f4f6f4] p-3.5 rounded-2xl max-w-xs mx-auto text-left text-xs space-y-1 border border-black/5">
+                  <div className="text-[#5a6660]">Order #3N-2026-8842</div>
                   <div className="text-[#5a6660]">Status: Processing • Same Day Dispatch</div>
                 </div>
               </div>
@@ -118,7 +118,7 @@ export function CartDrawer() {
                 <div className="w-12 h-12 rounded-full bg-[#f4f6f4] mx-auto flex items-center justify-center text-gray-400">
                   <ShoppingBag className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-lg font-bold text-[#141b17]">Your Cart is Empty</h3>
+                <h3 className="text-lg font-bold text-[#141b17]">Your Cart is Empty</h3>
                 <p className="text-xs text-[#5a6660] max-w-xs mx-auto leading-relaxed">
                   Explore our core daily essentials designed to support your energy, recovery, and sleep.
                 </p>
@@ -160,7 +160,7 @@ export function CartDrawer() {
                       {/* Details */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono text-[#1f3d2b] font-bold">
+                          <span className="text-xs text-[#1f3d2b] font-semibold">
                             {item.product.phaseNumber} • {item.product.timeWindow}
                           </span>
                           <button
@@ -171,16 +171,16 @@ export function CartDrawer() {
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                        <h4 className="font-display font-bold text-sm text-[#141b17] truncate">
+                        <h4 className="font-bold text-sm text-[#141b17] truncate">
                           {item.product.name}
                         </h4>
                         <div className="flex items-center gap-2 mt-1">
-                          <span className="font-mono text-sm font-bold text-[#141b17]">
+                          <span className="text-sm font-bold text-[#141b17]">
                             ${(unitPrice * item.quantity).toFixed(2)}
                           </span>
                           {isSub && (
-                            <span className="text-[10px] font-mono text-[#1f3d2b] bg-[#eaf1ed] px-1.5 py-0.5 rounded font-bold">
-                              {item.cadence === "30-day" ? "SAVE 15%" : "SAVE 20%"}
+                            <span className="text-[10px] text-[#1f3d2b] bg-[#eaf1ed] px-2 py-0.5 rounded-full font-bold">
+                              {item.cadence === "30-day" ? "Save 15%" : "Save 20%"}
                             </span>
                           )}
                         </div>
@@ -233,7 +233,7 @@ export function CartDrawer() {
                         >
                           <Minus className="w-3 h-3" />
                         </button>
-                        <span className="font-mono text-xs font-bold text-[#141b17] px-1">
+                        <span className="text-xs font-bold text-[#141b17] px-1">
                           {item.quantity}
                         </span>
                         <button
@@ -254,7 +254,7 @@ export function CartDrawer() {
               <div className="p-4 rounded-2xl bg-[#eaf1ed] border border-[#1f3d2b]/15 space-y-2">
                 <div className="flex items-center gap-1.5 text-[#1f3d2b] text-xs font-bold">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>COMPLETE THE DAILY TRIO</span>
+                  <span>Complete the Daily Trio</span>
                 </div>
                 <p className="text-[11px] text-[#334639] leading-relaxed">
                   Add all 3 daily essentials to synchronize morning energy, recovery, and deep sleep. Bundle price: $75 (saves $15).
@@ -276,7 +276,7 @@ export function CartDrawer() {
               <div className="space-y-1.5 text-xs">
                 <div className="flex justify-between text-[#5a6660]">
                   <span>Subtotal</span>
-                  <span className="font-mono font-semibold text-[#141b17]">${subtotal.toFixed(2)}</span>
+                  <span className="font-semibold text-[#141b17]">${subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-[#5a6660]">
                   <span>Shipping</span>
@@ -286,7 +286,7 @@ export function CartDrawer() {
                 </div>
                 <div className="flex justify-between text-[#141b17] font-bold text-sm pt-2 border-t border-black/[0.06]">
                   <span>Total</span>
-                  <span className="font-mono text-base text-[#1f3d2b]">
+                  <span className="text-base font-bold text-[#1f3d2b]">
                     ${(subtotal + (subtotal >= freeShippingThreshold ? 0 : 5)).toFixed(2)}
                   </span>
                 </div>
@@ -295,7 +295,7 @@ export function CartDrawer() {
               <button
                 onClick={handleCheckout}
                 disabled={isCheckingOut}
-                className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md active:scale-95 disabled:opacity-50"
+                className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-2 shadow-md active:scale-95 disabled:opacity-50"
               >
                 {isCheckingOut ? (
                   <span>Processing Checkout...</span>

@@ -39,7 +39,7 @@ export function Navbar() {
           {/* Brand Wordmark & Nav Links */}
           <div className="flex items-center gap-8">
             <Link href="/" className="group flex items-center gap-2 focus:outline-none">
-              <span className="font-display text-xl sm:text-2xl font-extrabold tracking-tight text-[#1f3d2b] transition-colors">
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#1f3d2b] transition-colors">
                 3NERGY
               </span>
             </Link>
@@ -85,7 +85,7 @@ export function Navbar() {
             >
               <ShoppingBag className="w-4 h-4" />
               {cartTotalCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-[#1f3d2b] text-white text-[9px] font-bold font-mono">
+                <span className="absolute -top-1 -right-1 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-[#1f3d2b] text-white text-[9px] font-bold">
                   {cartTotalCount}
                 </span>
               )}
@@ -173,7 +173,7 @@ export function Navbar() {
                         <div className="text-xs font-bold text-[#141b17]">{p.name}</div>
                         <div className="text-[11px] text-[#5a6660]">{p.tagline}</div>
                       </div>
-                      <span className="font-mono text-xs font-bold text-[#1f3d2b]">${p.price}.00</span>
+                      <span className="text-xs font-bold text-[#1f3d2b]">${p.price}.00</span>
                     </Link>
                   ))
                 ) : (
@@ -186,7 +186,7 @@ export function Navbar() {
 
             {!searchQuery && (
               <div className="mt-4 pt-2">
-                <div className="text-[10px] uppercase font-mono tracking-wider text-gray-400 mb-2">
+                <div className="text-xs font-medium text-gray-500 mb-2">
                   Popular Searches
                 </div>
                 <div className="flex flex-wrap gap-2">

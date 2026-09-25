@@ -34,11 +34,10 @@ export function ChronoBottle({
   const config = {
     energy: {
       number: "01",
-      name: "DAILY ENERGY & FOCUS",
-      subtitle: "ORGANIC MATCHA + B-COMPLEX",
-      badge: "MORNING VITALITY",
-      capsuleText: "60 VEGAN CAPSULES",
-      activeBio: "MATCHA + COQ10 + B12",
+      name: "Daily Energy & Focus",
+      subtitle: "Organic Matcha & CoQ10",
+      capsuleText: "60 Vegan Capsules",
+      activeBio: "Energy & Mental Flow",
       accent: "#2e593f",
       bottleGradient: "linear-gradient(90deg, #121814 0%, #1f2a23 30%, #29382f 50%, #1c2720 75%, #101512 100%)",
       bottleBorder: "rgba(255, 255, 255, 0.12)",
@@ -50,11 +49,10 @@ export function ChronoBottle({
     },
     recovery: {
       number: "02",
-      name: "DAILY RECOVERY",
-      subtitle: "TART CHERRY + ELECTROLYTES",
-      badge: "POST-WORKOUT REPAIR",
-      capsuleText: "60 VEGAN CAPSULES",
-      activeBio: "TART CHERRY + MAGNESIUM",
+      name: "Daily Recovery",
+      subtitle: "Tart Cherry & Electrolytes",
+      capsuleText: "60 Vegan Capsules",
+      activeBio: "Muscle Repair & Stamina",
       accent: "#b39263",
       bottleGradient: "linear-gradient(90deg, #c7ad89 0%, #e0ceb1 30%, #ebdcc5 50%, #d8c3a1 75%, #ba9f79 100%)",
       bottleBorder: "rgba(139, 106, 62, 0.2)",
@@ -67,11 +65,10 @@ export function ChronoBottle({
     },
     rest: {
       number: "03",
-      name: "DAILY REST & SLEEP",
-      subtitle: "L-THEANINE + CHAMOMILE",
-      badge: "RESTORATIVE SLEEP",
-      capsuleText: "60 VEGAN CAPSULES",
-      activeBio: "CHAMOMILE + MAGNESIUM",
+      name: "Daily Rest & Sleep",
+      subtitle: "Chamomile & L-Theanine",
+      capsuleText: "60 Vegan Capsules",
+      activeBio: "Restorative Calm & Sleep",
       accent: "#8b7bb0",
       bottleGradient: "linear-gradient(90deg, #322642 0%, #4c3b61 30%, #5d4975 50%, #443457 75%, #2a2037 100%)",
       bottleBorder: "rgba(255, 255, 255, 0.12)",
@@ -138,45 +135,45 @@ export function ChronoBottle({
           <div className="absolute top-0 inset-x-0 h-4 bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
           <div className="absolute inset-y-0 left-3 w-1 bg-gradient-to-r from-white/15 to-transparent pointer-events-none" />
 
-          {/* === SILK-SCREENED LABEL === */}
+          {/* === SILK-SCREENED LABEL (Human-readable, natural wellness) === */}
           <div className="relative z-10 w-full h-full flex flex-col justify-between py-5 px-4 text-center">
             
             {/* Brand Wordmark */}
             <div className="pt-2">
-              <span className={`font-display font-black tracking-widest text-lg sm:text-xl block ${textColor} drop-shadow-sm`}>
+              <span className={`font-bold tracking-tight text-lg sm:text-xl block ${textColor}`}>
                 3NERGY
               </span>
               <span
-                className="text-[8px] font-mono tracking-widest uppercase block mt-0.5 font-semibold opacity-75"
-                style={{ color: config.isLightBottle ? "#6d4f29" : "#a2b4a8" }}
+                className="text-[9px] tracking-wide block mt-0.5 opacity-80"
+                style={{ color: config.isLightBottle ? "#6d4f29" : "#d8e5dc" }}
               >
-                DAILY NUTRITION
+                Daily Nutrition
               </span>
             </div>
 
             {/* Center Product Title */}
             <div className="space-y-1.5 my-auto">
               <div
-                className="w-7 h-[1.5px] mx-auto rounded-full opacity-60"
+                className="w-6 h-[1px] mx-auto rounded-full opacity-40"
                 style={{ backgroundColor: lineBg }}
               />
 
-              <div className={`font-display font-extrabold tracking-tight text-xs sm:text-sm leading-tight ${textColor}`}>
+              <div className={`font-bold tracking-tight text-xs sm:text-sm leading-snug ${textColor}`}>
                 {config.name}
               </div>
 
-              <div className={`text-[8px] sm:text-[9px] font-sans tracking-wide uppercase leading-tight max-w-[90%] mx-auto opacity-75 ${subTextColor}`}>
+              <div className={`text-[9px] tracking-normal leading-tight max-w-[90%] mx-auto opacity-80 ${subTextColor}`}>
                 {config.subtitle}
               </div>
             </div>
 
-            {/* Bottom Capsule Count & Batch */}
-            <div className="pb-1 border-t border-black/10 pt-2 space-y-0.5 text-[8px] font-mono">
+            {/* Bottom Capsule Count */}
+            <div className="pb-1 border-t border-black/10 pt-2 space-y-0.5 text-[9px]">
               <div className={`font-medium ${textColor}`}>
                 {config.activeBio}
               </div>
-              <div className={`tracking-wider opacity-60 ${subTextColor}`}>
-                {config.capsuleText} • BATCH #2026
+              <div className={`opacity-70 ${subTextColor}`}>
+                {config.capsuleText}
               </div>
             </div>
 

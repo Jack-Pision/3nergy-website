@@ -15,12 +15,12 @@ export function Footer() {
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-4">
             <Link href="/" className="inline-block">
-              <span className="font-display text-2xl font-black text-[#1f3d2b] tracking-tight">
+              <span className="text-2xl font-bold text-[#1f3d2b] tracking-tight">
                 3NERGY
               </span>
             </Link>
-            <p className="text-xs sm:text-sm text-[#5a6660] max-w-sm leading-relaxed font-sans">
-              Clean, science-backed daily supplements designed to support your energy, recovery, focus, and everyday wellness — without unnecessary extras or synthetic fillers.
+            <p className="text-xs sm:text-sm text-[#5a6660] max-w-sm leading-relaxed">
+              Clean, science-backed daily supplements designed to support your energy, recovery, focus, and everyday wellness—without unnecessary extras or synthetic fillers.
             </p>
             <div className="flex items-center gap-2 text-xs text-[#1f3d2b] font-medium pt-1">
               <ShieldCheck className="w-4 h-4 text-[#1f3d2b]" />
@@ -30,7 +30,7 @@ export function Footer() {
 
           {/* Column 1: Daily Essentials */}
           <div>
-            <h4 className="font-display font-bold text-xs uppercase tracking-wider text-[#141b17] mb-3">
+            <h4 className="text-xs font-semibold text-[#141b17] mb-3">
               Daily Essentials
             </h4>
             <ul className="space-y-2.5 text-xs text-[#5a6660]">
@@ -60,7 +60,7 @@ export function Footer() {
 
           {/* Column 2: Science & Transparency */}
           <div>
-            <h4 className="font-display font-bold text-xs uppercase tracking-wider text-[#141b17] mb-3">
+            <h4 className="text-xs font-semibold text-[#141b17] mb-3">
               Transparency
             </h4>
             <ul className="space-y-2.5 text-xs text-[#5a6660]">
@@ -89,7 +89,7 @@ export function Footer() {
 
           {/* Column 3: Routine & Support */}
           <div>
-            <h4 className="font-display font-bold text-xs uppercase tracking-wider text-[#141b17] mb-3">
+            <h4 className="text-xs font-semibold text-[#141b17] mb-3">
               Routine
             </h4>
             <ul className="space-y-2.5 text-xs text-[#5a6660]">

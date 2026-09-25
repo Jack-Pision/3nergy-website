@@ -62,7 +62,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={satoshi.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${satoshi.variable} ${satoshi.className}`}
+      suppressHydrationWarning
+    >
       <body className="min-h-screen bg-[#fcfcfb] text-[#141b17] font-sans antialiased selection:bg-[#1f3d2b]/15 selection:text-[#1f3d2b] overflow-x-hidden relative flex flex-col">
         <Providers>
           {/* Minimalist Floating Navigation */}

@@ -43,7 +43,7 @@ export function WellnessCalculatorModal() {
               <Calculator className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-base text-[#141b17]">
+              <h3 className="font-bold text-base text-[#141b17]">
                 Personalized Fitness & Dosing Calculator
               </h3>
               <p className="text-[11px] text-[#5a6660]">
@@ -149,8 +149,8 @@ export function WellnessCalculatorModal() {
 
           {/* Calculator Output Card */}
           <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf1ed]/60 border border-[#1f3d2b]/15 space-y-3">
-            <div className="text-[10px] font-mono uppercase tracking-wider text-[#1f3d2b] font-bold">
-              Your Daily Bio-Schedule
+            <div className="text-xs font-semibold text-[#1f3d2b]">
+              Your Recommended Daily Routine
             </div>
 
             <div className="grid grid-cols-2 gap-4">

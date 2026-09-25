@@ -42,7 +42,7 @@ export function QuizModal() {
             <span className="p-1.5 rounded-lg bg-[#eaf1ed] text-[#1f3d2b]">
               <Sparkles className="w-4 h-4" />
             </span>
-            <span className="font-display font-bold text-base text-[#141b17]">
+            <span className="font-bold text-base text-[#141b17]">
               Find Your 3NERGY Routine
             </span>
           </div>
@@ -69,10 +69,10 @@ export function QuizModal() {
         {/* Step 1: Primary Goal */}
         {step === 1 && (
           <div className="space-y-4">
-            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+            <span className="text-xs text-[#1f3d2b] font-semibold">
               Step 01 of 03
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-[#141b17]">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#141b17]">
               What is your primary wellness goal right now?
             </h3>
             <div className="space-y-2.5 pt-2">
@@ -118,7 +118,7 @@ export function QuizModal() {
 
             <button
               onClick={() => setStep(2)}
-              className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm"
+              className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-1.5 shadow-sm"
             >
               <span>Next: Daily Rhythm</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -129,10 +129,10 @@ export function QuizModal() {
         {/* Step 2: Energy Dip */}
         {step === 2 && (
           <div className="space-y-4">
-            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+            <span className="text-xs text-[#1f3d2b] font-semibold">
               Step 02 of 03
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-[#141b17]">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#141b17]">
               When do you experience your biggest energy slump?
             </h3>
             <div className="space-y-2.5 pt-2">
@@ -180,7 +180,7 @@ export function QuizModal() {
               </button>
               <button
                 onClick={() => setStep(3)}
-                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <span>Next: Sleep Habits</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -189,13 +189,14 @@ export function QuizModal() {
           </div>
         )}
 
+
         {/* Step 3: Sleep Quality */}
         {step === 3 && (
           <div className="space-y-4">
-            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+            <span className="text-xs text-[#1f3d2b] font-semibold">
               Step 03 of 03
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-[#141b17]">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#141b17]">
               How would you describe your typical night&apos;s rest?
             </h3>
             <div className="space-y-2.5 pt-2">
@@ -243,7 +244,7 @@ export function QuizModal() {
               </button>
               <button
                 onClick={() => setStep(4)}
-                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <span>Generate My Routine</span>
                 <Sparkles className="w-3.5 h-3.5" />
@@ -256,10 +257,10 @@ export function QuizModal() {
         {step === 4 && (
           <div className="space-y-5 animate-in fade-in duration-300">
             <div className="text-center py-1">
-              <span className="text-[10px] font-mono text-[#1f3d2b] bg-[#eaf1ed] px-3 py-1 rounded-full uppercase tracking-wider font-bold">
+              <span className="text-xs text-[#1f3d2b] bg-[#eaf1ed] px-3.5 py-1 rounded-full font-semibold">
                 Routine Formulated
               </span>
-              <h3 className="font-display text-2xl font-bold text-[#141b17] mt-2">
+              <h3 className="text-2xl font-bold text-[#141b17] mt-2.5">
                 Your Recommended 3NERGY Daily Habit
               </h3>
             </div>
@@ -271,7 +272,7 @@ export function QuizModal() {
                   <span className="w-2 h-2 rounded-full bg-[#2e593f]" />
                   <strong className="text-[#141b17]">07:30 AM:</strong> Daily Energy &amp; Focus
                 </div>
-                <span className="text-[11px] text-[#2e593f] font-bold">Clean Vitality</span>
+                <span className="text-[11px] text-[#2e593f] font-semibold">Clean Vitality</span>
               </div>
 
               <div className="flex items-center justify-between text-xs pb-2 border-b border-black/[0.06]">
@@ -279,7 +280,7 @@ export function QuizModal() {
                   <span className="w-2 h-2 rounded-full bg-[#8b6a3e]" />
                   <strong className="text-[#141b17]">01:30 PM:</strong> Daily Recovery &amp; Stamina
                 </div>
-                <span className="text-[11px] text-[#8b6a3e] font-bold">Cellular Repair</span>
+                <span className="text-[11px] text-[#8b6a3e] font-semibold">Cellular Repair</span>
               </div>
 
               <div className="flex items-center justify-between text-xs">
@@ -287,7 +288,7 @@ export function QuizModal() {
                   <span className="w-2 h-2 rounded-full bg-[#5b4e78]" />
                   <strong className="text-[#141b17]">10:00 PM:</strong> Daily Rest &amp; Sleep
                 </div>
-                <span className="text-[11px] text-[#5b4e78] font-bold">Deep Rest</span>
+                <span className="text-[11px] text-[#5b4e78] font-semibold">Deep Rest</span>
               </div>
             </div>
 
@@ -300,7 +301,7 @@ export function QuizModal() {
 
             <button
               onClick={handleFinish}
-              className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md active:scale-95"
+              className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-2 shadow-md active:scale-95"
             >
               <span>Add Recommended Routine to Cart</span>
               <ArrowRight className="w-4 h-4" />

@@ -39,10 +39,10 @@ export function DailyEssentialsSection() {
         {/* Top Header & Search / Filter Controls */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-black/[0.06]">
           <div>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-[#1f3d2b] font-bold block mb-1">
+            <span className="text-xs font-semibold text-[#1f3d2b] block mb-1.5">
               Core Formulations
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight text-[#141b17]">
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#141b17] leading-[1.05]">
               Meet Your Daily <br className="hidden sm:block" />
               Essentials
             </h2>
@@ -109,7 +109,7 @@ export function DailyEssentialsSection() {
               >
                 {/* Card Top: Price & Quick Add Button */}
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-2xl sm:text-3xl font-black text-[#141b17] tracking-tight">
+                  <span className="text-2xl sm:text-3xl font-bold text-[#141b17] tracking-tight">
                     ${product.price}.00
                   </span>
                   <button
@@ -143,11 +143,11 @@ export function DailyEssentialsSection() {
                 {/* Card Bottom: Product Title & Description */}
                 <div className="space-y-2 pt-2 border-t border-black/[0.06]">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-display font-bold text-lg text-[#141b17]">
+                    <h3 className="font-bold text-lg text-[#141b17]">
                       {product.name}
                     </h3>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#5a6660]">
-                      60 caps
+                    <span className="text-xs text-[#5a6660] font-medium">
+                      60 capsules
                     </span>
                   </div>
                   <p className="text-xs text-[#5a6660] leading-relaxed">
@@ -181,11 +181,11 @@ export function DailyEssentialsSection() {
             
             {/* Left Content Column */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1f3d2b] font-bold">
-                Clinical Rigor & Honesty
+              <span className="text-xs font-semibold text-[#1f3d2b]">
+                Clinical Rigor &amp; Honesty
               </span>
               
-              <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#141b17] leading-[1.05]">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#141b17] leading-[1.05]">
                 Meet Your Daily <br />
                 Essentials
               </h3>

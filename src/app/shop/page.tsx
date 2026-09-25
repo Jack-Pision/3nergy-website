@@ -57,16 +57,16 @@ export function ShopPage() {
         
         {/* Shop Header */}
         <section className="text-center max-w-3xl mx-auto pt-4 space-y-4">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-[#1f3d2b] font-bold block">
+          <span className="text-xs font-semibold text-[#1f3d2b] block mb-1.5">
             Direct-to-Consumer Wellness
           </span>
 
-          <h1 className="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-[#141b17] leading-[0.95]">
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-[#141b17] leading-[1.05]">
             Meet Your Daily <br />
             Essentials.
           </h1>
 
-          <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed font-sans max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed max-w-xl mx-auto">
             Clean, science-backed supplements designed to support your everyday energy, recovery, and sleep. Free shipping on all orders over $50.
           </p>
         </section>
@@ -93,8 +93,8 @@ export function ShopPage() {
             {/* Bundle Details & Purchase */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#eaf1ed] text-[#1f3d2b] border border-[#1f3d2b]/15">
-                  BEST VALUE • SAVE $15.00
+                <span className="px-3.5 py-1 rounded-full text-xs font-semibold bg-[#eaf1ed] text-[#1f3d2b] border border-[#1f3d2b]/15">
+                  Best Value • Save $15.00
                 </span>
                 <div className="flex items-center gap-1 text-amber-500 text-xs font-medium">
                   <Star className="w-3.5 h-3.5 fill-current" />
@@ -103,7 +103,7 @@ export function ShopPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-3xl sm:text-4xl font-black text-[#141b17] tracking-tight">
+                <h2 className="text-3xl sm:text-4xl font-bold text-[#141b17] tracking-tight">
                   The Complete Daily Trio
                 </h2>
                 <p className="text-xs sm:text-sm text-[#5a6660] mt-2 leading-relaxed">
@@ -131,12 +131,12 @@ export function ShopPage() {
               <div className="pt-4 border-t border-black/[0.06] flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <div className="flex items-baseline gap-2">
-                    <span className="font-mono text-3xl font-black text-[#1f3d2b]">
+                    <span className="text-3xl font-bold text-[#1f3d2b]">
                       $75.00
                     </span>
-                    <span className="font-mono text-sm text-gray-400 line-through">$90.00</span>
-                    <span className="text-xs font-mono text-[#1f3d2b] bg-[#eaf1ed] px-2 py-0.5 rounded font-bold">
-                      SAVE 17%
+                    <span className="text-sm text-gray-400 line-through">$90.00</span>
+                    <span className="text-xs text-[#1f3d2b] bg-[#eaf1ed] px-2 py-0.5 rounded-full font-bold">
+                      Save 17%
                     </span>
                   </div>
                   <span className="text-[11px] text-[#5a6660] block mt-0.5">
@@ -146,7 +146,7 @@ export function ShopPage() {
 
                 <button
                   onClick={handleAddBundle}
-                  className="px-8 py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-sm active:scale-95"
+                  className="px-8 py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center gap-2 shadow-sm active:scale-95"
                 >
                   {addedId === "bundle" ? (
                     <>
@@ -171,10 +171,10 @@ export function ShopPage() {
         <section className="space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-black/[0.06]">
             <div>
-              <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider block">
+              <span className="text-xs font-semibold text-[#1f3d2b] block mb-1">
                 Standalone Formulations
               </span>
-              <h2 className="font-display text-3xl font-black uppercase tracking-tight text-[#141b17]">
+              <h2 className="text-3xl font-bold tracking-tight text-[#141b17]">
                 Shop Core Essentials
               </h2>
             </div>
@@ -197,17 +197,17 @@ export function ShopPage() {
                 >
                   {/* Top Phase Tag & Capsule Count */}
                   <div>
-                    <div className="flex items-center justify-between text-xs font-mono mb-2">
+                    <div className="flex items-center justify-between text-xs mb-2">
                       <span className="text-[#1f3d2b] font-bold">
                         {product.phaseNumber} • {product.timeWindow}
                       </span>
-                      <span className="text-[#5a6660] font-sans text-[11px]">{product.capsuleCount} Capsules</span>
+                      <span className="text-[#5a6660] text-xs font-medium">{product.capsuleCount} Capsules</span>
                     </div>
 
-                    <h3 className="font-display text-2xl font-black text-[#141b17]">
+                    <h3 className="text-2xl font-bold text-[#141b17]">
                       {product.name}
                     </h3>
-                    <p className="text-xs text-[#5a6660] font-sans mt-1 leading-relaxed">
+                    <p className="text-xs text-[#5a6660] mt-1 leading-relaxed">
                       {product.description}
                     </p>
                   </div>
@@ -224,12 +224,12 @@ export function ShopPage() {
                   {/* Key Active Compounds */}
                   <div className="space-y-2 pt-2 border-t border-black/[0.06] text-xs">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-[#5a6660] uppercase tracking-wider block">
-                        KEY ACTIVE INGREDIENTS
+                      <span className="text-xs font-semibold text-[#5a6660]">
+                        Key Active Ingredients
                       </span>
                       <button
                         onClick={() => setSelectedProductDetails(product)}
-                        className="text-[10px] text-[#1f3d2b] font-bold hover:underline flex items-center gap-0.5"
+                        className="text-[11px] text-[#1f3d2b] font-bold hover:underline flex items-center gap-0.5"
                       >
                         <Info className="w-3 h-3" />
                         <span>View Supplement Facts</span>
@@ -238,9 +238,9 @@ export function ShopPage() {
 
                     <ul className="space-y-1.5 text-[#3d4d42]">
                       {product.compounds.slice(0, 3).map((comp, idx) => (
-                        <li key={idx} className="flex justify-between items-center text-[11px]">
+                        <li key={idx} className="flex justify-between items-center text-xs">
                           <span>{comp.name.split("(")[0]}</span>
-                          <span className="font-mono font-bold text-[#1f3d2b]">{comp.dose}</span>
+                          <span className="font-semibold text-[#1f3d2b]">{comp.dose}</span>
                         </li>
                       ))}
                     </ul>
@@ -285,7 +285,7 @@ export function ShopPage() {
                   {/* Price & Add to Cart */}
                   <div className="pt-3 border-t border-black/[0.06] flex items-center justify-between">
                     <div>
-                      <span className="font-mono text-2xl font-black text-[#141b17]">
+                      <span className="text-2xl font-bold text-[#141b17]">
                         ${currentPrice}
                       </span>
                       <span className="text-[10px] text-[#5a6660] block">
@@ -319,10 +319,10 @@ export function ShopPage() {
         {/* Guarantees & Commitments */}
         <section className="rounded-3xl bg-white p-8 sm:p-12 border border-black/[0.06] shadow-sm space-y-6">
           <div className="text-center max-w-xl mx-auto space-y-2">
-            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+            <span className="text-xs font-semibold text-[#1f3d2b] block mb-1">
               Our Promise
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#141b17]">
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#141b17]">
               The 3NERGY Risk-Free Guarantee
             </h3>
           </div>
@@ -334,14 +334,14 @@ export function ShopPage() {
                 <span>30-Day Money-Back Guarantee</span>
               </div>
               <p className="text-xs text-[#5a6660] leading-relaxed">
-                If you don&apos;t feel a noticeable boost in energy, recovery, or sleep quality within 30 days, simply let us know for a full, prompt refund.
+                If you don’t feel a noticeable boost in energy, recovery, or sleep quality within 30 days, simply let us know for a full, prompt refund.
               </p>
             </div>
 
             <div className="space-y-2 p-5 rounded-2xl bg-[#fcfcfb] border border-black/5">
               <div className="flex items-center gap-2 text-[#141b17] font-bold text-sm">
                 <RefreshCw className="w-4 h-4 text-[#1f3d2b]" />
-                <span>Cancel Anytime With 1-Click</span>
+                <span>Cancel Anytime with One Click</span>
               </div>
               <p className="text-xs text-[#5a6660] leading-relaxed">
                 Subscribers have complete control. Swap products, pause deliveries, change intervals, or cancel anytime with zero hidden fees.
@@ -368,7 +368,7 @@ export function ShopPage() {
           <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-black/10 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-black/[0.08]">
               <div>
-                <h3 className="font-display font-black text-xl text-[#141b17]">
+                <h3 className="font-bold text-xl text-[#141b17]">
                   {selectedProductDetails.name}
                 </h3>
                 <span className="text-xs text-[#5a6660]">Full Nutritional &amp; Botanical Profile</span>
@@ -382,7 +382,7 @@ export function ShopPage() {
             </div>
 
             <div className="space-y-4 pt-4 text-xs">
-              <div className="p-3 bg-[#f4f6f4] rounded-xl flex justify-between font-mono text-[#141b17]">
+              <div className="p-3 bg-[#f4f6f4] rounded-xl flex justify-between text-xs font-semibold text-[#141b17]">
                 <span>Serving Size: 2 Vegan Capsules</span>
                 <span>Servings Per Container: 30</span>
               </div>
@@ -394,7 +394,7 @@ export function ShopPage() {
                       <span className="font-bold text-[#141b17] block">{c.name}</span>
                       <span className="text-[11px] text-[#5a6660]">{c.function}</span>
                     </div>
-                    <span className="font-mono font-bold text-[#1f3d2b] shrink-0 ml-4">{c.dose}</span>
+                    <span className="font-bold text-xs text-[#1f3d2b] shrink-0 ml-4">{c.dose}</span>
                   </div>
                 ))}
               </div>
@@ -409,7 +409,7 @@ export function ShopPage() {
                   addToCart(selectedProductDetails, 1, "30-day");
                   setSelectedProductDetails(null);
                 }}
-                className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
+                className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all shadow-sm"
               >
                 Add to Cart • $30.00
               </button>

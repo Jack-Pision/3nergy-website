@@ -40,16 +40,16 @@ export function SciencePage() {
         
         {/* Editorial Header */}
         <section className="text-center max-w-3xl mx-auto pt-4 space-y-4">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-[#1f3d2b] font-bold block">
+          <span className="text-xs font-semibold text-[#1f3d2b] block mb-1.5">
             Formulation &amp; Transparency
           </span>
 
-          <h1 className="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-[#141b17] leading-[0.95]">
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-[#141b17] leading-[1.05]">
             Transparency in <br />
             Every Capsule.
           </h1>
 
-          <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed max-w-2xl mx-auto font-sans">
+          <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed max-w-2xl mx-auto">
             You shouldn&apos;t need a chemistry degree to understand what goes into your body. 3NERGY supplements are formulated around published human clinical research with zero fillers, binders, or hidden blends.
           </p>
         </section>
@@ -60,7 +60,7 @@ export function SciencePage() {
             <div className="w-12 h-12 rounded-2xl bg-[#eaf1ed] text-[#1f3d2b] flex items-center justify-center font-bold">
               01
             </div>
-            <h3 className="font-display font-bold text-lg text-[#141b17]">
+            <h3 className="font-bold text-lg text-[#141b17]">
               100% Active Ingredients
             </h3>
             <p className="text-xs sm:text-sm text-[#5a6660] leading-relaxed">
@@ -72,7 +72,7 @@ export function SciencePage() {
             <div className="w-12 h-12 rounded-2xl bg-[#f7f2ea] text-[#8b6a3e] flex items-center justify-center font-bold">
               02
             </div>
-            <h3 className="font-display font-bold text-lg text-[#141b17]">
+            <h3 className="font-bold text-lg text-[#141b17]">
               Bioavailable Chelates
             </h3>
             <p className="text-xs sm:text-sm text-[#5a6660] leading-relaxed">
@@ -84,7 +84,7 @@ export function SciencePage() {
             <div className="w-12 h-12 rounded-2xl bg-[#f1eff6] text-[#5b4e78] flex items-center justify-center font-bold">
               03
             </div>
-            <h3 className="font-display font-bold text-lg text-[#141b17]">
+            <h3 className="font-bold text-lg text-[#141b17]">
               Third-Party Verified
             </h3>
             <p className="text-xs sm:text-sm text-[#5a6660] leading-relaxed">
@@ -97,10 +97,10 @@ export function SciencePage() {
         <section id="ingredients" className="rounded-[2.5rem] bg-white border border-black/[0.06] p-6 sm:p-12 shadow-sm space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-black/[0.06]">
             <div>
-              <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider block">
+              <span className="text-xs font-semibold text-[#1f3d2b] block mb-1">
                 Formulation Dossier
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#141b17] mt-1">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#141b17] mt-1">
                 Explore Active Ingredients
               </h2>
             </div>
@@ -121,13 +121,13 @@ export function SciencePage() {
                     : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-gray-50"
                 }`}
               >
-                <div className="text-[10px] font-mono uppercase tracking-wider opacity-60">
+                <div className="text-[11px] font-medium opacity-70">
                   {prod.phaseNumber} • {prod.timeWindow}
                 </div>
-                <div className="font-display text-sm font-bold text-[#141b17] mt-0.5">
+                <div className="text-sm font-bold text-[#141b17] mt-0.5">
                   {prod.name}
                 </div>
-                <div className="text-xs font-mono font-bold text-[#1f3d2b] mt-1">
+                <div className="text-xs font-bold text-[#1f3d2b] mt-1">
                   ${prod.price}.00
                 </div>
               </button>
@@ -141,7 +141,7 @@ export function SciencePage() {
             <div className="lg:col-span-5 flex flex-col items-center justify-center p-8 rounded-3xl bg-[#f8faf8] border border-black/[0.04]">
               <ChronoBottle phase={selectedProduct.phase} size="lg" showRestingCapsules={true} />
               <div className="mt-6 text-center">
-                <div className="font-display font-bold text-base text-[#141b17]">{selectedProduct.name}</div>
+                <div className="font-bold text-base text-[#141b17]">{selectedProduct.name}</div>
                 <div className="text-xs text-[#5a6660]">{selectedProduct.dailyDosage}</div>
                 <Link
                   href="/shop"
@@ -155,7 +155,7 @@ export function SciencePage() {
 
             {/* Right: Ingredient List */}
             <div className="lg:col-span-7 space-y-4">
-              <h3 className="font-display text-xl font-bold text-[#141b17]">
+              <h3 className="text-xl font-bold text-[#141b17]">
                 Active Compounds &amp; Clinical Dosages
               </h3>
               
@@ -164,7 +164,7 @@ export function SciencePage() {
                   <div key={i} className="p-4 rounded-2xl bg-[#fcfcfb] border border-black/[0.06] space-y-1">
                     <div className="flex items-center justify-between text-xs font-bold text-[#141b17]">
                       <span>{cmp.name}</span>
-                      <span className="font-mono text-[#1f3d2b] bg-[#eaf1ed] px-2 py-0.5 rounded-full">
+                      <span className="font-semibold text-xs text-[#1f3d2b] bg-[#eaf1ed] px-2.5 py-0.5 rounded-full">
                         {cmp.dose}
                       </span>
                     </div>
@@ -176,9 +176,9 @@ export function SciencePage() {
               </div>
 
               {/* Spec Sheet Badges */}
-              <div className="pt-4 flex flex-wrap gap-2 text-xs font-mono text-[#3d4d42]">
+              <div className="pt-4 flex flex-wrap gap-2 text-xs text-[#3d4d42]">
                 {selectedProduct.specSheet.certifications.map((cert) => (
-                  <span key={cert} className="px-3 py-1 rounded-full bg-[#eaf1ed] border border-[#1f3d2b]/15 flex items-center gap-1">
+                  <span key={cert} className="px-3 py-1 rounded-full bg-[#eaf1ed] border border-[#1f3d2b]/15 flex items-center gap-1 font-medium">
                     <Check className="w-3 h-3 text-[#1f3d2b]" />
                     <span>{cert}</span>
                   </span>
@@ -193,11 +193,11 @@ export function SciencePage() {
         <section id="coa" className="rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] p-8 sm:p-12 space-y-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider block">
+              <span className="text-xs font-semibold text-[#1f3d2b] block mb-1">
                 Quality Assurance
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#141b17] mt-1">
-                Batch Quality &amp; Lab Certificate Lookup
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#141b17] mt-1">
+                Batch Quality &amp; Lab Verification
               </h2>
               <p className="text-xs sm:text-sm text-[#5a6660] mt-1 max-w-xl">
                 Every bottle features a stamped production lot number on the base. Enter your batch code to inspect verified laboratory assay results.
@@ -209,11 +209,11 @@ export function SciencePage() {
                 type="text"
                 value={activeLot}
                 onChange={(e) => setActiveLot(e.target.value)}
-                className="px-4 py-2.5 rounded-full bg-white border border-black/15 text-xs font-mono text-[#141b17] focus:outline-none focus:ring-2 focus:ring-[#1f3d2b]"
+                className="px-4 py-2.5 rounded-full bg-white border border-black/15 text-xs font-medium text-[#141b17] focus:outline-none focus:ring-2 focus:ring-[#1f3d2b]"
               />
               <button
                 onClick={() => setLotVerified(true)}
-                className="px-5 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-bold transition-all shadow-sm"
+                className="px-5 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold transition-all shadow-sm"
               >
                 Verify
               </button>
@@ -225,31 +225,31 @@ export function SciencePage() {
               <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-black/[0.06] text-xs">
                 <div className="flex items-center gap-2 text-emerald-700 font-bold">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>LOT {activeLot}: 100% PASSED ACCREDITED LABORATORY SCREENING</span>
+                  <span>Batch {activeLot}: Passed Accredited Laboratory Screening</span>
                 </div>
-                <span className="text-gray-400 font-mono text-[11px]">ISO-17025 Certified Partner Labs</span>
+                <span className="text-xs text-[#5a6660] font-medium">ISO-17025 Certified Partner Labs</span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
                 <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
-                  <span className="text-gray-400 text-[10px]">HEAVY METALS</span>
+                  <span className="text-[#5a6660] text-xs font-semibold block">Heavy Metals</span>
                   <div className="font-bold text-emerald-700">&lt; 0.005 ppm (Passed)</div>
-                  <span className="text-[10px] text-gray-500">USP &lt;2232&gt; compliant</span>
+                  <span className="text-[11px] text-[#5a6660] block">USP &lt;2232&gt; compliant</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
-                  <span className="text-gray-400 text-[10px]">MICROBIAL &amp; E. COLI</span>
+                  <span className="text-[#5a6660] text-xs font-semibold block">Microbial Safety</span>
                   <div className="font-bold text-emerald-700">0 CFU/g (Absent)</div>
-                  <span className="text-[10px] text-gray-500">USP &lt;2021&gt; compliant</span>
+                  <span className="text-[11px] text-[#5a6660] block">USP &lt;2021&gt; compliant</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
-                  <span className="text-gray-400 text-[10px]">LABEL CLAIM ASSAY</span>
+                  <span className="text-[#5a6660] text-xs font-semibold block">Purity &amp; Potency</span>
                   <div className="font-bold text-[#141b17]">100.2% Measured Potency</div>
-                  <span className="text-[10px] text-gray-500">HPLC verified</span>
+                  <span className="text-[11px] text-[#5a6660] block">HPLC verified</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
-                  <span className="text-gray-400 text-[10px]">SOLVENT RESIDUES</span>
+                  <span className="text-[#5a6660] text-xs font-semibold block">Solvent Residues</span>
                   <div className="font-bold text-emerald-700">None Detected (0%)</div>
-                  <span className="text-[10px] text-gray-500">Clean solvent-free extraction</span>
+                  <span className="text-[11px] text-[#5a6660] block">Clean extraction</span>
                 </div>
               </div>
             </div>
@@ -259,10 +259,10 @@ export function SciencePage() {
         {/* Section 4: FAQ Accordion */}
         <section id="faq" className="space-y-6 max-w-3xl mx-auto">
           <div className="text-center space-y-2">
-            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+            <span className="text-xs font-semibold text-[#1f3d2b] block mb-1">
               Answers &amp; Guidance
             </span>
-            <h2 className="font-display text-3xl font-black uppercase tracking-tight text-[#141b17]">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#141b17]">
               Frequently Asked Questions
             </h2>
           </div>
@@ -277,13 +277,13 @@ export function SciencePage() {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm text-[#141b17]"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm text-[#141b17]"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? "rotate-180 text-[#1f3d2b]" : ""}`} />
                   </button>
                   {isOpen && (
-                    <div className="px-5 pb-5 text-xs text-[#5a6660] leading-relaxed font-sans border-t border-black/[0.04] pt-3">
+                    <div className="px-5 pb-5 text-xs text-[#5a6660] leading-relaxed border-t border-black/[0.04] pt-3">
                       {faq.a}
                     </div>
                   )}

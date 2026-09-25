@@ -43,12 +43,12 @@ export function GreenCtaSection() {
         {/* Main CTA Content */}
         <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
           
-          <h2 className="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-tight">
+          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
             Ready to Feel Your <br />
             Best Every Day?
           </h2>
 
-          <p className="text-xs sm:text-sm text-white/80 max-w-xl mx-auto leading-relaxed font-sans">
+          <p className="text-xs sm:text-sm text-white/80 max-w-xl mx-auto leading-relaxed">
             Join thousands who trust 3NERGY for clean, science-backed daily nutrition — without the unnecessary extras.
           </p>
 
@@ -72,7 +72,7 @@ export function GreenCtaSection() {
 
           {/* Divider */}
           <div className="pt-12 sm:pt-16 pb-2 border-t border-white/15 max-w-2xl mx-auto">
-            <h3 className="font-display text-sm sm:text-base font-bold uppercase tracking-wider text-white mb-4">
+            <h3 className="text-base sm:text-lg font-bold text-white mb-3">
               Subscribe to Our Newsletter
             </h3>
 

@@ -24,13 +24,13 @@ export function CircadianHero() {
         {/* Top Headline Grid matching Inspiration */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-8 sm:mb-12">
           
-          {/* Left: "FEEL GOOD" + Star Reviews */}
+          {/* Left: "Feel Good" + Star Reviews */}
           <div className="lg:col-span-4 space-y-3">
-            <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight uppercase leading-[0.9] text-white drop-shadow-sm">
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-white drop-shadow-sm">
               Feel Good
             </h1>
             
-            <div className="pt-2 flex items-center gap-2 text-xs font-sans text-white/90">
+            <div className="pt-2 flex items-center gap-2 text-xs text-white/90">
               <span className="text-white/80">Reviewed on</span>
               <div className="flex items-center text-amber-300">
                 {[...Array(5)].map((_, i) => (
@@ -43,7 +43,7 @@ export function CircadianHero() {
 
           {/* Center: Circular Shop Now Button & Subtext */}
           <div className="lg:col-span-4 flex flex-col items-center text-center space-y-4 px-2">
-            <p className="text-xs sm:text-sm text-white/90 font-sans leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-sm">
               Clean, science-backed supplements designed to support your energy, recovery, focus, and everyday wellness — without the unnecessary extras.
             </p>
 
@@ -57,9 +57,9 @@ export function CircadianHero() {
             </Link>
           </div>
 
-          {/* Right: "WORK EXCELLENT" */}
+          {/* Right: "Work Excellent" */}
           <div className="lg:col-span-4 text-left lg:text-right">
-            <h2 className="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight uppercase leading-[0.9] text-white drop-shadow-sm">
+            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-white drop-shadow-sm">
               Work <br className="hidden lg:block" />
               Excellent
             </h2>
@@ -82,7 +82,7 @@ export function CircadianHero() {
             {/* Left Feature Pill */}
             <div className="md:col-span-3 flex justify-start order-2 md:order-1">
               <div className="bg-white/30 backdrop-blur-md rounded-2xl p-3.5 border border-white/40 shadow-sm flex items-center gap-3">
-                <div className="w-8 h-10 rounded-lg bg-[#1a221c] flex items-center justify-center text-white text-[9px] font-black tracking-tighter">
+                <div className="w-8 h-10 rounded-lg bg-[#1a221c] flex items-center justify-center text-white text-[10px] font-bold">
                   3N
                 </div>
                 <div>
@@ -110,7 +110,7 @@ export function CircadianHero() {
                     }}
                     className="px-5 py-2 rounded-full bg-[#1b3a27] hover:bg-[#12281b] text-white text-xs font-semibold shadow-lg transition-transform active:scale-95 flex items-center gap-1.5"
                   >
-                    <span>Quick Add • $30.00</span>
+                    <span>Quick Add · $30.00</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -121,9 +121,9 @@ export function CircadianHero() {
             <div className="md:col-span-3 flex justify-end order-3">
               <div className="flex items-center gap-2.5 text-right bg-white/20 backdrop-blur-md px-3.5 py-2.5 rounded-2xl border border-white/30">
                 <Award className="w-5 h-5 text-amber-200 shrink-0" />
-                <div className="text-[10px] font-bold text-white uppercase tracking-wider leading-tight">
+                <div className="text-xs font-semibold text-white leading-tight">
                   Awarded Clean Label <br />
-                  <span className="text-white/70 font-normal normal-case">100% Third-Party Tested</span>
+                  <span className="text-white/80 font-normal">100% Third-Party Tested</span>
                 </div>
               </div>
             </div>

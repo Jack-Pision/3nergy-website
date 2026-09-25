@@ -10,13 +10,13 @@ export function TestimonialSection() {
       <div className="max-w-4xl mx-auto text-center space-y-6">
         
         {/* Label */}
-        <span className="font-display text-xs font-black tracking-widest uppercase text-[#141b17] block">
-          Testimonial
+        <span className="text-xs font-semibold text-[#1f3d2b] block">
+          Customer Story
         </span>
 
         {/* Big Quote */}
-        <blockquote className="font-display text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-[#141b17] leading-relaxed max-w-3xl mx-auto">
-          &ldquo;I&apos;ve been really happy with the quality and overall experience. The product information was clear, the ordering process was simple, and everything arrived exactly as expected. I&apos;ll definitely be coming back for more.&rdquo;
+        <blockquote className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-[#141b17] leading-relaxed max-w-3xl mx-auto">
+          “I’ve been really happy with the quality and overall experience. The product information was clear, the ordering process was simple, and everything arrived exactly as expected. I’ll definitely be coming back for more.”
         </blockquote>
 
         {/* Rating Stars */}
@@ -36,10 +36,10 @@ export function TestimonialSection() {
               className="object-cover"
             />
           </div>
-          <div className="font-display font-bold text-sm text-[#141b17]">
+          <div className="font-bold text-sm text-[#141b17]">
             Albert Flores
           </div>
-          <div className="text-xs text-[#6c7a72] font-sans">
+          <div className="text-xs text-[#6c7a72]">
             Toronto, Canada
           </div>
         </div>
