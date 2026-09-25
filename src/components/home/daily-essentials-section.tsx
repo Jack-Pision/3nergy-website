@@ -33,8 +33,8 @@ export function DailyEssentialsSection() {
   });
 
   return (
-    <section id="shop" className="w-full py-16 sm:py-24 px-4 sm:px-8 bg-white border-t border-black/[0.04]">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <section id="shop" className="w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-16 bg-white border-t border-black/[0.04]">
+      <div className="w-full max-w-[1500px] 2xl:max-w-[1680px] mx-auto space-y-20">
         
         {/* Top Header & Search / Filter Controls */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-black/[0.06]">

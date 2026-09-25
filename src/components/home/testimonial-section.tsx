@@ -40,8 +40,8 @@ export function TestimonialSection() {
   const current = stories[activeStory];
 
   return (
-    <section className="w-full py-20 px-4 sm:px-8 bg-white border-t border-black/[0.04]">
-      <div className="max-w-4xl mx-auto text-center space-y-6">
+    <section className="w-full py-24 px-6 sm:px-12 lg:px-16 bg-white border-t border-black/[0.04]">
+      <div className="max-w-5xl mx-auto text-center space-y-6">
         
         {/* Story Selector Pills */}
         <div className="flex items-center justify-center gap-2 mb-2">

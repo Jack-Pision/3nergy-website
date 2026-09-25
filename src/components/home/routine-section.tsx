@@ -10,8 +10,8 @@ export function RoutineSection() {
   const { openQuiz } = useCircadianStore();
 
   return (
-    <section id="routine" className="w-full py-16 sm:py-24 px-4 sm:px-8 bg-[#fcfcfb]">
-      <div className="max-w-7xl mx-auto space-y-20">
+    <section id="routine" className="w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-16 bg-[#fcfcfb]">
+      <div className="w-full max-w-[1500px] 2xl:max-w-[1680px] mx-auto space-y-24">
         
         {/* Sourcing & Formulation Philosophy */}
         <div className="space-y-12">
