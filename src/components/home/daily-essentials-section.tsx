@@ -251,6 +251,7 @@ export function DailyEssentialsSection() {
                   src="/images/doctor_gauge.png"
                   alt="Doctor with consistency metric"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>

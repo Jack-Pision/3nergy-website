@@ -106,6 +106,7 @@ export function RoutineSection() {
                   src="/images/routine_couple.png"
                   alt="Built for Daily Flow - Couple Morning Routine"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -126,6 +127,7 @@ export function RoutineSection() {
                   src="/images/routine_stress.png"
                   alt="Stress Less, Do More"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -146,6 +148,7 @@ export function RoutineSection() {
                   src="/images/routine_doctor.png"
                   alt="Expert Formulated Supplements"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
