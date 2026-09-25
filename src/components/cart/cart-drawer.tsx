@@ -160,7 +160,7 @@ export function CartDrawer() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
                           <span className="text-[10px] font-mono text-phase">
-                            {item.product.phaseNumber} // {item.product.timeWindow}
+                            {item.product.phaseNumber} {"//"} {item.product.timeWindow}
                           </span>
                           <button
                             onClick={() => removeFromCart(item.product.id)}

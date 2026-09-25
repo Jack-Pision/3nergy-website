@@ -75,7 +75,7 @@ export function CircadianHero() {
             <div className="lg:col-span-4 space-y-6 order-2 lg:order-1">
               <div className="glass-panel p-5 rounded-2xl border border-white/10 space-y-3">
                 <div className="flex items-center justify-between text-xs font-mono text-phase">
-                  <span>{activeProduct.phaseNumber} // CURRENT PROTOCOL</span>
+                  <span>{activeProduct.phaseNumber} {"//"} CURRENT PROTOCOL</span>
                   <span>{activeProduct.timeWindow}</span>
                 </div>
                 <h3 className="font-display text-2xl font-bold text-white">

@@ -1,11 +1,10 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/products";
 import { useCircadianStore } from "@/store/circadian-store";
-import { Plus, ArrowUpRight, Star, Sparkles, ShieldCheck, Check } from "lucide-react";
+import { Plus, ArrowUpRight, Star, Sparkles, ShieldCheck } from "lucide-react";
 import { ChronoBottle } from "@/components/visuals/chrono-bottle";
 
 export function TriPhaseSystem() {
@@ -58,7 +57,7 @@ export function TriPhaseSystem() {
                 {/* Top Tags & Time Window */}
                 <div className="flex items-center justify-between mb-2">
                   <span className={`px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider border ${badgeBg}`}>
-                    PHASE {product.phaseNumber} // {product.timeWindow}
+                    PHASE {product.phaseNumber} {"//"} {product.timeWindow}
                   </span>
                   <div className="flex items-center gap-1 text-amber-400 text-xs font-mono">
                     <Star className="w-3.5 h-3.5 fill-current" />

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { PRODUCTS, TRI_SYSTEM_BUNDLE } from "@/data/products";
+import { PRODUCTS } from "@/data/products";
 import { useCircadianStore } from "@/store/circadian-store";
 import {
   Sparkles,
@@ -238,7 +238,7 @@ export default function ShopPage() {
                   <div>
                     <div className="flex items-center justify-between text-xs font-mono mb-3">
                       <span className="text-phase font-semibold">
-                        PHASE {product.phaseNumber} // {product.timeWindow}
+                        PHASE {product.phaseNumber} {"//"} {product.timeWindow}
                       </span>
                       <span className="text-white/40">{product.capsuleCount} Capsules</span>
                     </div>

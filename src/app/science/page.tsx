@@ -5,11 +5,9 @@ import Link from "next/link";
 import { COMPOUNDS, CLINICAL_STUDIES } from "@/data/compounds";
 import { useCircadianStore } from "@/store/circadian-store";
 import {
-  ShieldCheck,
   Search,
   CheckCircle2,
   ArrowUpRight,
-  Sparkles,
   Dna,
 } from "lucide-react";
 
