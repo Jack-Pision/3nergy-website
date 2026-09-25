@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: var(--font-syne), sans-serif;
+  --font-sans: var(--font-sans), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+
+  --color-dawn: #f59e0b;
+  --color-dawn-light: #fef3c7;
+  --color-dawn-dark: #b45309;
+
+  --color-zenith: #10b981;
+  --color-zenith-light: #d1fae5;
+  --color-zenith-dark: #047857;
+
+  --color-restore: #6366f1;
+  --color-restore-light: #e0e7ff;
+  --color-restore-dark: #4338ca;
+
+  --color-surface-base: #080a09;
+  --color-surface-card: rgba(255, 255, 255, 0.03);
+  --color-surface-border: rgba(255, 255, 255, 0.08);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #080a09;
+  --foreground: #f3f4f6;
+
+  /* Circadian Phase Default: Dawn */
+  --phase-accent: #f59e0b;
+  --phase-accent-rgb: 245, 158, 11;
+  --phase-glow: rgba(245, 158, 11, 0.16);
+  --phase-border: rgba(245, 158, 11, 0.35);
+  --phase-tag: "PHASE 01 // DAWN RISE";
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-phase="dawn"] {
+  --phase-accent: #f59e0b;
+  --phase-accent-rgb: 245, 158, 11;
+  --phase-glow: rgba(245, 158, 11, 0.16);
+  --phase-border: rgba(245, 158, 11, 0.35);
+  --phase-tag: "PHASE 01 // DAWN RISE";
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-phase="zenith"] {
+  --phase-accent: #10b981;
+  --phase-accent-rgb: 16, 185, 129;
+  --phase-glow: rgba(16, 185, 129, 0.16);
+  --phase-border: rgba(16, 185, 129, 0.35);
+  --phase-tag: "PHASE 02 // ZENITH FLOW";
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+[data-phase="restore"] {
+  --phase-accent: #6366f1;
+  --phase-accent-rgb: 99, 102, 241;
+  --phase-glow: rgba(99, 102, 241, 0.16);
+  --phase-border: rgba(99, 102, 241, 0.35);
+  --phase-tag: "PHASE 03 // RESTORE PRIME";
+}
+
+/* Glassmorphism & Micro-craft styling */
+.glass-panel {
+  background: rgba(18, 22, 20, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-elevated {
+  background: rgba(24, 30, 27, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glow-phase {
+  box-shadow: 0 0 40px var(--phase-glow);
+}
+
+.border-phase {
+  border-color: var(--phase-border);
+}
+
+.text-phase {
+  color: var(--phase-accent);
+}
+
+.bg-phase {
+  background-color: var(--phase-accent);
+}
+
+/* Subtle biological noise texture */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080a09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
