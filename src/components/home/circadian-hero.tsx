@@ -12,7 +12,7 @@ export function CircadianHero() {
   const heroProduct = PRODUCTS[0]; // Daily Energy & Focus
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#557864] via-[#678b75] to-[#7f9f8c] text-white pt-28 sm:pt-36 pb-0">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#557864] via-[#678b75] to-[#7f9f8c] text-white pt-28 sm:pt-36 pb-16 sm:pb-24">
       
       {/* Soft Background Cloud & Landscape Accents */}
       <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-black/10 to-transparent pointer-events-none" />
@@ -68,8 +68,8 @@ export function CircadianHero() {
 
         </div>
 
-        {/* Center Grounded Glass Stage with Seamless Dissolve into Page */}
-        <div className="relative z-10 max-w-6xl xl:max-w-7xl 2xl:max-w-[1560px] mx-auto rounded-t-[2.5rem] sm:rounded-t-[3.5rem] rounded-b-none bg-white/20 backdrop-blur-md border-t border-x border-white/30 border-b-0 p-8 sm:p-12 lg:p-14 pb-16 sm:pb-24 shadow-2xl overflow-hidden">
+        {/* Center Translucent Glass Container with Grounded Bottle */}
+        <div className="relative z-10 max-w-6xl xl:max-w-7xl 2xl:max-w-[1560px] mx-auto rounded-[2.5rem] bg-white/20 backdrop-blur-md border border-white/30 p-8 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
 
           <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
@@ -91,23 +91,23 @@ export function CircadianHero() {
             </div>
 
             {/* Center Bottle Render */}
-            <div className="md:col-span-6 flex flex-col items-center justify-center order-1 md:order-2 my-2 sm:my-0">
+            <div className="md:col-span-6 flex justify-center order-1 md:order-2 my-4 sm:my-0">
               <div className="relative group cursor-pointer" onClick={() => addToCart(heroProduct)}>
                 <ChronoBottle phase="energy" size="hero" showRestingCapsules={true} />
-              </div>
-              
-              {/* Floating Quick Action Badge */}
-              <div className="mt-3 relative z-30 pointer-events-auto">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    addToCart(heroProduct);
-                  }}
-                  className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#12281b] text-white text-xs font-semibold shadow-lg transition-transform active:scale-95 flex items-center gap-1.5 border border-white/20"
-                >
-                  <span>Quick Add · $30.00</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
+                
+                {/* Floating Quick Action Badge */}
+                <div className="absolute -bottom-3 inset-x-0 flex justify-center pointer-events-auto">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      addToCart(heroProduct);
+                    }}
+                    className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#12281b] text-white text-xs font-semibold shadow-lg transition-transform active:scale-95 flex items-center gap-1.5"
+                  >
+                    <span>Quick Add · $30.00</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -127,10 +127,6 @@ export function CircadianHero() {
         </div>
 
       </div>
-
-      {/* Seamless Soft Mist Fade Dissolve into Page (Eliminates bottom border and gap) */}
-      <div className="absolute bottom-0 inset-x-0 h-36 sm:h-48 bg-gradient-to-t from-[#fcfcfb] via-[#fcfcfb]/85 to-transparent pointer-events-none z-20" />
-      <div className="absolute -bottom-2 inset-x-0 h-14 bg-[#fcfcfb] pointer-events-none z-20" />
     </section>
   );
 }
