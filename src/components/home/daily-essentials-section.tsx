@@ -11,6 +11,7 @@ import { ChronoBottle } from "@/components/visuals/chrono-bottle";
 export function DailyEssentialsSection() {
   const { addToCart, openCalculator } = useCircadianStore();
   const [filter, setFilter] = useState<"all" | "new" | "popular">("popular");
+  const [displayMode, setDisplayMode] = useState<"photo" | "bottle">("photo");
   const [searchTerm, setSearchTerm] = useState("");
   const [addedId, setAddedId] = useState<string | null>(null);
 
@@ -60,6 +61,32 @@ export function DailyEssentialsSection() {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-9 pr-4 py-2 rounded-full bg-[#f4f6f4] text-xs text-[#141b17] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1f3d2b] w-full sm:w-48 transition-colors duration-200"
               />
+            </div>
+
+            {/* Display Mode Pill: Photo vs Spec */}
+            <div className="flex items-center gap-1 p-1 bg-[#f4f6f4] rounded-full self-start">
+              <button
+                type="button"
+                onClick={() => setDisplayMode("photo")}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
+                  displayMode === "photo"
+                    ? "bg-white text-[#1f3d2b] font-bold shadow-xs"
+                    : "text-[#5a6660] hover:text-[#1f3d2b]"
+                }`}
+              >
+                Studio Photo
+              </button>
+              <button
+                type="button"
+                onClick={() => setDisplayMode("bottle")}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
+                  displayMode === "bottle"
+                    ? "bg-white text-[#1f3d2b] font-bold shadow-xs"
+                    : "text-[#5a6660] hover:text-[#1f3d2b]"
+                }`}
+              >
+                Formula Spec
+              </button>
             </div>
 
             {/* Filter Pills */}
@@ -129,15 +156,27 @@ export function DailyEssentialsSection() {
                   </button>
                 </div>
 
-                {/* Card Center: High-Fidelity Bottle Render */}
-                <div className="my-6 py-4 flex justify-center relative">
-                  <div>
-                    <ChronoBottle
-                      phase={product.phase}
-                      size="md"
-                      showRestingCapsules={true}
-                    />
-                  </div>
+                {/* Card Center: Real Studio Photograph or Spec Bottle */}
+                <div className="my-5 flex justify-center relative">
+                  {displayMode === "photo" ? (
+                    <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs">
+                      <Image
+                        src={product.image}
+                        alt={`${product.name} luxury packshot`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  ) : (
+                    <div className="py-4">
+                      <ChronoBottle
+                        phase={product.phase}
+                        size="md"
+                        showRestingCapsules={true}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Card Bottom: Product Title & Description */}

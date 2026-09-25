@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ArrowUpRight, Check, ChevronDown } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
@@ -8,6 +9,7 @@ import { ChronoBottle } from "@/components/visuals/chrono-bottle";
 
 export function SciencePage() {
   const [selectedProductId, setSelectedProductId] = useState<string>("daily-energy");
+  const [scienceView, setScienceView] = useState<"photo" | "spec">("photo");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const selectedProduct =
@@ -28,7 +30,7 @@ export function SciencePage() {
     },
     {
       q: "Can I take all three supplements together?",
-      a: "While you can safely take them, they are purposefully formulated for your natural daily routine: Daily Energy & Focus with breakfast, Daily Recovery & Stamina with lunch or after exercise, and Daily Rest & Sleep 30 minutes before bed.",
+      a: "While you can safely take them, they are purposefully formulated for your natural daily routine: Daily Energy & Focus with breakfast, Daily Recovery with lunch or after exercise, and Daily Rest & Sleep 30 minutes before bed.",
     },
   ];
 
@@ -135,9 +137,43 @@ export function SciencePage() {
           {/* Selected Product Breakdown */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
             
-            {/* Left: Bottle Visual */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center p-8 rounded-3xl bg-[#f8faf8] border border-black/[0.04]">
-              <ChronoBottle phase={selectedProduct.phase} size="lg" showRestingCapsules={true} />
+            {/* Left: Bottle Visual / Real Studio Packshot */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-[#f8faf8] border border-black/[0.04]">
+              {/* Photo vs Spec Toggle */}
+              <div className="flex items-center gap-1 p-1 bg-white rounded-full border border-black/5 mb-5 text-[11px] font-medium">
+                <button
+                  type="button"
+                  onClick={() => setScienceView("photo")}
+                  className={`px-3 py-1 rounded-full transition-colors ${
+                    scienceView === "photo" ? "bg-[#1f3d2b] text-white font-bold" : "text-[#5a6660] hover:text-[#1f3d2b]"
+                  }`}
+                >
+                  Studio Still
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setScienceView("spec")}
+                  className={`px-3 py-1 rounded-full transition-colors ${
+                    scienceView === "spec" ? "bg-[#1f3d2b] text-white font-bold" : "text-[#5a6660] hover:text-[#1f3d2b]"
+                  }`}
+                >
+                  Formula Spec
+                </button>
+              </div>
+
+              {scienceView === "photo" ? (
+                <div className="relative w-full max-w-xs aspect-[4/5] rounded-2xl overflow-hidden shadow-xs border border-black/5 bg-white">
+                  <Image
+                    src={selectedProduct.image}
+                    alt={selectedProduct.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <ChronoBottle phase={selectedProduct.phase} size="lg" showRestingCapsules={true} />
+              )}
               <div className="mt-6 text-center">
                 <div className="font-bold text-base text-[#141b17]">{selectedProduct.name}</div>
                 <div className="text-xs text-[#5a6660]">{selectedProduct.dailyDosage}</div>

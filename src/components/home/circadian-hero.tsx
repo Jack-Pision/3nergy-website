@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Star, Award } from "lucide-react";
 import { ChronoBottle } from "@/components/visuals/chrono-bottle";
@@ -9,6 +10,7 @@ import { PRODUCTS } from "@/data/products";
 
 export function CircadianHero() {
   const { addToCart } = useCircadianStore();
+  const [heroVisual, setHeroVisual] = useState<"photo" | "spec">("photo");
   const heroProduct = PRODUCTS[0]; // Daily Energy & Focus
 
   return (
@@ -90,25 +92,83 @@ export function CircadianHero() {
               </div>
             </div>
 
-            {/* Center Bottle Render */}
-            <div className="md:col-span-6 flex justify-center order-1 md:order-2 my-4 sm:my-0">
-              <div className="relative group cursor-pointer" onClick={() => addToCart(heroProduct)}>
-                <ChronoBottle phase="energy" size="hero" showRestingCapsules={true} />
-                
-                {/* Floating Quick Action Badge */}
-                <div className="absolute -bottom-3 inset-x-0 flex justify-center pointer-events-auto">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      addToCart(heroProduct);
-                    }}
-                    className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-lg transition-colors duration-200 flex items-center gap-1.5 border border-white/20 hover:border-white/40"
-                  >
-                    <span>Quick Add · $30.00</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
+            {/* Center Bottle Render / Centerpiece Photography */}
+            <div className="md:col-span-6 flex flex-col items-center justify-center order-1 md:order-2 my-4 sm:my-0 space-y-3">
+              
+              {/* Visual Mode Toggle */}
+              <div className="flex items-center justify-center gap-1 bg-black/20 backdrop-blur-md p-1 rounded-full border border-white/25 text-[11px] font-medium z-20">
+                <button
+                  type="button"
+                  onClick={() => setHeroVisual("photo")}
+                  className={`px-3 py-1 rounded-full transition-all ${
+                    heroVisual === "photo"
+                      ? "bg-white text-[#1b3a27] font-bold shadow-sm"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  Editorial Still
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHeroVisual("spec")}
+                  className={`px-3 py-1 rounded-full transition-all ${
+                    heroVisual === "spec"
+                      ? "bg-white text-[#1b3a27] font-bold shadow-sm"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  Formula Spec
+                </button>
               </div>
+
+              {heroVisual === "photo" ? (
+                <div
+                  className="relative w-full max-w-[440px] aspect-[16/10] sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/40 group cursor-pointer bg-[#3d5948]/30"
+                  onClick={() => addToCart(heroProduct)}
+                >
+                  <Image
+                    src="/images/hero_centerpiece.png"
+                    alt="3NERGY Circadian Centerpiece - Daily Energy & Focus bottle with whole tea leaves and botanicals"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                  {/* Floating Quick Action Badge */}
+                  <div className="absolute bottom-3 inset-x-0 flex justify-center pointer-events-auto">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        addToCart(heroProduct);
+                      }}
+                      className="px-6 py-2 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-colors duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md"
+                    >
+                      <span>Quick Add · $30.00</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="relative group cursor-pointer" onClick={() => addToCart(heroProduct)}>
+                  <ChronoBottle phase="energy" size="hero" showRestingCapsules={true} />
+                  
+                  {/* Floating Quick Action Badge */}
+                  <div className="absolute -bottom-3 inset-x-0 flex justify-center pointer-events-auto">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        addToCart(heroProduct);
+                      }}
+                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-lg transition-colors duration-200 flex items-center gap-1.5 border border-white/20 hover:border-white/40"
+                    >
+                      <span>Quick Add · $30.00</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right Clean Label / Clinical Certification Emblem */}

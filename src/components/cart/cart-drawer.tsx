@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useCircadianStore } from "@/store/circadian-store";
 import { X, Trash2, Plus, Minus, ArrowRight, ShieldCheck, Sparkles, Check, ShoppingBag } from "lucide-react";
@@ -148,12 +149,13 @@ export function CartDrawer() {
                   >
                     <div className="flex gap-4 items-center">
                       {/* Product Visual */}
-                      <div className="w-16 h-20 rounded-xl bg-white relative overflow-hidden shrink-0 border border-black/5 flex items-center justify-center">
-                        <ChronoBottle
-                          phase={item.product.phase}
-                          size="sm"
-                          showRestingCapsules={false}
-                          className="scale-[0.55] origin-center"
+                      <div className="w-16 h-20 rounded-xl bg-[#f4f6f4] relative overflow-hidden shrink-0 border border-black/5">
+                        <Image
+                          src={item.product.image}
+                          alt={item.product.name}
+                          fill
+                          sizes="64px"
+                          className="object-cover"
                         />
                       </div>
 

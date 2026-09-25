@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { useCircadianStore } from "@/store/circadian-store";
@@ -22,9 +23,21 @@ export function GreenCtaSection() {
   };
 
   return (
-    <section className="w-full bg-gradient-to-b from-[#183523] via-[#142d1e] to-[#0f2216] py-24 sm:py-32 px-6 sm:px-12 lg:px-16 text-white relative overflow-hidden">
+    <section className="w-full bg-[#142d1e] py-24 sm:py-32 px-6 sm:px-12 lg:px-16 text-white relative overflow-hidden">
       
-      {/* Subtle Organic Background Glow & Capsule Decorations */}
+      {/* Real Atmospheric Misty Forest Canopy Banner */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/green_cta_banner.png"
+          alt="Tranquil alpine pine forest canopy in morning mist"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-30 mix-blend-luminosity scale-105 pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#183523]/85 via-[#142d1e]/80 to-[#0f2216]/95" />
+      </div>
+
+      {/* Subtle Organic Background Glow */}
       <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none" />
 

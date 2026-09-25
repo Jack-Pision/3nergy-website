@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { PRODUCTS } from "@/data/products";
 import { useCircadianStore } from "@/store/circadian-store";
 import {
@@ -21,6 +22,7 @@ export function ShopPage() {
   const { addToCart } = useCircadianStore();
   const [selectedProductDetails, setSelectedProductDetails] = useState<Product | null>(null);
   const [addedId, setAddedId] = useState<string | null>(null);
+  const [catalogView, setCatalogView] = useState<"photo" | "spec">("photo");
 
   // Cadence selections for individual products
   const [cadences, setCadences] = useState<{ [id: string]: "30-day" | "60-day" | "one-time" }>({
@@ -75,18 +77,17 @@ export function ShopPage() {
         <section id="trio-bundle" className="rounded-[2.5rem] bg-white p-8 sm:p-12 border border-black/[0.08] shadow-sm relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Visual Lineup: 3 Pastel Products */}
-            <div className="lg:col-span-6 flex justify-center py-4">
-              <div className="relative w-full max-w-md flex items-center justify-center -space-x-3 sm:-space-x-5">
-                <div className="z-0">
-                  <ChronoBottle phase="energy" size="md" showRestingCapsules={false} />
-                </div>
-                <div className="z-10">
-                  <ChronoBottle phase="recovery" size="lg" showRestingCapsules={true} />
-                </div>
-                <div className="z-0">
-                  <ChronoBottle phase="rest" size="md" showRestingCapsules={false} />
-                </div>
+            {/* Visual Lineup: Real Trio Bundle Studio Photography */}
+            <div className="lg:col-span-6 flex justify-center py-2">
+              <div className="relative w-full max-w-lg aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-black/5 bg-[#f4f6f4] group">
+                <Image
+                  src="/images/trio_bundle_hero.png"
+                  alt="The Complete 3NERGY Daily Trio supplement line on travertine plinth"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  priority
+                />
               </div>
             </div>
 
@@ -178,9 +179,37 @@ export function ShopPage() {
                 Shop Core Essentials
               </h2>
             </div>
-            <p className="text-[#5a6660] text-xs max-w-sm">
-              Each core formulation is purposefully priced at $30 with generous subscriber discounts.
-            </p>
+            
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <p className="text-[#5a6660] text-xs max-w-xs">
+                Each core formulation is purposefully priced at $30 with generous subscriber discounts.
+              </p>
+              {/* Photo vs Spec Toggle */}
+              <div className="flex items-center gap-1 p-1 bg-[#f4f6f4] rounded-full self-start">
+                <button
+                  type="button"
+                  onClick={() => setCatalogView("photo")}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                    catalogView === "photo"
+                      ? "bg-white text-[#1f3d2b] font-bold shadow-xs"
+                      : "text-[#5a6660] hover:text-[#1f3d2b]"
+                  }`}
+                >
+                  Studio Photo
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCatalogView("spec")}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                    catalogView === "spec"
+                      ? "bg-white text-[#1f3d2b] font-bold shadow-xs"
+                      : "text-[#5a6660] hover:text-[#1f3d2b]"
+                  }`}
+                >
+                  Formula Spec
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -212,13 +241,27 @@ export function ShopPage() {
                     </p>
                   </div>
 
-                  {/* Clean Grounded Bottle Visual */}
-                  <div className="relative w-full h-72 my-2 flex items-center justify-center">
-                    <ChronoBottle
-                      phase={product.phase}
-                      size="md"
-                      showRestingCapsules={true}
-                    />
+                  {/* Clean Grounded Bottle Visual / Real Studio Packshot */}
+                  <div className="my-2 flex items-center justify-center">
+                    {catalogView === "photo" ? (
+                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs">
+                        <Image
+                          src={product.image}
+                          alt={`${product.name} studio packshot`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    ) : (
+                      <div className="relative w-full h-72 flex items-center justify-center">
+                        <ChronoBottle
+                          phase={product.phase}
+                          size="md"
+                          showRestingCapsules={true}
+                        />
+                      </div>
+                    )}
                   </div>
 
                   {/* Key Active Compounds */}

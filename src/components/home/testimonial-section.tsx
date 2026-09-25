@@ -24,7 +24,7 @@ export function TestimonialSection() {
       role: "Endurance Runner • Verified 6-Mo Subscriber",
       location: "Austin, TX",
       product: "Daily Recovery & Stamina",
-      avatar: "/images/routine_stress.png",
+      avatar: "/images/testimonial_marcus.png",
     },
     {
       quote:
@@ -33,7 +33,7 @@ export function TestimonialSection() {
       role: "Physical Therapist • Verified 1-Yr Subscriber",
       location: "Chicago, IL",
       product: "Daily Rest & Sleep",
-      avatar: "/images/routine_doctor.png",
+      avatar: "/images/testimonial_sarah.png",
     },
   ];
 
