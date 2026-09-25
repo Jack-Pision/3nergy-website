@@ -11,7 +11,7 @@ export function RoutineSection() {
 
   return (
     <section id="routine" className="w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-16 bg-[#fcfcfb]">
-      <div className="w-full max-w-[1500px] 2xl:max-w-[1680px] mx-auto space-y-24">
+      <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto space-y-24">
         
         {/* Sourcing & Formulation Philosophy */}
         <div className="space-y-12">

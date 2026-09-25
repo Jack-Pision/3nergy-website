@@ -7,7 +7,7 @@ import { ShieldCheck, ArrowUpRight } from "lucide-react";
 export function Footer() {
   return (
     <footer className="w-full bg-[#f4f6f4] border-t border-black/[0.06] pt-16 pb-12 px-6 sm:px-12 lg:px-16 mt-0 text-[#141b17]">
-      <div className="w-full max-w-[1500px] 2xl:max-w-[1680px] mx-auto">
+      <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto">
         
         {/* Navigation Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 pb-12 border-b border-black/[0.08]">

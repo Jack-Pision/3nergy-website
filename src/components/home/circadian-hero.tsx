@@ -20,14 +20,14 @@ export function CircadianHero() {
       <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full bg-white/10 blur-3xl pointer-events-none" />
 
       {/* Main Wide Content Canvas */}
-      <div className="w-full max-w-[1500px] 2xl:max-w-[1680px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+      <div className="w-full max-w-[1720px] 2xl:max-w-[1840px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
 
         {/* Top Headline Grid matching Inspiration */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10 sm:mb-16">
           
           {/* Left: "Feel Good" + Star Reviews */}
           <div className="lg:col-span-4 space-y-3">
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.9] text-white drop-shadow-sm">
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[9.5rem] font-bold tracking-tight leading-[0.88] text-white drop-shadow-sm">
               Feel Good
             </h1>
             
@@ -60,7 +60,7 @@ export function CircadianHero() {
 
           {/* Right: "Work Excellent" */}
           <div className="lg:col-span-4 text-left lg:text-right">
-            <h2 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.9] text-white drop-shadow-sm">
+            <h2 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[9.5rem] font-bold tracking-tight leading-[0.88] text-white drop-shadow-sm">
               Work <br className="hidden lg:block" />
               Excellent
             </h2>
@@ -69,7 +69,7 @@ export function CircadianHero() {
         </div>
 
         {/* Center Translucent Glass Container with Grounded Bottle */}
-        <div className="relative z-10 max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto rounded-[2.5rem] bg-white/20 backdrop-blur-md border border-white/30 p-8 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
+        <div className="relative z-10 max-w-6xl xl:max-w-7xl 2xl:max-w-[1560px] mx-auto rounded-[2.5rem] bg-white/20 backdrop-blur-md border border-white/30 p-8 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
 
           <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
