@@ -147,7 +147,7 @@ export function RoutineSection() {
               </p>
               <button
                 onClick={openQuiz}
-                className="px-6 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-95 shrink-0"
+                className="px-6 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold tracking-wide transition-colors duration-200 border border-transparent hover:border-white/10 active:opacity-90 shrink-0"
               >
                 Take the quiz
               </button>
@@ -158,14 +158,14 @@ export function RoutineSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Card 1: Built for Daily Flow (Couple) */}
-            <div className="group rounded-3xl bg-white p-5 border border-black/[0.06] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="group rounded-3xl bg-white p-5 border border-black/[0.07] hover:border-black/20 transition-colors duration-300 flex flex-col justify-between">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-[#eaf1ed]">
                 <Image
                   src="/images/routine_couple.png"
                   alt="Built for Daily Flow - Couple Morning Routine"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                 />
               </div>
               <div className="space-y-2">
@@ -179,14 +179,14 @@ export function RoutineSection() {
             </div>
 
             {/* Card 2: Stress Less, Do More (Man with Bottle) */}
-            <div className="group rounded-3xl bg-[#eaf1ed]/50 p-5 border border-[#1f3d2b]/15 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="group rounded-3xl bg-[#eaf1ed]/50 p-5 border border-[#1f3d2b]/15 hover:border-[#1f3d2b]/30 transition-colors duration-300 flex flex-col justify-between">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-[#dbe8df]">
                 <Image
                   src="/images/routine_stress.png"
                   alt="Stress Less, Do More"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                 />
               </div>
               <div className="space-y-2">
@@ -200,14 +200,14 @@ export function RoutineSection() {
             </div>
 
             {/* Card 3: Expert Formulated (Doctor) */}
-            <div className="group rounded-3xl bg-white p-5 border border-black/[0.06] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="group rounded-3xl bg-white p-5 border border-black/[0.07] hover:border-black/20 transition-colors duration-300 flex flex-col justify-between">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-[#f1eff6]">
                 <Image
                   src="/images/routine_doctor.png"
                   alt="Expert Formulated Supplements"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                 />
               </div>
               <div className="space-y-2">

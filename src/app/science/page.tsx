@@ -143,7 +143,7 @@ export function SciencePage() {
                 <div className="text-xs text-[#5a6660]">{selectedProduct.dailyDosage}</div>
                 <Link
                   href="/shop"
-                  className="mt-3 inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold shadow-sm transition-transform active:scale-95"
+                  className="mt-3 inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold shadow-sm transition-colors duration-200 active:opacity-90 border border-transparent hover:border-white/10"
                 >
                   <span>Shop This Formula • $30.00</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

@@ -301,7 +301,7 @@ export function QuizModal() {
 
             <button
               onClick={handleFinish}
-              className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-2 shadow-md active:scale-95"
+              className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-colors duration-200 flex items-center justify-center gap-2 shadow-md active:opacity-90 border border-transparent hover:border-white/10"
             >
               <span>Add Recommended Routine to Cart</span>
               <ArrowRight className="w-4 h-4" />

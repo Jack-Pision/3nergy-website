@@ -295,7 +295,7 @@ export function CartDrawer() {
               <button
                 onClick={handleCheckout}
                 disabled={isCheckingOut}
-                className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-2 shadow-md active:scale-95 disabled:opacity-50"
+                className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-colors duration-200 flex items-center justify-center gap-2 shadow-md active:opacity-90 disabled:opacity-50 border border-transparent hover:border-white/10"
               >
                 {isCheckingOut ? (
                   <span>Processing Checkout...</span>

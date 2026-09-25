@@ -77,14 +77,14 @@ export function ShopPage() {
             
             {/* Visual Lineup: 3 Pastel Products */}
             <div className="lg:col-span-6 flex justify-center py-4">
-              <div className="relative w-full max-w-md flex items-center justify-center -space-x-4 sm:-space-x-6">
-                <div className="transform -rotate-6 transition-transform hover:rotate-0 hover:z-20">
+              <div className="relative w-full max-w-md flex items-center justify-center -space-x-3 sm:-space-x-5">
+                <div className="z-0">
                   <ChronoBottle phase="energy" size="md" showRestingCapsules={false} />
                 </div>
-                <div className="transform z-10 scale-105 transition-transform hover:scale-110">
+                <div className="z-10">
                   <ChronoBottle phase="recovery" size="lg" showRestingCapsules={true} />
                 </div>
-                <div className="transform rotate-6 transition-transform hover:rotate-0 hover:z-20">
+                <div className="z-0">
                   <ChronoBottle phase="rest" size="md" showRestingCapsules={false} />
                 </div>
               </div>
@@ -146,7 +146,7 @@ export function ShopPage() {
 
                 <button
                   onClick={handleAddBundle}
-                  className="px-8 py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center gap-2 shadow-sm active:scale-95"
+                  className="px-8 py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-colors duration-200 flex items-center gap-2 shadow-sm border border-transparent hover:border-white/10 active:opacity-90"
                 >
                   {addedId === "bundle" ? (
                     <>
@@ -193,7 +193,7 @@ export function ShopPage() {
                 <div
                   key={product.id}
                   id={product.id}
-                  className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 border transition-all duration-300 hover:shadow-lg ${product.bgColorClass} ${product.borderColorClass}`}
+                  className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 border transition-colors duration-200 hover:border-black/25 ${product.bgColorClass} ${product.borderColorClass}`}
                 >
                   {/* Top Phase Tag & Capsule Count */}
                   <div>
@@ -295,7 +295,7 @@ export function ShopPage() {
 
                     <button
                       onClick={() => handleAdd(product, currentCadence)}
-                      className="px-5 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
+                      className="px-5 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs transition-colors duration-200 flex items-center gap-1.5 shadow-sm border border-transparent hover:border-white/10 active:opacity-90"
                     >
                       {isAdded ? (
                         <>

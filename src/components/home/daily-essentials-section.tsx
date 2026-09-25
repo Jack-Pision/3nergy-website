@@ -105,7 +105,7 @@ export function DailyEssentialsSection() {
             return (
               <div
                 key={product.id}
-                className={`group rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-lg border ${product.bgColorClass} ${product.borderColorClass}`}
+                className={`group rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-colors duration-200 border ${product.bgColorClass} ${product.borderColorClass} hover:border-black/25`}
               >
                 {/* Card Top: Price & Quick Add Button */}
                 <div className="flex items-center justify-between">
@@ -114,10 +114,10 @@ export function DailyEssentialsSection() {
                   </span>
                   <button
                     onClick={() => handleQuickAdd(product)}
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm active:scale-90 ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 border border-black/5 shadow-sm ${
                       isAdded
                         ? "bg-[#1f3d2b] text-white"
-                        : "bg-white/80 hover:bg-[#1f3d2b] text-[#1f3d2b] hover:text-white"
+                        : "bg-white/80 hover:bg-[#1f3d2b] text-[#1f3d2b] hover:text-white active:bg-[#14281c]"
                     }`}
                     aria-label={`Add ${product.name} to cart`}
                   >
@@ -131,7 +131,7 @@ export function DailyEssentialsSection() {
 
                 {/* Card Center: High-Fidelity Bottle Render */}
                 <div className="my-6 py-4 flex justify-center relative">
-                  <div className="transform group-hover:scale-105 transition-transform duration-500">
+                  <div>
                     <ChronoBottle
                       phase={product.phase}
                       size="md"
@@ -228,7 +228,7 @@ export function DailyEssentialsSection() {
               <div className="pt-4 flex flex-wrap items-center gap-3">
                 <Link
                   href="/shop"
-                  className="px-7 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-95 flex items-center gap-2"
+                  className="px-7 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold tracking-wide transition-colors duration-200 border border-transparent hover:border-white/10 active:opacity-90 shadow-sm flex items-center gap-2"
                 >
                   <span>Shop Now</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -236,7 +236,7 @@ export function DailyEssentialsSection() {
 
                 <button
                   onClick={openCalculator}
-                  className="px-7 py-3 rounded-full bg-white hover:bg-gray-50 text-[#141b17] border border-black/15 text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-95 flex items-center gap-2"
+                  className="px-7 py-3 rounded-full bg-white hover:bg-gray-50 text-[#141b17] border border-black/15 hover:border-black/30 text-xs font-semibold tracking-wide transition-colors duration-200 active:bg-gray-100 shadow-sm flex items-center gap-2"
                 >
                   <Calculator className="w-3.5 h-3.5 text-[#1f3d2b]" />
                   <span>Fitness Calculator</span>

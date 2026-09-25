@@ -51,9 +51,9 @@ export function CircadianHero() {
             {/* Circular Green Shop Button */}
             <Link
               href="/shop"
-              className="group w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#1b3a27] hover:bg-[#12281b] text-white flex flex-col items-center justify-center transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 border border-white/20"
+              className="group w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white flex flex-col items-center justify-center transition-colors duration-200 shadow-xl border border-white/20 hover:border-white/40"
             >
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-5 h-5 text-white/90 group-hover:text-white transition-colors" />
               <span className="text-[11px] font-semibold tracking-tight mt-0.5">Shop Now</span>
             </Link>
           </div>
@@ -102,7 +102,7 @@ export function CircadianHero() {
                       e.stopPropagation();
                       addToCart(heroProduct);
                     }}
-                    className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#12281b] text-white text-xs font-semibold shadow-lg transition-transform active:scale-95 flex items-center gap-1.5"
+                    className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-lg transition-colors duration-200 flex items-center gap-1.5 border border-white/20 hover:border-white/40"
                   >
                     <span>Quick Add · $30.00</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

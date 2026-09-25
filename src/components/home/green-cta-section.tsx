@@ -44,7 +44,7 @@ export function GreenCtaSection() {
         <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/shop"
-            className="px-8 py-3 rounded-full bg-white hover:bg-gray-100 text-[#141b17] text-xs font-bold tracking-wide transition-all shadow-md active:scale-95 flex items-center gap-2"
+            className="px-8 py-3 rounded-full bg-white hover:bg-white/90 text-[#141b17] text-xs font-bold tracking-wide transition-colors duration-200 shadow-md active:bg-white/80 flex items-center gap-2"
           >
             <span>Shop All Products</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -52,7 +52,7 @@ export function GreenCtaSection() {
 
           <button
             onClick={openQuiz}
-            className="px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 text-xs font-semibold tracking-wide transition-all shadow-md active:scale-95"
+            className="px-8 py-3 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/20 hover:border-white/35 text-xs font-semibold tracking-wide transition-colors duration-200 active:bg-white/20 shadow-md"
           >
             Take the Quiz
           </button>

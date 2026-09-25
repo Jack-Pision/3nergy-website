@@ -155,7 +155,7 @@ export function Navbar() {
             {/* Primary Shop Now Pill Button */}
             <Link
               href="/shop"
-              className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-95 flex items-center gap-1.5 ${
+              className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs font-semibold tracking-wide transition-colors duration-200 shadow-sm active:opacity-90 flex items-center gap-1.5 ${
                 isHomeTransparent
                   ? "bg-[#163522] hover:bg-[#0f2417] text-white border border-white/20 shadow-md"
                   : "bg-[#1f3d2b] hover:bg-[#162e20] text-white"
