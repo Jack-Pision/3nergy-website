@@ -58,7 +58,7 @@ export function DailyEssentialsSection() {
                 placeholder="Search Products"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-9 pr-4 py-2 rounded-full bg-[#f4f6f4] text-xs text-[#141b17] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1f3d2b] w-full sm:w-48 transition-all"
+                className="pl-9 pr-4 py-2 rounded-full bg-[#f4f6f4] text-xs text-[#141b17] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1f3d2b] w-full sm:w-48 transition-colors duration-200"
               />
             </div>
 
@@ -66,7 +66,7 @@ export function DailyEssentialsSection() {
             <div className="flex items-center gap-1.5 p-1 bg-[#f4f6f4] rounded-full self-start">
               <button
                 onClick={() => setFilter("all")}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
                   filter === "all"
                     ? "bg-white text-[#1f3d2b] font-bold shadow-sm"
                     : "text-[#5a6660] hover:text-[#1f3d2b]"
@@ -76,7 +76,7 @@ export function DailyEssentialsSection() {
               </button>
               <button
                 onClick={() => setFilter("new")}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
                   filter === "new"
                     ? "bg-white text-[#1f3d2b] font-bold shadow-sm"
                     : "text-[#5a6660] hover:text-[#1f3d2b]"
@@ -86,7 +86,7 @@ export function DailyEssentialsSection() {
               </button>
               <button
                 onClick={() => setFilter("popular")}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
                   filter === "popular"
                     ? "bg-[#1f3d2b] text-white font-bold shadow-sm"
                     : "text-[#5a6660] hover:text-[#1f3d2b]"

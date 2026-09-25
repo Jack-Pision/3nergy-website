@@ -81,7 +81,7 @@ export function GreenCtaSection() {
               />
               <button
                 type="submit"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white hover:bg-gray-100 text-[#141b17] text-xs font-bold transition-all shadow-sm shrink-0"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white hover:bg-gray-100 active:bg-gray-200 text-[#141b17] text-xs font-bold transition-colors duration-200 shadow-sm shrink-0"
               >
                 Subscribe Now
               </button>

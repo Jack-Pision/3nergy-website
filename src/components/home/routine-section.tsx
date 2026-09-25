@@ -81,7 +81,7 @@ export function RoutineSection() {
             </h2>
             <Link
               href="/science"
-              className="px-6 py-2.5 rounded-full bg-[#183624] hover:bg-[#11271a] text-white text-xs font-semibold tracking-wide transition-all shadow-sm shrink-0 self-start"
+              className="px-6 py-2.5 rounded-full bg-[#183624] hover:bg-[#11271a] text-white text-xs font-semibold tracking-wide transition-colors duration-200 border border-transparent hover:border-white/10 active:opacity-90 shadow-sm shrink-0 self-start"
             >
               Guidelines
             </Link>

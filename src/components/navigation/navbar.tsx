@@ -106,7 +106,7 @@ export function Navbar() {
             {/* Search Trigger */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200 ${
                 isHomeTransparent
                   ? "bg-white/20 hover:bg-white/30 text-white border border-white/25 backdrop-blur-md"
                   : "bg-[#f2f4f2] hover:bg-[#e6eae6] text-[#2a382f]"
@@ -119,7 +119,7 @@ export function Navbar() {
             {/* Shopping Bag Trigger */}
             <button
               onClick={openCart}
-              className={`relative w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+              className={`relative w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200 ${
                 isHomeTransparent
                   ? "bg-white/20 hover:bg-white/30 text-white border border-white/25 backdrop-blur-md"
                   : "bg-[#f2f4f2] hover:bg-[#e6eae6] text-[#2a382f]"
@@ -142,7 +142,7 @@ export function Navbar() {
 
             {/* Account / User Icon */}
             <button
-              className={`w-9 h-9 rounded-full hidden sm:flex items-center justify-center transition-all ${
+              className={`w-9 h-9 rounded-full hidden sm:flex items-center justify-center transition-colors duration-200 ${
                 isHomeTransparent
                   ? "bg-white/20 hover:bg-white/30 text-white border border-white/25 backdrop-blur-md"
                   : "bg-[#f2f4f2] hover:bg-[#e6eae6] text-[#2a382f]"

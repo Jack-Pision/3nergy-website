@@ -49,10 +49,10 @@ export function TestimonialSection() {
             <button
               key={idx}
               onClick={() => setActiveStory(idx)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 ${
                 activeStory === idx
                   ? "bg-[#1f3d2b] text-white shadow-xs"
-                  : "bg-[#f4f6f4] text-[#5a6660] hover:text-[#141b17]"
+                  : "bg-[#f4f6f4] text-[#5a6660] hover:text-[#141b17] active:bg-gray-200"
               }`}
             >
               {s.product.split("&")[0].trim()}
