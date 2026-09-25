@@ -5,119 +5,96 @@
   --font-sans: var(--font-sans), sans-serif;
   --font-mono: var(--font-mono), monospace;
 
-  --color-dawn: #f59e0b;
-  --color-dawn-light: #fef3c7;
-  --color-dawn-dark: #b45309;
-
-  --color-zenith: #10b981;
-  --color-zenith-light: #d1fae5;
-  --color-zenith-dark: #047857;
-
-  --color-restore: #6366f1;
-  --color-restore-light: #e0e7ff;
-  --color-restore-dark: #4338ca;
-
-  --color-surface-base: #080a09;
-  --color-surface-card: rgba(255, 255, 255, 0.03);
-  --color-surface-border: rgba(255, 255, 255, 0.08);
+  --color-brand-forest: #1f3d2b;
+  --color-brand-forest-hover: #162e20;
+  --color-brand-moss: #2e593f;
+  --color-brand-sage: #8ba895;
+  --color-brand-mint: #e8f1ec;
+  --color-brand-sand: #f7f3ec;
+  --color-brand-lavender: #f0edf6;
 }
 
 :root {
-  --background: #080a09;
-  --foreground: #f3f4f6;
+  --background: #fcfcfb;
+  --foreground: #141b17;
+  --muted: #5a6660;
+  --border: rgba(20, 27, 23, 0.08);
 
-  /* Circadian Phase Default: Dawn */
-  --phase-accent: #f59e0b;
-  --phase-accent-rgb: 245, 158, 11;
-  --phase-glow: rgba(245, 158, 11, 0.16);
-  --phase-border: rgba(245, 158, 11, 0.35);
-  --phase-tag: "PHASE 01 // DAWN RISE";
+  --color-primary: #1f3d2b;
+  --color-sage-bg: #eaf1ed;
+  --color-sand-bg: #f7f2ea;
+  --color-lavender-bg: #f1eff6;
 }
 
-[data-phase="dawn"] {
-  --phase-accent: #f59e0b;
-  --phase-accent-rgb: 245, 158, 11;
-  --phase-glow: rgba(245, 158, 11, 0.16);
-  --phase-border: rgba(245, 158, 11, 0.35);
-  --phase-tag: "PHASE 01 // DAWN RISE";
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-[data-phase="zenith"] {
-  --phase-accent: #10b981;
-  --phase-accent-rgb: 16, 185, 129;
-  --phase-glow: rgba(16, 185, 129, 0.16);
-  --phase-border: rgba(16, 185, 129, 0.35);
-  --phase-tag: "PHASE 02 // ZENITH FLOW";
+/* Minimalist Clean Cards */
+.card-clean {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px -2px rgba(20, 27, 23, 0.04);
 }
 
-[data-phase="restore"] {
-  --phase-accent: #6366f1;
-  --phase-accent-rgb: 99, 102, 241;
-  --phase-glow: rgba(99, 102, 241, 0.16);
-  --phase-border: rgba(99, 102, 241, 0.35);
-  --phase-tag: "PHASE 03 // RESTORE PRIME";
+.card-sage {
+  background-color: #eaf1ed;
+  border: 1px solid rgba(46, 89, 63, 0.12);
 }
 
-/* Glassmorphism & Micro-craft styling */
-.glass-panel {
-  background: rgba(18, 22, 20, 0.65);
+.card-sand {
+  background-color: #f7f2ea;
+  border: 1px solid rgba(180, 140, 90, 0.12);
+}
+
+.card-lavender {
+  background-color: #f1eff6;
+  border: 1px solid rgba(130, 110, 170, 0.12);
+}
+
+/* Hero Sage Backdrop */
+.hero-sage-gradient {
+  background: linear-gradient(180deg, #537562 0%, #688a77 40%, #7d9e8c 70%, #fcfcfb 100%);
+}
+
+.hero-card-translucent {
+  background: rgba(162, 190, 174, 0.45);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-.glass-panel-elevated {
-  background: rgba(24, 30, 27, 0.8);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.glass-pill {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glow-phase {
-  box-shadow: 0 0 40px var(--phase-glow);
-}
-
-.border-phase {
-  border-color: var(--phase-border);
-}
-
-.text-phase {
-  color: var(--phase-accent);
-}
-
-.bg-phase {
-  background-color: var(--phase-accent);
-}
-
-/* Subtle biological noise texture */
-.bg-grid-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-/* Custom smooth scrollbar */
+/* Clean Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080a09;
+  background: #f5f5f3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #d4dad6;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: #a8b4ad;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
 }

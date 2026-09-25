@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { PRODUCTS } from "@/data/products";
 import { useCircadianStore } from "@/store/circadian-store";
 import {
-  Sparkles,
   Check,
   Plus,
   ArrowRight,
@@ -12,21 +11,23 @@ import {
   Star,
   RefreshCw,
   Truck,
+  Info,
+  X,
 } from "lucide-react";
 import { ChronoBottle } from "@/components/visuals/chrono-bottle";
+import { Product } from "@/types";
 
-export default function ShopPage() {
+export function ShopPage() {
   const { addToCart } = useCircadianStore();
+  const [selectedProductDetails, setSelectedProductDetails] = useState<Product | null>(null);
+  const [addedId, setAddedId] = useState<string | null>(null);
 
   // Cadence selections for individual products
   const [cadences, setCadences] = useState<{ [id: string]: "30-day" | "60-day" | "one-time" }>({
-    "dawn-rise": "30-day",
-    "zenith-flow": "30-day",
-    "restore-prime": "30-day",
+    "daily-energy": "30-day",
+    "daily-recovery": "30-day",
+    "daily-rest": "30-day",
   });
-
-  // Bundle cadence
-  const [bundleCadence, setBundleCadence] = useState<"30-day" | "60-day" | "one-time">("30-day");
 
   const setProductCadence = (id: string, cad: "30-day" | "60-day" | "one-time") => {
     setCadences((prev) => ({ ...prev, [id]: cad }));
@@ -38,168 +39,126 @@ export default function ShopPage() {
     return base.toFixed(2);
   };
 
-  const bundlePrice =
-    bundleCadence === "30-day"
-      ? (118 * 0.9).toFixed(2)
-      : bundleCadence === "60-day"
-      ? (118 * 0.85).toFixed(2)
-      : "118.00";
+  const handleAdd = (product: Product, cadence: "30-day" | "60-day" | "one-time") => {
+    addToCart(product, 1, cadence);
+    setAddedId(product.id);
+    setTimeout(() => setAddedId(null), 1500);
+  };
+
+  const handleAddBundle = () => {
+    PRODUCTS.forEach((p) => addToCart(p, 1, "30-day"));
+    setAddedId("bundle");
+    setTimeout(() => setAddedId(null), 1500);
+  };
 
   return (
-    <div className="flex flex-col w-full min-h-screen py-8 px-4 sm:px-8 relative z-10">
+    <div className="flex flex-col w-full min-h-screen py-8 sm:py-16 px-4 sm:px-8 bg-[#fcfcfb] text-[#141b17]">
       <div className="max-w-7xl mx-auto w-full space-y-16">
         
-        {/* Apothecary Header */}
-        <section className="text-center max-w-3xl mx-auto pt-6 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-xs font-mono text-phase border border-white/10">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>THE 3NERGY CHRONO-APOTHECARY</span>
-          </div>
+        {/* Shop Header */}
+        <section className="text-center max-w-3xl mx-auto pt-4 space-y-4">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-[#1f3d2b] font-bold block">
+            Direct-to-Consumer Wellness
+          </span>
 
-          <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-tight uppercase">
-            Curate Your Diurnal Protocol.
+          <h1 className="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-[#141b17] leading-[0.95]">
+            Meet Your Daily <br />
+            Essentials.
           </h1>
 
-          <p className="text-white/70 text-sm sm:text-base leading-relaxed">
-            Choose the complete 24-hour tripartite circadian rhythm or target specific metabolic windows. All orders include carbon-neutral express dispatch and our 30-day cellular guarantee.
+          <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed font-sans max-w-xl mx-auto">
+            Clean, science-backed supplements designed to support your everyday energy, recovery, and sleep. Free shipping on all orders over $50.
           </p>
         </section>
 
-        {/* Featured Flagship: Complete 24H Tri-System Bundle */}
-        <section className="rounded-3xl glass-panel-elevated p-8 sm:p-12 lg:p-14 border border-white/20 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-phase opacity-15 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+        {/* Featured Flagship: Complete Daily Trio Bundle */}
+        <section id="trio-bundle" className="rounded-[2.5rem] bg-white p-8 sm:p-12 border border-black/[0.08] shadow-sm relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Visual Lineup: 3 Grounded Anti-Slop Vector-Crafted ChronoBottles */}
+            {/* Visual Lineup: 3 Pastel Products */}
             <div className="lg:col-span-6 flex justify-center py-4">
-              <div className="relative w-full max-w-lg flex items-center justify-center gap-2 sm:gap-4">
-                <ChronoBottle
-                  phase="dawn"
-                  size="md"
-                  showRestingCapsules={false}
-                  className="scale-90 sm:scale-100 transform -rotate-3 hover:rotate-0 transition-transform"
-                />
-                <ChronoBottle
-                  phase="zenith"
-                  size="lg"
-                  showRestingCapsules={true}
-                  className="z-10 scale-100 sm:scale-105 hover:scale-110 transition-transform"
-                />
-                <ChronoBottle
-                  phase="restore"
-                  size="md"
-                  showRestingCapsules={false}
-                  className="scale-90 sm:scale-100 transform rotate-3 hover:rotate-0 transition-transform"
-                />
+              <div className="relative w-full max-w-md flex items-center justify-center -space-x-4 sm:-space-x-6">
+                <div className="transform -rotate-6 transition-transform hover:rotate-0 hover:z-20">
+                  <ChronoBottle phase="energy" size="md" showRestingCapsules={false} />
+                </div>
+                <div className="transform z-10 scale-105 transition-transform hover:scale-110">
+                  <ChronoBottle phase="recovery" size="lg" showRestingCapsules={true} />
+                </div>
+                <div className="transform rotate-6 transition-transform hover:rotate-0 hover:z-20">
+                  <ChronoBottle phase="rest" size="md" showRestingCapsules={false} />
+                </div>
               </div>
             </div>
 
-            {/* Bundle Details & Cadence Config */}
+            {/* Bundle Details & Purchase */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#10b981]/20 text-[#10b981] border border-[#10b981]/30">
-                  RECOMMENDED CHRONO-PROTOCOL // SAVE UP TO 30%
+                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#eaf1ed] text-[#1f3d2b] border border-[#1f3d2b]/15">
+                  BEST VALUE • SAVE $15.00
                 </span>
-                <div className="flex items-center gap-1 text-amber-400 text-xs font-mono">
+                <div className="flex items-center gap-1 text-amber-500 text-xs font-medium">
                   <Star className="w-3.5 h-3.5 fill-current" />
-                  <span>4.99 (3,240 Reviews)</span>
+                  <span>5.0 (4,890 Reviews)</span>
                 </div>
               </div>
 
               <div>
-                <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                  The Complete 24H Tri-System Protocol
+                <h2 className="font-display text-3xl sm:text-4xl font-black text-[#141b17] tracking-tight">
+                  The Complete Daily Trio
                 </h2>
-                <p className="text-white/60 text-xs sm:text-sm mt-2 leading-relaxed">
-                  Synchronizes all three biological metabolic cycles: Morning Mitochondrial Awakening, Afternoon Working Memory Flow, and Evening Glymphatic Sleep Architecture.
+                <p className="text-xs sm:text-sm text-[#5a6660] mt-2 leading-relaxed">
+                  Your complete 24-hour daily routine. Experience clean morning energy, midday resilience, and deep restorative sleep every day. Includes all three core $30 essentials with free express shipping.
                 </p>
               </div>
 
               {/* What's inside list */}
-              <div className="space-y-2 text-xs text-white/80 font-mono">
+              <div className="space-y-2 text-xs text-[#3d4d42] font-medium">
                 <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[#f59e0b]" />
-                  <span>01 // Dawn Rise (120 Caps • Ubiquinol + Cordyceps)</span>
+                  <Check className="w-4 h-4 text-[#2e593f]" />
+                  <span>01 • Daily Energy &amp; Focus (Organic Matcha, B12, CoQ10)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[#10b981]" />
-                  <span>02 // Zenith Flow (60 Caps • Cognizin® + Lion&apos;s Mane)</span>
+                  <Check className="w-4 h-4 text-[#8b6a3e]" />
+                  <span>02 • Daily Recovery &amp; Stamina (Tart Cherry, Magnesium Malate)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[#6366f1]" />
-                  <span>03 // Restore Prime (60 Caps • Magtein® + Apigenin)</span>
-                </div>
-                <div className="flex items-center gap-2 text-phase">
-                  <Sparkles className="w-4 h-4" />
-                  <span>BONUS: Precision Matte Black Diurnal Travel Vial ($28 Value)</span>
+                  <Check className="w-4 h-4 text-[#5b4e78]" />
+                  <span>03 • Daily Rest &amp; Sleep (Chamomile, L-Theanine, Magnesium Glycinate)</span>
                 </div>
               </div>
 
-              {/* Cadence Selector for Bundle */}
-              <div className="space-y-2 pt-2">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-white/40 block">
-                  Select Dispatch Cadence
-                </span>
-                <div className="grid grid-cols-3 gap-2 bg-black/40 p-1.5 rounded-2xl text-xs font-mono border border-white/10">
-                  <button
-                    onClick={() => setBundleCadence("30-day")}
-                    className={`py-2 rounded-xl transition-all ${
-                      bundleCadence === "30-day"
-                        ? "bg-phase text-black font-bold shadow-md"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    30-Day Auto
-                  </button>
-                  <button
-                    onClick={() => setBundleCadence("60-day")}
-                    className={`py-2 rounded-xl transition-all ${
-                      bundleCadence === "60-day"
-                        ? "bg-phase text-black font-bold shadow-md"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    60-Day Auto
-                  </button>
-                  <button
-                    onClick={() => setBundleCadence("one-time")}
-                    className={`py-2 rounded-xl transition-all ${
-                      bundleCadence === "one-time"
-                        ? "bg-white/20 text-white font-bold shadow-md"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    One-Time
-                  </button>
-                </div>
-              </div>
-
-              {/* Pricing & CTA */}
-              <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
+              {/* Pricing & Add to Cart */}
+              <div className="pt-4 border-t border-black/[0.06] flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <div className="flex items-baseline gap-2">
-                    <span className="font-mono text-3xl font-extrabold text-white">
-                      ${bundlePrice}
+                    <span className="font-mono text-3xl font-black text-[#1f3d2b]">
+                      $75.00
                     </span>
-                    <span className="font-mono text-sm text-white/40 line-through">$146.00</span>
-                    <span className="text-xs font-mono text-[#10b981] bg-[#10b981]/15 px-2 py-0.5 rounded">
-                      SAVE 28%
+                    <span className="font-mono text-sm text-gray-400 line-through">$90.00</span>
+                    <span className="text-xs font-mono text-[#1f3d2b] bg-[#eaf1ed] px-2 py-0.5 rounded font-bold">
+                      SAVE 17%
                     </span>
                   </div>
-                  <span className="text-[11px] text-white/40 font-mono block mt-0.5">
-                    Free Climate-Neutral Express Shipping Included
+                  <span className="text-[11px] text-[#5a6660] block mt-0.5">
+                    Includes Free Express Shipping &amp; 30-Day Money-Back Guarantee
                   </span>
                 </div>
 
                 <button
-                  onClick={() => {
-                    PRODUCTS.forEach((p) => addToCart(p, 1, bundleCadence));
-                  }}
-                  className="px-8 py-4 rounded-full bg-phase text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center gap-2 shadow-2xl active:scale-95"
+                  onClick={handleAddBundle}
+                  className="px-8 py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-sm active:scale-95"
                 >
-                  <span>Add Full Protocol to Routine</span>
-                  <ArrowRight className="w-4 h-4" />
+                  {addedId === "bundle" ? (
+                    <>
+                      <Check className="w-4 h-4" />
+                      <span>Added to Cart!</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Get The Trio • $75.00</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </div>
 
@@ -210,17 +169,17 @@ export default function ShopPage() {
 
         {/* Individual Formulations Catalog Grid */}
         <section className="space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-black/[0.06]">
             <div>
-              <span className="text-[11px] font-mono text-phase uppercase tracking-wider block">
-                STANDALONE CHRONO-FORMULATIONS
+              <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider block">
+                Standalone Formulations
               </span>
-              <h2 className="font-display text-3xl font-extrabold text-white tracking-tight">
-                Targeted Circadian Therapeutics
+              <h2 className="font-display text-3xl font-black uppercase tracking-tight text-[#141b17]">
+                Shop Core Essentials
               </h2>
             </div>
-            <p className="text-white/50 text-xs max-w-sm">
-              Tailor individual formulation quantities and delivery intervals to your personal lifestyle demands.
+            <p className="text-[#5a6660] text-xs max-w-sm">
+              Each core formulation is purposefully priced at $30 with generous subscriber discounts.
             </p>
           </div>
 
@@ -228,31 +187,33 @@ export default function ShopPage() {
             {PRODUCTS.map((product) => {
               const currentCadence = cadences[product.id] || "30-day";
               const currentPrice = calculatePrice(product.price, currentCadence);
+              const isAdded = addedId === product.id;
 
               return (
                 <div
                   key={product.id}
-                  className="rounded-3xl glass-panel-elevated p-6 sm:p-8 border border-white/10 flex flex-col justify-between space-y-6 hover:border-white/20 transition-all duration-300"
+                  id={product.id}
+                  className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 border transition-all duration-300 hover:shadow-lg ${product.bgColorClass} ${product.borderColorClass}`}
                 >
                   {/* Top Phase Tag & Capsule Count */}
                   <div>
-                    <div className="flex items-center justify-between text-xs font-mono mb-3">
-                      <span className="text-phase font-semibold">
-                        PHASE {product.phaseNumber} {"//"} {product.timeWindow}
+                    <div className="flex items-center justify-between text-xs font-mono mb-2">
+                      <span className="text-[#1f3d2b] font-bold">
+                        {product.phaseNumber} • {product.timeWindow}
                       </span>
-                      <span className="text-white/40">{product.capsuleCount} Capsules</span>
+                      <span className="text-[#5a6660] font-sans text-[11px]">{product.capsuleCount} Capsules</span>
                     </div>
 
-                    <h3 className="font-display text-2xl font-bold text-white">
+                    <h3 className="font-display text-2xl font-black text-[#141b17]">
                       {product.name}
                     </h3>
-                    <p className="text-xs text-white/60 font-sans mt-1">
-                      {product.tagline}
+                    <p className="text-xs text-[#5a6660] font-sans mt-1 leading-relaxed">
+                      {product.description}
                     </p>
                   </div>
 
                   {/* Clean Grounded Bottle Visual */}
-                  <div className="relative w-full h-80 my-2 flex items-center justify-center">
+                  <div className="relative w-full h-72 my-2 flex items-center justify-center">
                     <ChronoBottle
                       phase={product.phase}
                       size="md"
@@ -261,39 +222,49 @@ export default function ShopPage() {
                   </div>
 
                   {/* Key Active Compounds */}
-                  <div className="space-y-2 pt-2 border-t border-white/10 text-xs">
-                    <span className="text-[10px] font-mono text-white/40 uppercase tracking-wider block">
-                      CORE ACTIVE MECHANISMS
-                    </span>
-                    <ul className="space-y-1.5 text-white/80">
+                  <div className="space-y-2 pt-2 border-t border-black/[0.06] text-xs">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-[#5a6660] uppercase tracking-wider block">
+                        KEY ACTIVE INGREDIENTS
+                      </span>
+                      <button
+                        onClick={() => setSelectedProductDetails(product)}
+                        className="text-[10px] text-[#1f3d2b] font-bold hover:underline flex items-center gap-0.5"
+                      >
+                        <Info className="w-3 h-3" />
+                        <span>View Supplement Facts</span>
+                      </button>
+                    </div>
+
+                    <ul className="space-y-1.5 text-[#3d4d42]">
                       {product.compounds.slice(0, 3).map((comp, idx) => (
-                        <li key={idx} className="flex justify-between items-center text-[11px] font-mono">
-                          <span className="text-white/70">{comp.name.split("(")[0]}</span>
-                          <span className="text-phase font-bold">{comp.dose}</span>
+                        <li key={idx} className="flex justify-between items-center text-[11px]">
+                          <span>{comp.name.split("(")[0]}</span>
+                          <span className="font-mono font-bold text-[#1f3d2b]">{comp.dose}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Cadence Selection for this item */}
-                  <div className="space-y-2 pt-2">
-                    <div className="grid grid-cols-3 gap-1 bg-black/40 p-1 rounded-xl text-[10px] font-mono border border-white/5">
+                  <div className="space-y-2 pt-1">
+                    <div className="grid grid-cols-3 gap-1 bg-white/70 p-1 rounded-xl text-[10px] font-medium border border-black/5">
                       <button
                         onClick={() => setProductCadence(product.id, "30-day")}
                         className={`py-1.5 rounded-lg transition-colors ${
                           currentCadence === "30-day"
-                            ? "bg-phase text-black font-bold"
-                            : "text-white/50 hover:text-white"
+                            ? "bg-[#1f3d2b] text-white font-bold shadow-xs"
+                            : "text-[#5a6660] hover:text-[#141b17]"
                         }`}
                       >
-                        30-Day (-15%)
+                        Monthly (-15%)
                       </button>
                       <button
                         onClick={() => setProductCadence(product.id, "60-day")}
                         className={`py-1.5 rounded-lg transition-colors ${
                           currentCadence === "60-day"
-                            ? "bg-phase text-black font-bold"
-                            : "text-white/50 hover:text-white"
+                            ? "bg-[#1f3d2b] text-white font-bold shadow-xs"
+                            : "text-[#5a6660] hover:text-[#141b17]"
                         }`}
                       >
                         60-Day (-20%)
@@ -302,8 +273,8 @@ export default function ShopPage() {
                         onClick={() => setProductCadence(product.id, "one-time")}
                         className={`py-1.5 rounded-lg transition-colors ${
                           currentCadence === "one-time"
-                            ? "bg-white/20 text-white font-bold"
-                            : "text-white/50 hover:text-white"
+                            ? "bg-white text-[#141b17] font-bold shadow-xs"
+                            : "text-[#5a6660] hover:text-[#141b17]"
                         }`}
                       >
                         One-Time
@@ -312,22 +283,31 @@ export default function ShopPage() {
                   </div>
 
                   {/* Price & Add to Cart */}
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                  <div className="pt-3 border-t border-black/[0.06] flex items-center justify-between">
                     <div>
-                      <span className="font-mono text-2xl font-bold text-white">
+                      <span className="font-mono text-2xl font-black text-[#141b17]">
                         ${currentPrice}
                       </span>
-                      <span className="text-[10px] text-white/40 font-mono block">
-                        {currentCadence === "one-time" ? "Single Bottle" : "Auto-Replenish"}
+                      <span className="text-[10px] text-[#5a6660] block">
+                        {currentCadence === "one-time" ? "Single Bottle" : "Auto-Delivery"}
                       </span>
                     </div>
 
                     <button
-                      onClick={() => addToCart(product, 1, currentCadence)}
-                      className="px-5 py-2.5 rounded-full bg-phase text-black font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center gap-1.5 shadow-lg active:scale-95"
+                      onClick={() => handleAdd(product, currentCadence)}
+                      className="px-5 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
                     >
-                      <Plus className="w-3.5 h-3.5" />
-                      <span>Add to Routine</span>
+                      {isAdded ? (
+                        <>
+                          <Check className="w-3.5 h-3.5" />
+                          <span>Added!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Plus className="w-3.5 h-3.5" />
+                          <span>Add to Cart</span>
+                        </>
+                      )}
                     </button>
                   </div>
                 </div>
@@ -336,51 +316,109 @@ export default function ShopPage() {
           </div>
         </section>
 
-        {/* Guarantees & FAQ */}
-        <section className="rounded-3xl glass-panel p-8 sm:p-12 border border-white/10 space-y-8">
+        {/* Guarantees & Commitments */}
+        <section className="rounded-3xl bg-white p-8 sm:p-12 border border-black/[0.06] shadow-sm space-y-6">
           <div className="text-center max-w-xl mx-auto space-y-2">
-            <span className="text-[11px] font-mono text-phase uppercase tracking-wider">
-              FAQ & CELLULAR INTEGRITY
+            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+              Our Promise
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-              Risk-Free Chronobiological Guarantee
+            <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#141b17]">
+              The 3NERGY Risk-Free Guarantee
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-            <div className="space-y-2 p-5 rounded-2xl bg-white/5 border border-white/5">
-              <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                <ShieldCheck className="w-4 h-4 text-phase" />
-                <span>30-Day Cellular Refund</span>
+            <div className="space-y-2 p-5 rounded-2xl bg-[#fcfcfb] border border-black/5">
+              <div className="flex items-center gap-2 text-[#141b17] font-bold text-sm">
+                <ShieldCheck className="w-4 h-4 text-[#1f3d2b]" />
+                <span>30-Day Money-Back Guarantee</span>
               </div>
-              <p className="text-xs text-white/60 leading-relaxed">
-                If your diurnal energy, focus, or sleep metrics do not objectively improve within 30 days, keep the bottles and receive an instant 100% refund.
+              <p className="text-xs text-[#5a6660] leading-relaxed">
+                If you don&apos;t feel a noticeable boost in energy, recovery, or sleep quality within 30 days, simply let us know for a full, prompt refund.
               </p>
             </div>
 
-            <div className="space-y-2 p-5 rounded-2xl bg-white/5 border border-white/5">
-              <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                <RefreshCw className="w-4 h-4 text-phase" />
-                <span>Flexible Chrono-Cadence</span>
+            <div className="space-y-2 p-5 rounded-2xl bg-[#fcfcfb] border border-black/5">
+              <div className="flex items-center gap-2 text-[#141b17] font-bold text-sm">
+                <RefreshCw className="w-4 h-4 text-[#1f3d2b]" />
+                <span>Cancel Anytime With 1-Click</span>
               </div>
-              <p className="text-xs text-white/60 leading-relaxed">
-                Pause, delay, swap formulations, or cancel with a single click inside your subscriber portal. Zero friction, zero locked contracts.
+              <p className="text-xs text-[#5a6660] leading-relaxed">
+                Subscribers have complete control. Swap products, pause deliveries, change intervals, or cancel anytime with zero hidden fees.
               </p>
             </div>
 
-            <div className="space-y-2 p-5 rounded-2xl bg-white/5 border border-white/5">
-              <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                <Truck className="w-4 h-4 text-phase" />
-                <span>Carbon-Negative Dispatch</span>
+            <div className="space-y-2 p-5 rounded-2xl bg-[#fcfcfb] border border-black/5">
+              <div className="flex items-center gap-2 text-[#141b17] font-bold text-sm">
+                <Truck className="w-4 h-4 text-[#1f3d2b]" />
+                <span>Free Carbon-Neutral Shipping</span>
               </div>
-              <p className="text-xs text-white/60 leading-relaxed">
-                Shipped in 100% compostable mycelium insulated packaging with climate-neutral carbon offset verification for every nautical mile.
+              <p className="text-xs text-[#5a6660] leading-relaxed">
+                All orders over $50 ship free in recyclable, minimalist packaging with 100% certified carbon offsets on all transport.
               </p>
             </div>
           </div>
         </section>
 
       </div>
+
+      {/* Ingredient Facts Modal */}
+      {selectedProductDetails && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-black/10 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-4 border-b border-black/[0.08]">
+              <div>
+                <h3 className="font-display font-black text-xl text-[#141b17]">
+                  {selectedProductDetails.name}
+                </h3>
+                <span className="text-xs text-[#5a6660]">Full Nutritional &amp; Botanical Profile</span>
+              </div>
+              <button
+                onClick={() => setSelectedProductDetails(null)}
+                className="p-1.5 rounded-full hover:bg-black/5 text-gray-500 hover:text-black transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-4 pt-4 text-xs">
+              <div className="p-3 bg-[#f4f6f4] rounded-xl flex justify-between font-mono text-[#141b17]">
+                <span>Serving Size: 2 Vegan Capsules</span>
+                <span>Servings Per Container: 30</span>
+              </div>
+
+              <div className="divide-y divide-black/[0.06] border-y border-black/[0.06]">
+                {selectedProductDetails.compounds.map((c, i) => (
+                  <div key={i} className="py-2.5 flex justify-between items-center">
+                    <div>
+                      <span className="font-bold text-[#141b17] block">{c.name}</span>
+                      <span className="text-[11px] text-[#5a6660]">{c.function}</span>
+                    </div>
+                    <span className="font-mono font-bold text-[#1f3d2b] shrink-0 ml-4">{c.dose}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-2 pt-2 text-[11px] text-[#5a6660]">
+                <div><strong>Other Ingredients:</strong> Tapioca vegetable cellulose capsule, organic rice fiber.</div>
+                <div><strong>Contains Zero:</strong> Gluten, dairy, soy, artificial colors, magnesium stearate, or silicon dioxide.</div>
+              </div>
+
+              <button
+                onClick={() => {
+                  addToCart(selectedProductDetails, 1, "30-day");
+                  setSelectedProductDetails(null);
+                }}
+                className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
+              >
+                Add to Cart • $30.00
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
+export default ShopPage;

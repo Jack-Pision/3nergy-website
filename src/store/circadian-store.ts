@@ -1,14 +1,10 @@
 import { create } from "zustand";
-import { CircadianPhase, CartItem, Product } from "@/types";
+import { ProductPhase, CartItem, Product } from "@/types";
 
 interface CircadianState {
-  phase: CircadianPhase;
+  phase: ProductPhase;
   virtualTime: string;
-  virtualHour: number;
-  isAutoTime: boolean;
-  setPhase: (phase: CircadianPhase) => void;
-  setVirtualHour: (hour: number) => void;
-  toggleAutoTime: () => void;
+  setPhase: (phase: ProductPhase) => void;
   
   // Cart Drawer State
   cart: CartItem[];
@@ -25,63 +21,25 @@ interface CircadianState {
   isQuizOpen: boolean;
   openQuiz: () => void;
   closeQuiz: () => void;
+
+  // Fitness / Wellness Calculator Modal State
+  isCalculatorOpen: boolean;
+  openCalculator: () => void;
+  closeCalculator: () => void;
 }
 
 export const useCircadianStore = create<CircadianState>((set, get) => ({
-  phase: "dawn",
+  phase: "energy",
   virtualTime: "08:30 AM",
-  virtualHour: 8.5,
-  isAutoTime: false,
 
   setPhase: (phase) => {
-    let hour = 8.5;
     let time = "08:30 AM";
-    if (phase === "zenith") {
-      hour = 14.0;
+    if (phase === "recovery") {
       time = "02:00 PM";
-    } else if (phase === "restore") {
-      hour = 21.0;
+    } else if (phase === "rest") {
       time = "09:00 PM";
     }
-
-    if (typeof document !== "undefined") {
-      document.documentElement.setAttribute("data-phase", phase);
-    }
-
-    set({ phase, virtualHour: hour, virtualTime: time, isAutoTime: false });
-  },
-
-  setVirtualHour: (hour) => {
-    const clamped = Math.max(6, Math.min(23, hour));
-    const h = Math.floor(clamped);
-    const m = Math.round((clamped - h) * 60);
-    const period = h >= 12 ? "PM" : "AM";
-    const displayH = h % 12 === 0 ? 12 : h % 12;
-    const displayM = m < 10 ? `0${m}` : `${m}`;
-    const timeString = `${displayH}:${displayM} ${period}`;
-
-    let computedPhase: CircadianPhase = "dawn";
-    if (clamped >= 11 && clamped < 17) {
-      computedPhase = "zenith";
-    } else if (clamped >= 17) {
-      computedPhase = "restore";
-    }
-
-    if (typeof document !== "undefined") {
-      document.documentElement.setAttribute("data-phase", computedPhase);
-    }
-
-    set({ virtualHour: clamped, virtualTime: timeString, phase: computedPhase });
-  },
-
-  toggleAutoTime: () => {
-    const isAuto = !get().isAutoTime;
-    if (isAuto) {
-      const now = new Date();
-      const currentH = now.getHours() + now.getMinutes() / 60;
-      get().setVirtualHour(currentH);
-    }
-    set({ isAutoTime: isAuto });
+    set({ phase, virtualTime: time });
   },
 
   cart: [],
@@ -130,4 +88,8 @@ export const useCircadianStore = create<CircadianState>((set, get) => ({
   isQuizOpen: false,
   openQuiz: () => set({ isQuizOpen: true }),
   closeQuiz: () => set({ isQuizOpen: false }),
+
+  isCalculatorOpen: false,
+  openCalculator: () => set({ isCalculatorOpen: true }),
+  closeCalculator: () => set({ isCalculatorOpen: false }),
 }));

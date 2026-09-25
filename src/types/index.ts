@@ -1,8 +1,8 @@
-export type CircadianPhase = 'dawn' | 'zenith' | 'restore';
+export type ProductPhase = 'energy' | 'recovery' | 'rest';
 
 export interface Product {
   id: string;
-  phase: CircadianPhase;
+  phase: ProductPhase;
   phaseNumber: string;
   name: string;
   tagline: string;
@@ -14,6 +14,8 @@ export interface Product {
   capsuleCount: number;
   dailyDosage: string;
   accentColor: string;
+  bgColorClass: string;
+  borderColorClass: string;
   image: string;
   keyBenefits: string[];
   compounds: {
@@ -22,7 +24,7 @@ export interface Product {
     function: string;
   }[];
   specSheet: {
-    bioavailability: string;
+    purity: string;
     deliveryMethod: string;
     halfLife: string;
     certifications: string[];
@@ -45,19 +47,5 @@ export interface ClinicalStudy {
   duration: string;
   primaryOutcome: string;
   statisticalPValue: string;
-  phaseTarget: CircadianPhase;
-}
-
-export interface CompoundDetail {
-  id: string;
-  name: string;
-  trademark?: string;
-  casNumber: string;
-  formula: string;
-  source: string;
-  primaryPathway: string;
-  clinicalDose: string;
-  phase: CircadianPhase;
-  mechanism: string;
-  absorptionRate: string;
+  phaseTarget: ProductPhase;
 }

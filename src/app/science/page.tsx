@@ -2,393 +2,300 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { COMPOUNDS, CLINICAL_STUDIES } from "@/data/compounds";
-import { useCircadianStore } from "@/store/circadian-store";
-import {
-  Search,
-  CheckCircle2,
-  ArrowUpRight,
-  Dna,
-} from "lucide-react";
+import { CheckCircle2, ArrowUpRight, Check, ChevronDown } from "lucide-react";
+import { PRODUCTS } from "@/data/products";
+import { ChronoBottle } from "@/components/visuals/chrono-bottle";
 
-export default function SciencePage() {
-  const { setPhase } = useCircadianStore();
-  const [selectedCompoundId, setSelectedCompoundId] = useState<string>(COMPOUNDS[0].id);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [activeLot, setActiveLot] = useState("LOT-3N-8942-A");
+export function SciencePage() {
+  const [selectedProductId, setSelectedProductId] = useState<string>("daily-energy");
+  const [activeLot, setActiveLot] = useState("LOT-3N-2026-A1");
   const [lotVerified, setLotVerified] = useState(true);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const selectedCompound =
-    COMPOUNDS.find((c) => c.id === selectedCompoundId) || COMPOUNDS[0];
+  const selectedProduct =
+    PRODUCTS.find((p) => p.id === selectedProductId) || PRODUCTS[0];
 
-  const filteredStudies = CLINICAL_STUDIES.filter(
-    (s) =>
-      s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      s.journal.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      s.primaryOutcome.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const faqs = [
+    {
+      q: "Why 3 supplements instead of a single multivitamin?",
+      a: "Different bodily processes require different nutrients at different times of day. Morning requires clean mitochondrial support and focus without jittery caffeine spikes; midday demands muscular recovery and electrolyte replenishment; and night requires calming neurotransmitters (GABA and magnesium) for deep restorative sleep. Combining them into one pill creates competing absorption pathways and washes through your kidneys in 3 hours.",
+    },
+    {
+      q: "Are 3NERGY supplements third-party lab tested?",
+      a: "Yes. Every single batch is independently tested by ISO-17025 accredited laboratories for heavy metals (lead, arsenic, cadmium, mercury <0.005 ppm), microbial contamination, and exact active compound potency before release.",
+    },
+    {
+      q: "Do your supplements contain synthetic fillers, gluten, or animal gelatin?",
+      a: "None. All 3NERGY formulations are 100% vegan, non-GMO, gluten-free, and formulated without synthetic colorants, magnesium stearate, silicon dioxide, or artificial preservatives.",
+    },
+    {
+      q: "Can I take all three supplements together?",
+      a: "While you can safely take them, they are purposefully formulated for your natural daily routine: Daily Energy & Focus with breakfast, Daily Recovery with lunch or after exercise, and Daily Rest & Sleep 30 minutes before bed.",
+    },
+  ];
 
   return (
-    <div className="flex flex-col w-full min-h-screen py-8 px-4 sm:px-8 relative z-10">
-      <div className="max-w-7xl mx-auto w-full space-y-20">
+    <div className="flex flex-col w-full min-h-screen py-8 sm:py-16 px-4 sm:px-8 bg-[#fcfcfb] text-[#141b17]">
+      <div className="max-w-6xl mx-auto w-full space-y-20">
         
-        {/* Dossier Header */}
-        <section className="text-center max-w-4xl mx-auto pt-6 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-xs font-mono text-phase border border-white/10">
-            <Dna className="w-3.5 h-3.5" />
-            <span>CLINICAL ARCHITECTURE // DOSSIER V4.2</span>
-          </div>
+        {/* Editorial Header */}
+        <section className="text-center max-w-3xl mx-auto pt-4 space-y-4">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-[#1f3d2b] font-bold block">
+            Formulation &amp; Transparency
+          </span>
 
-          <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-tight uppercase">
-            Mitochondrial Mechanics & Cellular Chronobiology.
+          <h1 className="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-[#141b17] leading-[0.95]">
+            Transparency in <br />
+            Every Capsule.
           </h1>
 
-          <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Traditional multivitamins compress dozens of competing nutrients into a single static pill that flushes through renal filtration in 3 hours. 3NERGY times active delivery to cellular circadian metabolic windows.
+          <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed max-w-2xl mx-auto font-sans">
+            You shouldn&apos;t need a chemistry degree to understand what goes into your body. 3NERGY supplements are formulated around published human clinical research with zero fillers, binders, or hidden blends.
           </p>
         </section>
 
-        {/* Section 1: Bioavailability Mechanics Comparison */}
-        <section className="rounded-3xl glass-panel-elevated p-8 sm:p-12 border border-white/15">
-          <div className="flex flex-col lg:flex-row gap-10 items-center">
-            
-            <div className="flex-1 space-y-4">
-              <span className="text-[11px] font-mono text-phase uppercase tracking-wider block">
-                PHARMACOKINETIC TRANSLATION
-              </span>
-              <h2 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
-                Why 90% of Standard Supplements Never Reach Your Cells.
-              </h2>
-              <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-                Stomach hydrochloric acid destroys fragile peptide bonds and oxidizes ubiquinone before intestinal absorption. Our proprietary sub-micron lipid matrix encases active molecules in biocompatible phospholipid bilayers.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-xs space-y-1.5">
-                  <div className="font-bold text-red-400 font-mono">CONVENTIONAL TABLETS</div>
-                  <p className="text-white/60 leading-relaxed text-[11px]">
-                    12% - 18% Bioavailability. High-pressure tableting degrades heat-sensitive adaptogens. Rapid gastric oxidation.
-                  </p>
-                </div>
-                <div className="p-4 rounded-2xl bg-[#10b981]/10 border border-[#10b981]/30 text-xs space-y-1.5">
-                  <div className="font-bold text-[#10b981] font-mono">3NERGY ENTERIC MATRIX</div>
-                  <p className="text-white/60 leading-relaxed text-[11px]">
-                    94.6% Measured Uptake. Delayed-release DRcaps® bypass gastric acid and deploy in the alkaline jejunum within 18 minutes.
-                  </p>
-                </div>
-              </div>
+        {/* Section 1: The 3 Core Quality Pillars */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="rounded-3xl p-8 bg-white border border-black/[0.06] shadow-sm space-y-3">
+            <div className="w-12 h-12 rounded-2xl bg-[#eaf1ed] text-[#1f3d2b] flex items-center justify-center font-bold">
+              01
             </div>
-
-            {/* Visual Technical Comparison Gauge */}
-            <div className="w-full lg:w-96 glass-panel p-6 rounded-2xl border border-white/10 space-y-5">
-              <span className="text-xs font-mono uppercase tracking-widest text-white/40 block pb-2 border-b border-white/10">
-                Plasma Concentration AUC
-              </span>
-
-              <div>
-                <div className="flex justify-between text-xs font-mono mb-1.5">
-                  <span className="text-white">3NERGY Circadian Matrix</span>
-                  <span className="text-[#10b981] font-bold">94.6%</span>
-                </div>
-                <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                  <div className="bg-[#10b981] h-full rounded-full w-[94.6%]" />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-mono mb-1.5">
-                  <span className="text-white/60">Standard Encapsulation</span>
-                  <span className="text-white/40">38.2%</span>
-                </div>
-                <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                  <div className="bg-white/40 h-full rounded-full w-[38.2%]" />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-mono mb-1.5">
-                  <span className="text-white/40">Compressed Tablet</span>
-                  <span className="text-red-400">14.1%</span>
-                </div>
-                <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                  <div className="bg-red-400 h-full rounded-full w-[14.1%]" />
-                </div>
-              </div>
-
-              <div className="pt-2 text-[10px] font-mono text-white/40 text-center">
-                HPLC-MS Verified Human In Vivo Pharmacokinetic Trial (N=140)
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* Section 2: Interactive Compound Explorer */}
-        <section className="space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <span className="text-[11px] font-mono text-phase uppercase tracking-wider block">
-                MOLECULAR INVENTORY
-              </span>
-              <h2 className="font-display text-3xl font-extrabold text-white tracking-tight">
-                Interactive Compound Dossier
-              </h2>
-            </div>
-            <p className="text-white/50 text-xs max-w-sm">
-              Select an active biological compound to inspect chemical formulation, clinical dosage, and cellular pathway mechanics.
+            <h3 className="font-display font-bold text-lg text-[#141b17]">
+              100% Active Ingredients
+            </h3>
+            <p className="text-xs sm:text-sm text-[#5a6660] leading-relaxed">
+              Every milligram inside our tapioca vegan capsules serves a targeted biological function. Zero artificial flow agents, silicon dioxide, or titanium whitening agents.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            
-            {/* Left: Compound Selector Tabs */}
-            <div className="lg:col-span-5 space-y-2">
-              {COMPOUNDS.map((c) => {
-                const isSelected = c.id === selectedCompound.id;
-                const phaseColor =
-                  c.phase === "dawn"
-                    ? "text-[#f59e0b]"
-                    : c.phase === "zenith"
-                    ? "text-[#10b981]"
-                    : "text-[#6366f1]";
-
-                return (
-                  <button
-                    key={c.id}
-                    onClick={() => {
-                      setSelectedCompoundId(c.id);
-                      setPhase(c.phase);
-                    }}
-                    className={`w-full p-4 rounded-2xl text-left border transition-all flex items-center justify-between ${
-                      isSelected
-                        ? "bg-white/10 border-phase shadow-xl"
-                        : "bg-white/5 border-white/5 hover:bg-white/10 text-white/60"
-                    }`}
-                  >
-                    <div>
-                      <div className="font-display font-bold text-sm text-white flex items-center gap-2">
-                        <span>{c.name}</span>
-                        {c.trademark && (
-                          <span className="text-[10px] font-mono bg-white/10 px-1.5 py-0.5 rounded text-white/70">
-                            {c.trademark}
-                          </span>
-                        )}
-                      </div>
-                      <span className={`text-[10px] font-mono uppercase tracking-wider ${phaseColor}`}>
-                        {c.phase.toUpperCase()} PROTOCOL // {c.clinicalDose}
-                      </span>
-                    </div>
-                    <ArrowUpRight className={`w-4 h-4 transition-transform ${isSelected ? "text-phase" : "opacity-30"}`} />
-                  </button>
-                );
-              })}
+          <div className="rounded-3xl p-8 bg-white border border-black/[0.06] shadow-sm space-y-3">
+            <div className="w-12 h-12 rounded-2xl bg-[#f7f2ea] text-[#8b6a3e] flex items-center justify-center font-bold">
+              02
             </div>
+            <h3 className="font-display font-bold text-lg text-[#141b17]">
+              Bioavailable Chelates
+            </h3>
+            <p className="text-xs sm:text-sm text-[#5a6660] leading-relaxed">
+              We exclusively utilize gentle, organic-bound chelates (such as pure Magnesium Bisglycinate and Methylated B12) that bypass gastric degradation for maximum intestinal absorption.
+            </p>
+          </div>
 
-            {/* Right: Compound Detailed Chemical Spec Sheet */}
-            <div className="lg:col-span-7 glass-panel-elevated p-8 rounded-3xl border border-white/15 space-y-6">
-              <div className="flex items-start justify-between pb-4 border-b border-white/10">
-                <div>
-                  <span className="text-[10px] font-mono text-phase uppercase tracking-wider block">
-                    {selectedCompound.phase.toUpperCase()} TIMED ENZYME KINETIC
-                  </span>
-                  <h3 className="font-display text-2xl font-bold text-white mt-1">
-                    {selectedCompound.name}
-                  </h3>
-                  <div className="text-xs text-white/50 font-mono mt-0.5">
-                    Source: {selectedCompound.source}
-                  </div>
+          <div className="rounded-3xl p-8 bg-white border border-black/[0.06] shadow-sm space-y-3">
+            <div className="w-12 h-12 rounded-2xl bg-[#f1eff6] text-[#5b4e78] flex items-center justify-center font-bold">
+              03
+            </div>
+            <h3 className="font-display font-bold text-lg text-[#141b17]">
+              Third-Party Verified
+            </h3>
+            <p className="text-xs sm:text-sm text-[#5a6660] leading-relaxed">
+              Every production lot undergoes rigorous independent HPLC testing to guarantee exact label potency, heavy metals clearance (&lt;0.005 ppm), and zero microbial contamination.
+            </p>
+          </div>
+        </section>
+
+        {/* Section 2: Interactive Formulation Dossier */}
+        <section id="ingredients" className="rounded-[2.5rem] bg-white border border-black/[0.06] p-6 sm:p-12 shadow-sm space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-black/[0.06]">
+            <div>
+              <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider block">
+                Formulation Dossier
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#141b17] mt-1">
+                Explore Active Ingredients
+              </h2>
+            </div>
+            <p className="text-xs text-[#5a6660] max-w-sm">
+              Select any of our 3 core daily supplements to inspect exact clinical doses, botanical origins, and physiological mechanisms.
+            </p>
+          </div>
+
+          {/* Product Tabs */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {PRODUCTS.map((prod) => (
+              <button
+                key={prod.id}
+                onClick={() => setSelectedProductId(prod.id)}
+                className={`p-4 rounded-2xl text-left border transition-all ${
+                  selectedProductId === prod.id
+                    ? `${prod.bgColorClass} border-[#1f3d2b] shadow-sm font-bold`
+                    : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-gray-50"
+                }`}
+              >
+                <div className="text-[10px] font-mono uppercase tracking-wider opacity-60">
+                  {prod.phaseNumber} • {prod.timeWindow}
                 </div>
-
-                <div className="text-right">
-                  <span className="text-[10px] font-mono text-white/40 block">CLINICAL DOSE</span>
-                  <span className="font-mono text-lg font-bold text-white">
-                    {selectedCompound.clinicalDose}
-                  </span>
+                <div className="font-display text-sm font-bold text-[#141b17] mt-0.5">
+                  {prod.name}
                 </div>
-              </div>
-
-              {/* Chemical Specs Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                  <span className="text-white/40 block text-[10px]">CAS NUMBER</span>
-                  <span className="text-white font-medium">{selectedCompound.casNumber}</span>
+                <div className="text-xs font-mono font-bold text-[#1f3d2b] mt-1">
+                  ${prod.price}.00
                 </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                  <span className="text-white/40 block text-[10px]">FORMULA / FRACTION</span>
-                  <span className="text-white font-medium truncate block">{selectedCompound.formula}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5 col-span-2 sm:col-span-1">
-                  <span className="text-white/40 block text-[10px]">ABSORPTION RATE</span>
-                  <span className="text-[#10b981] font-medium">{selectedCompound.absorptionRate.split(" ")[0]}</span>
-                </div>
-              </div>
+              </button>
+            ))}
+          </div>
 
-              {/* Primary Biological Pathway */}
-              <div className="space-y-1.5">
-                <span className="text-xs font-mono text-phase uppercase tracking-wider block">
-                  PRIMARY TARGET PATHWAY
-                </span>
-                <p className="text-white text-sm font-medium">
-                  {selectedCompound.primaryPathway}
-                </p>
-              </div>
-
-              {/* Cellular Mechanism */}
-              <div className="space-y-1.5">
-                <span className="text-xs font-mono text-white/40 uppercase tracking-wider block">
-                  CELLULAR PHARMACODYNAMICS
-                </span>
-                <p className="text-white/70 text-xs sm:text-sm leading-relaxed">
-                  {selectedCompound.mechanism}
-                </p>
-              </div>
-
-              {/* Quick Action */}
-              <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs font-mono text-white/40">
-                  Included in 3NERGY {selectedCompound.phase.toUpperCase()}
-                </span>
+          {/* Selected Product Breakdown */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
+            
+            {/* Left: Bottle Visual */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center p-8 rounded-3xl bg-[#f8faf8] border border-black/[0.04]">
+              <ChronoBottle phase={selectedProduct.phase} size="lg" showRestingCapsules={true} />
+              <div className="mt-6 text-center">
+                <div className="font-display font-bold text-base text-[#141b17]">{selectedProduct.name}</div>
+                <div className="text-xs text-[#5a6660]">{selectedProduct.dailyDosage}</div>
                 <Link
                   href="/shop"
-                  className="px-5 py-2 rounded-full bg-white/10 hover:bg-phase hover:text-black text-white text-xs font-mono transition-colors flex items-center gap-1.5"
+                  className="mt-3 inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold shadow-sm transition-transform active:scale-95"
                 >
-                  <span>Order Formulation</span>
+                  <span>Shop This Formula • $30.00</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
 
+            {/* Right: Ingredient List */}
+            <div className="lg:col-span-7 space-y-4">
+              <h3 className="font-display text-xl font-bold text-[#141b17]">
+                Active Compounds &amp; Clinical Dosages
+              </h3>
+              
+              <div className="space-y-3">
+                {selectedProduct.compounds.map((cmp, i) => (
+                  <div key={i} className="p-4 rounded-2xl bg-[#fcfcfb] border border-black/[0.06] space-y-1">
+                    <div className="flex items-center justify-between text-xs font-bold text-[#141b17]">
+                      <span>{cmp.name}</span>
+                      <span className="font-mono text-[#1f3d2b] bg-[#eaf1ed] px-2 py-0.5 rounded-full">
+                        {cmp.dose}
+                      </span>
+                    </div>
+                    <p className="text-xs text-[#5a6660] leading-relaxed">
+                      {cmp.function}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Spec Sheet Badges */}
+              <div className="pt-4 flex flex-wrap gap-2 text-xs font-mono text-[#3d4d42]">
+                {selectedProduct.specSheet.certifications.map((cert) => (
+                  <span key={cert} className="px-3 py-1 rounded-full bg-[#eaf1ed] border border-[#1f3d2b]/15 flex items-center gap-1">
+                    <Check className="w-3 h-3 text-[#1f3d2b]" />
+                    <span>{cert}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* Section 3: Double-Blind Clinical Trials Registry */}
-        <section className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        {/* Section 3: Live Certificate of Analysis (COA) Verification */}
+        <section id="coa" className="rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] p-8 sm:p-12 space-y-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="text-[11px] font-mono text-phase uppercase tracking-wider block">
-                PEER-REVIEWED EVIDENCE
+              <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider block">
+                Quality Assurance
               </span>
-              <h2 className="font-display text-3xl font-extrabold text-white tracking-tight">
-                Clinical Trial Benchmarks
+              <h2 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#141b17] mt-1">
+                Batch Quality &amp; Lab Certificate Lookup
               </h2>
-            </div>
-
-            {/* Search Input */}
-            <div className="relative w-full sm:w-72">
-              <Search className="w-4 h-4 text-white/40 absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search study, outcome, journal..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2 text-xs text-white placeholder-white/40 focus:outline-none focus:border-phase"
-              />
-            </div>
-          </div>
-
-          <div className="rounded-3xl glass-panel-elevated overflow-hidden border border-white/15">
-            <div className="divide-y divide-white/10">
-              {filteredStudies.map((study) => (
-                <div key={study.id} className="p-6 sm:p-8 hover:bg-white/5 transition-colors space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
-                    <span className="text-phase uppercase tracking-wider font-semibold">
-                      {study.phaseTarget.toUpperCase()} PROTOCOL // {study.duration}
-                    </span>
-                    <span className="text-white/40">DOI: {study.doi}</span>
-                  </div>
-
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-white">
-                    {study.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
-                    <strong>Primary Endpoint:</strong> {study.primaryOutcome}
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-white/50 pt-1">
-                    <span>Journal: {study.journal} ({study.year})</span>
-                    <span>• N = {study.participants} Subjects</span>
-                    <span className="text-[#10b981] font-bold">Significance: {study.statisticalPValue}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 4: Live Batch Quality & Certificate of Analysis (CoA) Lookup */}
-        <section className="rounded-3xl glass-panel-elevated p-8 sm:p-12 border border-white/15 space-y-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <span className="text-[11px] font-mono text-phase uppercase tracking-wider block">
-                TRANSPARENCY LEDGER
-              </span>
-              <h2 className="font-display text-3xl font-extrabold text-white tracking-tight">
-                Batch Quality & Certificate of Analysis (CoA)
-              </h2>
-              <p className="text-white/60 text-xs sm:text-sm max-w-xl mt-2">
-                Every bottle base is laser-etched with a unique manufacturing batch lot. Query our decentralized testing ledger for independent third-party laboratory results.
+              <p className="text-xs sm:text-sm text-[#5a6660] mt-1 max-w-xl">
+                Every bottle features a stamped production lot number on the base. Enter your batch code to inspect verified laboratory assay results.
               </p>
             </div>
 
-            {/* Batch Search */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 self-start md:self-auto">
               <input
                 type="text"
                 value={activeLot}
                 onChange={(e) => setActiveLot(e.target.value)}
-                className="bg-white/5 border border-white/10 rounded-full px-4 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-phase"
+                className="px-4 py-2.5 rounded-full bg-white border border-black/15 text-xs font-mono text-[#141b17] focus:outline-none focus:ring-2 focus:ring-[#1f3d2b]"
               />
               <button
                 onClick={() => setLotVerified(true)}
-                className="px-5 py-2.5 rounded-full bg-phase text-black text-xs font-bold uppercase tracking-wider"
+                className="px-5 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-bold transition-all shadow-sm"
               >
-                Verify Lot
+                Verify
               </button>
             </div>
           </div>
 
-          {/* Simulated Live Certificate of Analysis */}
           {lotVerified && (
-            <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 space-y-6 animate-in fade-in duration-300">
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10 text-xs font-mono">
-                <div className="flex items-center gap-2 text-[#10b981]">
+            <div className="bg-white rounded-2xl p-6 border border-black/[0.08] shadow-sm space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-black/[0.06] text-xs">
+                <div className="flex items-center gap-2 text-emerald-700 font-bold">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span className="font-bold">LOT STATUS: FULLY ACCREDITED & CLEARED</span>
+                  <span>LOT {activeLot}: 100% PASSED ACCREDITED LABORATORY SCREENING</span>
                 </div>
-                <div className="text-white/40">Laboratory: Eurofins BioPharma Product Testing AG (ISO-17025)</div>
+                <span className="text-gray-400 font-mono text-[11px]">ISO-17025 Certified Partner Labs</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-1">
-                  <span className="text-white/40 text-[10px]">HEAVY METALS (Pb, As, Cd, Hg)</span>
-                  <div className="font-bold text-[#10b981]">&lt; 0.005 ppm</div>
-                  <span className="text-[10px] text-white/50">Spec limit &lt; 0.1 ppm</span>
+                <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
+                  <span className="text-gray-400 text-[10px]">HEAVY METALS</span>
+                  <div className="font-bold text-emerald-700">&lt; 0.005 ppm (Passed)</div>
+                  <span className="text-[10px] text-gray-500">USP &lt;2232&gt; compliant</span>
                 </div>
-
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-1">
-                  <span className="text-white/40 text-[10px]">ACTIVE UBIQUINOL CONCENTRATION</span>
-                  <div className="font-bold text-white">100.4% Target (150.6mg)</div>
-                  <span className="text-[10px] text-white/50">HPLC Measured</span>
+                <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
+                  <span className="text-gray-400 text-[10px]">MICROBIAL &amp; E. COLI</span>
+                  <div className="font-bold text-emerald-700">0 CFU/g (Absent)</div>
+                  <span className="text-[10px] text-gray-500">USP &lt;2021&gt; compliant</span>
                 </div>
-
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-1">
-                  <span className="text-white/40 text-[10px]">MICROBIAL & PATHOGEN ASSAY</span>
-                  <div className="font-bold text-[#10b981]">CLEARED (0 CFU/g)</div>
-                  <span className="text-[10px] text-white/50">USP &lt;2021&gt; compliant</span>
+                <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
+                  <span className="text-gray-400 text-[10px]">LABEL CLAIM ASSAY</span>
+                  <div className="font-bold text-[#141b17]">100.2% Measured Potency</div>
+                  <span className="text-[10px] text-gray-500">HPLC verified</span>
                 </div>
-
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-1">
-                  <span className="text-white/40 text-[10px]">SOLVENT RESIDUE</span>
-                  <div className="font-bold text-[#10b981]">NOT DETECTED</div>
-                  <span className="text-[10px] text-white/50">Supercritical CO2 extract</span>
+                <div className="p-3.5 rounded-xl bg-[#f9faf9] border border-black/5 space-y-1">
+                  <span className="text-gray-400 text-[10px]">SOLVENT RESIDUES</span>
+                  <div className="font-bold text-emerald-700">None Detected (0%)</div>
+                  <span className="text-[10px] text-gray-500">Clean solvent-free extraction</span>
                 </div>
               </div>
             </div>
           )}
         </section>
 
+        {/* Section 4: FAQ Accordion */}
+        <section id="faq" className="space-y-6 max-w-3xl mx-auto">
+          <div className="text-center space-y-2">
+            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+              Answers &amp; Guidance
+            </span>
+            <h2 className="font-display text-3xl font-black uppercase tracking-tight text-[#141b17]">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="space-y-3 pt-4">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl bg-white border border-black/[0.08] shadow-xs overflow-hidden transition-all"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm text-[#141b17]"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? "rotate-180 text-[#1f3d2b]" : ""}`} />
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 pb-5 text-xs text-[#5a6660] leading-relaxed font-sans border-t border-black/[0.04] pt-3">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
       </div>
     </div>
   );
 }
+
+export default SciencePage;

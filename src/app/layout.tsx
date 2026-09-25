@@ -5,7 +5,8 @@ import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/navigation/navbar";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { Footer } from "@/components/navigation/footer";
-import { CircadianAura } from "@/components/visuals/circadian-aura";
+import { QuizModal } from "@/components/quiz/quiz-modal";
+import { WellnessCalculatorModal } from "@/components/calculator/wellness-calculator-modal";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -28,19 +29,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "3NERGY™ | Circadian Chrono-Nutrition & Cellular Energy",
+  title: "3NERGY™ | Clean Daily Wellness & Energy Supplements",
   description:
-    "Next-generation tripartite biological energy system. 01 Dawn Rise, 02 Zenith Flow, 03 Restore Prime. Formulated for sustained cellular ATP, nootropics, and deep sleep architecture.",
+    "Clean, science-backed supplements designed to support your energy, recovery, focus, and everyday wellness — without the unnecessary extras.",
   keywords: [
-    "circadian supplements",
-    "cellular energy",
-    "mitochondrial ATP",
+    "clean supplements",
+    "daily wellness",
+    "morning energy",
+    "recovery supplements",
+    "rest and sleep",
     "3nergy",
-    "chrono-nutrition",
-    "nootropics",
-    "magnesium threonate",
+    "matcha",
+    "tart cherry",
+    "magnesium glycinate",
   ],
-  authors: [{ name: "3NERGY Bio-Labs" }],
+  authors: [{ name: "3NERGY Labs" }],
   icons: {
     icon: "/favicon.ico",
   },
@@ -54,24 +57,27 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${jakarta.variable} ${geistMono.variable} dark`}
+      className={`${syne.variable} ${jakarta.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-[#080a09] text-[#f3f4f6] font-sans antialiased selection:bg-[#f59e0b]/20 selection:text-[#fef3c7] overflow-x-hidden relative flex flex-col">
+      <body className="min-h-screen bg-[#fcfcfb] text-[#141b17] font-sans antialiased selection:bg-[#1f3d2b]/15 selection:text-[#1f3d2b] overflow-x-hidden relative flex flex-col">
         <Providers>
-          {/* Dynamic real-time WebGL/Canvas Circadian ambient aura */}
-          <CircadianAura />
-          
-          {/* Persistent high-craft circadian navigation header */}
+          {/* Minimalist Floating Navigation */}
           <Navbar />
 
           {/* Main content view */}
           <main className="flex-1 relative z-10">{children}</main>
 
-          {/* Slide-over interactive apothecary cart drawer */}
+          {/* Slide-over interactive shopping cart drawer */}
           <CartDrawer />
 
-          {/* System footer */}
+          {/* Routine Quiz Modal */}
+          <QuizModal />
+
+          {/* Interactive Fitness & Wellness Calculator Modal */}
+          <WellnessCalculatorModal />
+
+          {/* Clean system footer */}
           <Footer />
         </Providers>
       </body>

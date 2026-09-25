@@ -1,23 +1,27 @@
 import React from "react";
 import { CircadianHero } from "@/components/home/circadian-hero";
-import { TriPhaseSystem } from "@/components/home/tri-phase-system";
-import { BioTelemetry } from "@/components/home/bio-telemetry";
+import { RoutineSection } from "@/components/home/routine-section";
+import { DailyEssentialsSection } from "@/components/home/daily-essentials-section";
 import { TestimonialSection } from "@/components/home/testimonial-section";
+import { GreenCtaSection } from "@/components/home/green-cta-section";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col w-full min-h-screen">
-      {/* 01: Interactive Circadian Hero with Chrono-Dial */}
+    <div className="flex flex-col w-full min-h-screen bg-[#fcfcfb]">
+      {/* 01: Hero with Sage Gradient, "FEEL GOOD", "WORK EXCELLENT" and Hero Bottle */}
       <CircadianHero />
 
-      {/* 02: The 3 Core Formulations Showcase */}
-      <TriPhaseSystem />
+      {/* 02: Routine Starts Here (3 Icons, Philosophy, and 3 Photo Cards) */}
+      <RoutineSection />
 
-      {/* 03: Clinical Bio-Telemetry Kinetic Graph */}
-      <BioTelemetry />
+      {/* 03: Meet Your Daily Essentials (3 Pastel Product Cards & Doctor Clinical Proof) */}
+      <DailyEssentialsSection />
 
-      {/* 04: Clinical Proof & Testimonials */}
+      {/* 04: Editorial Customer Testimonial */}
       <TestimonialSection />
+
+      {/* 05: Dark Green Call to Action & Newsletter Subscription */}
+      <GreenCtaSection />
     </div>
   );
 }

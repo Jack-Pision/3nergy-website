@@ -10,19 +10,18 @@ export function QuizModal() {
   const [step, setStep] = useState(1);
 
   // User selections
-  const [bottleneck, setBottleneck] = useState<string>("all-day");
-  const [schedule, setSchedule] = useState<string>("classic");
-  const [stimulants, setStimulants] = useState<string>("moderate");
+  const [primaryGoal, setPrimaryGoal] = useState<string>("all-around");
+  const [energyDip, setEnergyDip] = useState<string>("afternoon");
+  const [sleepQuality, setSleepQuality] = useState<string>("fair");
 
   if (!isQuizOpen) return null;
 
   const handleFinish = () => {
-    // Add recommended stack to cart
-    if (bottleneck === "all-day") {
+    if (primaryGoal === "all-around") {
       PRODUCTS.forEach((p) => addToCart(p, 1, "30-day"));
-    } else if (bottleneck === "morning") {
+    } else if (primaryGoal === "morning") {
       addToCart(PRODUCTS[0], 1, "30-day");
-    } else if (bottleneck === "afternoon") {
+    } else if (primaryGoal === "recovery") {
       addToCart(PRODUCTS[1], 1, "30-day");
     } else {
       addToCart(PRODUCTS[2], 1, "30-day");
@@ -32,144 +31,142 @@ export function QuizModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6 pointer-events-auto">
-      {/* Backdrop */}
-      <div onClick={closeQuiz} className="fixed inset-0 bg-black/80 backdrop-blur-md" />
-
-      {/* Modal Card */}
-      <div className="relative w-full max-w-xl rounded-3xl glass-panel-elevated p-6 sm:p-8 border border-white/15 shadow-2xl z-10 animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6 bg-black/45 backdrop-blur-sm animate-in fade-in duration-200">
+      
+      {/* Modal Container */}
+      <div className="relative w-full max-w-lg rounded-3xl bg-white p-6 sm:p-8 border border-black/10 shadow-2xl z-10">
         
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/10">
+        <div className="flex items-center justify-between pb-4 border-b border-black/[0.08]">
           <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded-lg bg-phase/20 text-phase">
+            <span className="p-1.5 rounded-lg bg-[#eaf1ed] text-[#1f3d2b]">
               <Sparkles className="w-4 h-4" />
             </span>
-            <span className="font-display font-bold text-sm sm:text-base text-white">
-              Circadian Chronotype Diagnostic
+            <span className="font-display font-bold text-base text-[#141b17]">
+              Find Your 3NERGY Routine
             </span>
           </div>
           <button
             onClick={closeQuiz}
-            className="p-1.5 rounded-full hover:bg-white/10 text-white/50 hover:text-white transition-colors"
+            className="p-1.5 rounded-full hover:bg-black/5 text-gray-500 hover:text-black transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Step Indicator */}
-        <div className="flex items-center gap-2 my-4">
+        {/* Step Progress Bar */}
+        <div className="flex items-center gap-2 my-5">
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
               className={`flex-1 h-1 rounded-full transition-all duration-300 ${
-                i <= step ? "bg-phase" : "bg-white/10"
+                i <= step ? "bg-[#1f3d2b]" : "bg-black/[0.08]"
               }`}
             />
           ))}
         </div>
 
-        {/* Step 1: Energy Bottleneck */}
+        {/* Step 1: Primary Goal */}
         {step === 1 && (
           <div className="space-y-4">
-            <span className="text-[11px] font-mono text-phase uppercase tracking-wider">
-              Diagnostic Step 01 / 03
+            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+              Step 01 of 03
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-              Where does your cellular vitality degrade most severely?
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-[#141b17]">
+              What is your primary wellness goal right now?
             </h3>
             <div className="space-y-2.5 pt-2">
               {[
                 {
                   id: "morning",
-                  label: "Morning Awakening & Cortisol Sluggishness",
-                  desc: "Hard to get out of bed, brain fog until high-dose coffee kicks in.",
+                  label: "Clean Morning Energy & Focus",
+                  desc: "Wake up energized and ready to tackle deep work without caffeine jitters.",
                 },
                 {
-                  id: "afternoon",
-                  label: "Post-Midday Mental Dip & Working Memory Drop",
-                  desc: "2:00 PM focus crash, brain lethargy, unable to sustain deep creative state.",
+                  id: "recovery",
+                  label: "Post-Workout Recovery & Stamina",
+                  desc: "Speed up muscle repair, stay hydrated, and maintain endurance all day.",
                 },
                 {
-                  id: "night",
-                  label: "Restless Somatic Winding & Shallow Sleep",
-                  desc: "Mind racing at night, frequent waking, unrefreshed morning recovery.",
+                  id: "sleep",
+                  label: "Deeper, More Restful Sleep",
+                  desc: "Calm an active mind, sleep soundly, and wake up genuinely refreshed.",
                 },
                 {
-                  id: "all-day",
-                  label: "Full 24-Hour Rhythm Desynchronization (Recommended)",
-                  desc: "Unpredictable energy peaks and valleys throughout the entire circadian day.",
+                  id: "all-around",
+                  label: "The Complete Daily Trio (All-in-One)",
+                  desc: "Synchronize all 24 hours: morning energy, afternoon stamina, and evening rest.",
                 },
               ].map((opt) => (
                 <button
                   key={opt.id}
-                  onClick={() => setBottleneck(opt.id)}
+                  onClick={() => setPrimaryGoal(opt.id)}
                   className={`w-full p-4 rounded-2xl text-left border transition-all ${
-                    bottleneck === opt.id
-                      ? "bg-phase/15 border-phase text-white shadow-lg"
-                      : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:border-white/20"
+                    primaryGoal === opt.id
+                      ? "bg-[#eaf1ed] border-[#1f3d2b] text-[#141b17] shadow-sm"
+                      : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-[#f4f6f4]"
                   }`}
                 >
-                  <div className="font-semibold text-sm text-white flex items-center justify-between">
+                  <div className="font-bold text-sm text-[#141b17] flex items-center justify-between">
                     <span>{opt.label}</span>
-                    {bottleneck === opt.id && <Check className="w-4 h-4 text-phase shrink-0" />}
+                    {primaryGoal === opt.id && <Check className="w-4 h-4 text-[#1f3d2b] shrink-0" />}
                   </div>
-                  <p className="text-xs text-white/50 mt-1">{opt.desc}</p>
+                  <p className="text-xs text-[#5a6660] mt-1">{opt.desc}</p>
                 </button>
               ))}
             </div>
 
             <button
               onClick={() => setStep(2)}
-              className="w-full mt-4 py-3 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-phase hover:text-black transition-all flex items-center justify-center gap-1.5"
+              className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm"
             >
-              <span>Next: Chrono-Schedule</span>
+              <span>Next: Daily Rhythm</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         )}
 
-        {/* Step 2: Sleep & Wake Windows */}
+        {/* Step 2: Energy Dip */}
         {step === 2 && (
           <div className="space-y-4">
-            <span className="text-[11px] font-mono text-phase uppercase tracking-wider">
-              Diagnostic Step 02 / 03
+            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+              Step 02 of 03
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-              What is your natural sleep-wake window?
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-[#141b17]">
+              When do you experience your biggest energy slump?
             </h3>
             <div className="space-y-2.5 pt-2">
               {[
                 {
-                  id: "lark",
-                  label: "Morning Lark (05:30 Wake // 21:30 Sleep)",
-                  desc: "Early biological sunrise synchronization, peak cognitive velocity before noon.",
+                  id: "morning",
+                  label: "Right after waking (Morning fog)",
+                  desc: "Takes 1-2 hours and heavy coffee to feel mentally alert and functioning.",
                 },
                 {
-                  id: "classic",
-                  label: "Solar Standard (07:00 Wake // 23:00 Sleep)",
-                  desc: "Synchronized to natural circadian day, balanced diurnal metabolism.",
+                  id: "afternoon",
+                  label: "Mid-afternoon dip (2:00 – 4:00 PM)",
+                  desc: "Post-lunch brain fog, difficulty focusing, craving afternoon sugar or caffeine.",
                 },
                 {
-                  id: "nightowl",
-                  label: "Nocturnal / Creative Shift (08:30+ Wake // 00:30+ Sleep)",
-                  desc: "Shifted biological clock, peak creative velocity in late evening hours.",
+                  id: "evening",
+                  label: "Late afternoon workout or commute",
+                  desc: "Physically depleted before workouts, sluggish and drained by evening.",
                 },
               ].map((opt) => (
                 <button
                   key={opt.id}
-                  onClick={() => setSchedule(opt.id)}
+                  onClick={() => setEnergyDip(opt.id)}
                   className={`w-full p-4 rounded-2xl text-left border transition-all ${
-                    schedule === opt.id
-                      ? "bg-phase/15 border-phase text-white shadow-lg"
-                      : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:border-white/20"
+                    energyDip === opt.id
+                      ? "bg-[#eaf1ed] border-[#1f3d2b] text-[#141b17] shadow-sm"
+                      : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-[#f4f6f4]"
                   }`}
                 >
-                  <div className="font-semibold text-sm text-white flex items-center justify-between">
+                  <div className="font-bold text-sm text-[#141b17] flex items-center justify-between">
                     <span>{opt.label}</span>
-                    {schedule === opt.id && <Check className="w-4 h-4 text-phase shrink-0" />}
+                    {energyDip === opt.id && <Check className="w-4 h-4 text-[#1f3d2b] shrink-0" />}
                   </div>
-                  <p className="text-xs text-white/50 mt-1">{opt.desc}</p>
+                  <p className="text-xs text-[#5a6660] mt-1">{opt.desc}</p>
                 </button>
               ))}
             </div>
@@ -177,62 +174,62 @@ export function QuizModal() {
             <div className="flex gap-2 pt-2">
               <button
                 onClick={() => setStep(1)}
-                className="w-1/3 py-3 rounded-full bg-white/5 text-white/60 hover:text-white text-xs font-mono transition-colors"
+                className="w-1/3 py-3 rounded-full bg-[#f4f6f4] text-[#5a6660] hover:text-black text-xs font-semibold transition-colors"
               >
                 Back
               </button>
               <button
                 onClick={() => setStep(3)}
-                className="w-2/3 py-3 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-phase hover:text-black transition-all flex items-center justify-center gap-1.5"
+                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm"
               >
-                <span>Next: Stimulant Load</span>
+                <span>Next: Sleep Habits</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         )}
 
-        {/* Step 3: Stimulant History */}
+        {/* Step 3: Sleep Quality */}
         {step === 3 && (
           <div className="space-y-4">
-            <span className="text-[11px] font-mono text-phase uppercase tracking-wider">
-              Diagnostic Step 03 / 03
+            <span className="text-[11px] font-mono text-[#1f3d2b] font-bold uppercase tracking-wider">
+              Step 03 of 03
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-              What is your current stimulant intake profile?
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-[#141b17]">
+              How would you describe your typical night&apos;s rest?
             </h3>
             <div className="space-y-2.5 pt-2">
               {[
                 {
-                  id: "heavy",
-                  label: "High Stimulant (>300mg Caffeine / Energy Drinks)",
-                  desc: "Desensitized adenosine receptors, frequent tremors and late-day crashes.",
+                  id: "restless",
+                  label: "Restless or hard to fall asleep",
+                  desc: "Mind spins with thoughts; tossing and turning takes over 45 minutes.",
                 },
                 {
-                  id: "moderate",
-                  label: "Moderate (1-2 Espressos or Matcha Daily)",
-                  desc: "Healthy baseline seeking cleaner, smoother mitochondrial fuel without dependency.",
+                  id: "waking",
+                  label: "Wake up frequently during the night",
+                  desc: "Wake up at 3:00 AM thirsty or alert, struggling to get back into deep sleep.",
                 },
                 {
-                  id: "clean",
-                  label: "Stimulant-Free / Pure Cellular Bioenergetics",
-                  desc: "Zero synthetic stimulants, pure adaptogens and mitochondrial co-factors only.",
+                  id: "groggy",
+                  label: "Sleep 7+ hours but wake up feeling unrefreshed",
+                  desc: "Feel like you never entered deep restorative delta recovery stages.",
                 },
               ].map((opt) => (
                 <button
                   key={opt.id}
-                  onClick={() => setStimulants(opt.id)}
+                  onClick={() => setSleepQuality(opt.id)}
                   className={`w-full p-4 rounded-2xl text-left border transition-all ${
-                    stimulants === opt.id
-                      ? "bg-phase/15 border-phase text-white shadow-lg"
-                      : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:border-white/20"
+                    sleepQuality === opt.id
+                      ? "bg-[#eaf1ed] border-[#1f3d2b] text-[#141b17] shadow-sm"
+                      : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-[#f4f6f4]"
                   }`}
                 >
-                  <div className="font-semibold text-sm text-white flex items-center justify-between">
+                  <div className="font-bold text-sm text-[#141b17] flex items-center justify-between">
                     <span>{opt.label}</span>
-                    {stimulants === opt.id && <Check className="w-4 h-4 text-phase shrink-0" />}
+                    {sleepQuality === opt.id && <Check className="w-4 h-4 text-[#1f3d2b] shrink-0" />}
                   </div>
-                  <p className="text-xs text-white/50 mt-1">{opt.desc}</p>
+                  <p className="text-xs text-[#5a6660] mt-1">{opt.desc}</p>
                 </button>
               ))}
             </div>
@@ -240,80 +237,72 @@ export function QuizModal() {
             <div className="flex gap-2 pt-2">
               <button
                 onClick={() => setStep(2)}
-                className="w-1/3 py-3 rounded-full bg-white/5 text-white/60 hover:text-white text-xs font-mono transition-colors"
+                className="w-1/3 py-3 rounded-full bg-[#f4f6f4] text-[#5a6660] hover:text-black text-xs font-semibold transition-colors"
               >
                 Back
               </button>
               <button
                 onClick={() => setStep(4)}
-                className="w-2/3 py-3 rounded-full bg-phase text-black font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-1.5 shadow-lg"
+                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm"
               >
-                <span>Synthesize Protocol</span>
+                <span>Generate My Routine</span>
                 <Sparkles className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         )}
 
-        {/* Step 4: Results & Custom Protocol Card */}
+        {/* Step 4: Personalized Plan Result */}
         {step === 4 && (
           <div className="space-y-5 animate-in fade-in duration-300">
-            <div className="text-center py-2">
-              <span className="text-[10px] font-mono text-[#10b981] bg-[#10b981]/15 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                DIAGNOSTIC COMPLETED // 99.4% CHRONO-MATCH
+            <div className="text-center py-1">
+              <span className="text-[10px] font-mono text-[#1f3d2b] bg-[#eaf1ed] px-3 py-1 rounded-full uppercase tracking-wider font-bold">
+                Routine Formulated
               </span>
-              <h3 className="font-display text-2xl font-bold text-white mt-2">
-                Your Precision 24H Circadian Protocol
+              <h3 className="font-display text-2xl font-bold text-[#141b17] mt-2">
+                Your Recommended 3NERGY Daily Habit
               </h3>
             </div>
 
-            {/* Protocol Timetable */}
-            <div className="glass-panel p-4 rounded-2xl border border-white/10 space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono text-white/40 pb-2 border-b border-white/10">
-                <span>PHASE INGESTION SCHEDULE</span>
-                <span>BIOLOGICAL TARGET</span>
+            {/* Schedule Overview */}
+            <div className="p-4 rounded-2xl bg-[#f4f6f4] border border-black/5 space-y-2.5">
+              <div className="flex items-center justify-between text-xs pb-2 border-b border-black/[0.06]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#2e593f]" />
+                  <strong className="text-[#141b17]">07:30 AM:</strong> Daily Energy &amp; Focus
+                </div>
+                <span className="text-[11px] text-[#2e593f] font-bold">Clean Vitality</span>
+              </div>
+
+              <div className="flex items-center justify-between text-xs pb-2 border-b border-black/[0.06]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#8b6a3e]" />
+                  <strong className="text-[#141b17]">01:30 PM:</strong> Daily Recovery &amp; Stamina
+                </div>
+                <span className="text-[11px] text-[#8b6a3e] font-bold">Cellular Repair</span>
               </div>
 
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#f59e0b]" />
-                  <strong className="text-white">07:15 AM:</strong> 01 // Dawn Rise (2 Caps)
+                  <span className="w-2 h-2 rounded-full bg-[#5b4e78]" />
+                  <strong className="text-[#141b17]">10:00 PM:</strong> Daily Rest &amp; Sleep
                 </div>
-                <span className="font-mono text-[#f59e0b] text-[11px]">ATP Awakening</span>
-              </div>
-
-              <div className="flex items-center justify-between text-xs">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#10b981]" />
-                  <strong className="text-white">01:45 PM:</strong> 02 // Zenith Flow (2 Caps)
-                </div>
-                <span className="font-mono text-[#10b981] text-[11px]">Neuro-Focus</span>
-              </div>
-
-              <div className="flex items-center justify-between text-xs">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#6366f1]" />
-                  <strong className="text-white">10:15 PM:</strong> 03 // Restore Prime (2 Caps)
-                </div>
-                <span className="font-mono text-[#6366f1] text-[11px]">Delta Sleep / DNA</span>
+                <span className="text-[11px] text-[#5b4e78] font-bold">Deep Rest</span>
               </div>
             </div>
 
-            <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-xs text-white/60 space-y-1">
-              <div className="font-semibold text-white flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-phase" />
-                Cellular Rebalancing Trajectory
-              </div>
-              <p className="text-[11px] leading-relaxed">
-                By replacing high-dose stimulants with steady mitochondrial co-factors and Magtein® glymphatic clearance, your adenosine receptor density is projected to recalibrate within 14 days.
-              </p>
+            <div className="p-3 bg-[#eaf1ed] rounded-2xl border border-[#1f3d2b]/15 text-xs text-[#2e4033] flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#1f3d2b] shrink-0" />
+              <span>
+                Includes 30-day money-back guarantee. No questions asked.
+              </span>
             </div>
 
             <button
               onClick={handleFinish}
-              className="w-full py-4 rounded-full bg-phase text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-xl"
+              className="w-full py-3.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md active:scale-95"
             >
-              <span>Load Prescribed Protocol Into Cart</span>
+              <span>Add Recommended Routine to Cart</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
