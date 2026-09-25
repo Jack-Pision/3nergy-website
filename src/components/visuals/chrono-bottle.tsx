@@ -49,7 +49,7 @@ export function ChronoBottle({
     },
     recovery: {
       number: "02",
-      name: "Daily Recovery",
+      name: "Daily Recovery & Stamina",
       subtitle: "Tart Cherry & Electrolytes",
       capsuleText: "60 Vegan Capsules",
       activeBio: "Muscle Repair & Stamina",
@@ -147,22 +147,26 @@ export function ChronoBottle({
                 className="text-[9px] tracking-wide block mt-0.5 opacity-80"
                 style={{ color: config.isLightBottle ? "#6d4f29" : "#d8e5dc" }}
               >
-                Daily Nutrition
+                Circadian Nutrition
               </span>
             </div>
 
             {/* Center Product Title */}
-            <div className="space-y-1.5 my-auto">
+            <div className="space-y-1 my-auto">
               <div
-                className="w-6 h-[1px] mx-auto rounded-full opacity-40"
+                className="w-6 h-[1px] mx-auto rounded-full opacity-40 mb-1"
                 style={{ backgroundColor: lineBg }}
               />
 
-              <div className={`font-bold tracking-tight text-xs sm:text-sm leading-snug ${textColor}`}>
+              <div className={`text-[9px] tracking-widest font-bold uppercase opacity-75 ${textColor}`}>
+                {config.number} • PHASE
+              </div>
+
+              <div className={`font-bold tracking-tight text-xs sm:text-[13px] leading-snug ${textColor}`}>
                 {config.name}
               </div>
 
-              <div className={`text-[9px] tracking-normal leading-tight max-w-[90%] mx-auto opacity-80 ${subTextColor}`}>
+              <div className={`text-[9px] tracking-normal leading-tight max-w-[90%] mx-auto opacity-75 ${subTextColor}`}>
                 {config.subtitle}
               </div>
             </div>

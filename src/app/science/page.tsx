@@ -28,7 +28,7 @@ export function SciencePage() {
     },
     {
       q: "Can I take all three supplements together?",
-      a: "While you can safely take them, they are purposefully formulated for your natural daily routine: Daily Energy & Focus with breakfast, Daily Recovery with lunch or after exercise, and Daily Rest & Sleep 30 minutes before bed.",
+      a: "While you can safely take them, they are purposefully formulated for your natural daily routine: Daily Energy & Focus with breakfast, Daily Recovery & Stamina with lunch or after exercise, and Daily Rest & Sleep 30 minutes before bed.",
     },
   ];
 
