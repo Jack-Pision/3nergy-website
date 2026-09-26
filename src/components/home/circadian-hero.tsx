@@ -123,14 +123,14 @@ export function CircadianHero() {
 
               {heroVisual === "photo" ? (
                 <div
-                  className="relative w-full max-w-[440px] aspect-[16/10] sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/40 group cursor-pointer bg-[#3d5948]/30"
+                  className="relative w-full max-w-[340px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/40 group cursor-pointer bg-[#3d5948]/30"
                   onClick={() => addToCart(heroProduct)}
                 >
                   <Image
-                    src="/images/hero_centerpiece.png"
-                    alt="3NERGY Circadian Centerpiece - Daily Energy & Focus bottle with whole tea leaves and botanicals"
+                    src="/images/card1_full.png"
+                    alt="3NERGY 01 Daily Energy & Focus bottle with matcha tea leaves and resting dual-tone capsules on travertine"
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 340px"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     priority
                   />
