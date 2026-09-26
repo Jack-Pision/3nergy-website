@@ -81,7 +81,7 @@ export function ShopPage() {
             <div className="lg:col-span-6 flex justify-center py-2">
               <div className="relative w-full max-w-lg aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-black/5 bg-[#f4f6f4] group">
                 <Image
-                  src="/images/trio_bundle_hero.png"
+                  src="/images/3nergy-daily-trio-bundle.png"
                   alt="The Complete 3NERGY Daily Trio supplement line on travertine plinth"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
