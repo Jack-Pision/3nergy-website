@@ -11,8 +11,7 @@ import { PRODUCTS } from "@/data/products";
 export function CircadianHero() {
   const { addToCart } = useCircadianStore();
   const [heroVisual, setHeroVisual] = useState<"photo" | "spec">("photo");
-  const [selectedPhaseIndex, setSelectedPhaseIndex] = useState(0);
-  const heroProduct = PRODUCTS[selectedPhaseIndex];
+  const heroProduct = PRODUCTS[0]; // Daily Energy & Focus
 
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#557864] via-[#678b75] to-[#7f9f8c] text-white pt-28 sm:pt-36 pb-16 sm:pb-24">
@@ -76,38 +75,20 @@ export function CircadianHero() {
 
           <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
-            {/* Left Feature Pill & Circadian Phase Selector */}
-            <div className="md:col-span-3 flex flex-col justify-start order-2 md:order-1 space-y-3">
+            {/* Left Feature Pill */}
+            <div className="md:col-span-3 flex justify-start order-2 md:order-1">
               <div className="bg-white/30 backdrop-blur-md rounded-2xl p-4 border border-white/40 shadow-sm flex items-center gap-3.5">
                 <div className="w-9 h-11 rounded-lg bg-[#1a221c] flex items-center justify-center text-white text-[11px] font-bold">
-                  {heroProduct.phaseNumber}
+                  3N
                 </div>
                 <div>
                   <div className="text-xs font-bold text-white leading-tight">
-                    {heroProduct.name}
+                    Daily Wellness Support
                   </div>
                   <div className="text-[11px] text-white/80 font-medium mt-0.5">
-                    {heroProduct.timeWindow}
+                    Energy &amp; focus formula
                   </div>
                 </div>
-              </div>
-
-              {/* 3-Phase Navigation Switcher */}
-              <div className="flex items-center gap-1 p-1 bg-black/20 backdrop-blur-md rounded-2xl border border-white/20 text-xs">
-                {PRODUCTS.map((prod, idx) => (
-                  <button
-                    key={prod.id}
-                    type="button"
-                    onClick={() => setSelectedPhaseIndex(idx)}
-                    className={`flex-1 py-1.5 px-2 rounded-xl text-[11px] font-semibold transition-all ${
-                      selectedPhaseIndex === idx
-                        ? "bg-white text-[#1b3a27] shadow-sm"
-                        : "text-white/75 hover:text-white"
-                    }`}
-                  >
-                    {prod.phaseNumber} {prod.phase === "energy" ? "Dawn" : prod.phase === "recovery" ? "Midday" : "Rest"}
-                  </button>
-                ))}
               </div>
             </div>
 
@@ -142,16 +123,15 @@ export function CircadianHero() {
 
               {heroVisual === "photo" ? (
                 <div
-                  className="relative w-full max-w-[340px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/40 group cursor-pointer bg-[#3d5948]/30"
+                  className="relative w-full max-w-[440px] aspect-[16/10] sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/40 group cursor-pointer bg-[#3d5948]/30"
                   onClick={() => addToCart(heroProduct)}
                 >
                   <Image
-                    key={heroProduct.id}
-                    src={heroProduct.image}
-                    alt={`${heroProduct.name} luxury studio packshot on travertine`}
+                    src="/images/hero_centerpiece.png"
+                    alt="3NERGY Circadian Centerpiece - Daily Energy & Focus bottle with whole tea leaves and botanicals"
                     fill
-                    sizes="(max-width: 768px) 100vw, 340px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 animate-in fade-in"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
@@ -165,14 +145,14 @@ export function CircadianHero() {
                       }}
                       className="px-6 py-2 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-colors duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md"
                     >
-                      <span>Quick Add · ${heroProduct.price}.00</span>
+                      <span>Quick Add · $30.00</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="relative group cursor-pointer" onClick={() => addToCart(heroProduct)}>
-                  <ChronoBottle phase={heroProduct.phase} size="hero" showRestingCapsules={true} />
+                  <ChronoBottle phase="energy" size="hero" showRestingCapsules={true} />
                   
                   {/* Floating Quick Action Badge */}
                   <div className="absolute -bottom-3 inset-x-0 flex justify-center pointer-events-auto">
@@ -183,7 +163,7 @@ export function CircadianHero() {
                       }}
                       className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-lg transition-colors duration-200 flex items-center gap-1.5 border border-white/20 hover:border-white/40"
                     >
-                      <span>Quick Add · ${heroProduct.price}.00</span>
+                      <span>Quick Add · $30.00</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
                   </div>

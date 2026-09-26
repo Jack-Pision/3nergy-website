@@ -18,7 +18,7 @@ export const PRODUCTS: Product[] = [
     accentColor: "#2e593f",
     bgColorClass: "card-sage",
     borderColorClass: "border-[#d0ded5]",
-    image: "/images/card1_full.png",
+    image: "/images/3nergy-01-daily-energy.jpg",
     keyBenefits: [
       "Smooth, sustained morning energy without caffeine jitters",
       "Sharpened executive focus & working memory clarity",
@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
     accentColor: "#8b6a3e",
     bgColorClass: "card-sand",
     borderColorClass: "border-[#e8dfd2]",
-    image: "/images/card2_full.png",
+    image: "/images/3nergy-02-daily-recovery.jpg",
     keyBenefits: [
       "Accelerates exercise recovery and relieves post-workout soreness",
       "Replenishes cellular electrolytes and cellular water balance",
@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
     accentColor: "#5b4e78",
     bgColorClass: "card-lavender",
     borderColorClass: "border-[#ded8e8]",
-    image: "/images/card3_full.png",
+    image: "/images/3nergy-03-daily-rest.jpg",
     keyBenefits: [
       "Encourages natural relaxation and quiets an overactive mind",
       "Promotes deep, restorative slow-wave sleep cycles",
