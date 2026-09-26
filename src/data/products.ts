@@ -128,5 +128,5 @@ export const TRI_SYSTEM_BUNDLE = {
   savingsPercent: 17,
   rating: 5.0,
   reviewCount: 4890,
-  image: "/images/3nergy-daily-trio-bundle.png",
+  image: "/images/trio_bundle_hero.png",
 };

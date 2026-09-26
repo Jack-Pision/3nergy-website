@@ -11,7 +11,8 @@ import { PRODUCTS } from "@/data/products";
 export function CircadianHero() {
   const { addToCart } = useCircadianStore();
   const [heroVisual, setHeroVisual] = useState<"photo" | "spec">("photo");
-  const heroProduct = PRODUCTS[0]; // Daily Energy & Focus
+  const [selectedPhaseIndex, setSelectedPhaseIndex] = useState(0);
+  const heroProduct = PRODUCTS[selectedPhaseIndex];
 
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#557864] via-[#678b75] to-[#7f9f8c] text-white pt-28 sm:pt-36 pb-16 sm:pb-24">
@@ -71,29 +72,47 @@ export function CircadianHero() {
         </div>
 
         {/* Center Translucent Glass Container with Grounded Bottle */}
-        <div className="relative z-10 max-w-6xl xl:max-w-7xl 2xl:max-w-[1560px] mx-auto rounded-[2.5rem] bg-white/20 backdrop-blur-md border border-white/30 p-8 sm:p-12 lg:p-14 shadow-2xl overflow-hidden">
+        <div className="relative z-10 max-w-6xl xl:max-w-7xl 2xl:max-w-[1560px] mx-auto rounded-[2.5rem] bg-white/20 backdrop-blur-md border border-white/30 p-8 sm:p-12 lg:p-14 shadow-2xl overflow-visible">
 
           <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
-            {/* Left Feature Pill */}
-            <div className="md:col-span-3 flex justify-start order-2 md:order-1">
+            {/* Left Feature Pill & Phase Switcher */}
+            <div className="md:col-span-3 flex flex-col justify-start order-2 md:order-1 space-y-3">
               <div className="bg-white/30 backdrop-blur-md rounded-2xl p-4 border border-white/40 shadow-sm flex items-center gap-3.5">
                 <div className="w-9 h-11 rounded-lg bg-[#1a221c] flex items-center justify-center text-white text-[11px] font-bold">
-                  3N
+                  {heroProduct.phaseNumber}
                 </div>
                 <div>
                   <div className="text-xs font-bold text-white leading-tight">
-                    Daily Wellness Support
+                    {heroProduct.name}
                   </div>
                   <div className="text-[11px] text-white/80 font-medium mt-0.5">
-                    Energy &amp; focus formula
+                    {heroProduct.timeWindow}
                   </div>
                 </div>
+              </div>
+
+              {/* 3-Phase Navigation Switcher */}
+              <div className="flex items-center gap-1 p-1 bg-black/20 backdrop-blur-md rounded-2xl border border-white/20 text-xs">
+                {PRODUCTS.map((prod, idx) => (
+                  <button
+                    key={prod.id}
+                    type="button"
+                    onClick={() => setSelectedPhaseIndex(idx)}
+                    className={`flex-1 py-1.5 px-2 rounded-xl text-[11px] font-semibold transition-all ${
+                      selectedPhaseIndex === idx
+                        ? "bg-white text-[#1b3a27] shadow-sm"
+                        : "text-white/75 hover:text-white"
+                    }`}
+                  >
+                    {prod.phaseNumber} {prod.phase === "energy" ? "Dawn" : prod.phase === "recovery" ? "Midday" : "Rest"}
+                  </button>
+                ))}
               </div>
             </div>
 
             {/* Center Bottle Render / Centerpiece Photography */}
-            <div className="md:col-span-6 flex flex-col items-center justify-center order-1 md:order-2 my-4 sm:my-0 space-y-3">
+            <div className="md:col-span-6 flex flex-col items-center justify-center order-1 md:order-2 my-4 sm:my-0 space-y-4">
               
               {/* Visual Mode Toggle */}
               <div className="flex items-center justify-center gap-1 bg-black/20 backdrop-blur-md p-1 rounded-full border border-white/25 text-[11px] font-medium z-20">
@@ -123,47 +142,50 @@ export function CircadianHero() {
 
               {heroVisual === "photo" ? (
                 <div
-                  className="relative w-full max-w-[440px] aspect-[16/10] sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/40 group cursor-pointer bg-[#3d5948]/30"
+                  className="relative group cursor-pointer"
                   onClick={() => addToCart(heroProduct)}
                 >
-                  <Image
-                    src="/images/hero_centerpiece.png"
-                    alt="3NERGY Circadian Centerpiece - Daily Energy & Focus bottle with whole tea leaves and botanicals"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  {/* Photo Container: Matches 3:4 Aspect Ratio Perfectly with ZERO Cropping */}
+                  <div className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/40 bg-[#f4efe8]">
+                    <Image
+                      key={heroProduct.id}
+                      src={heroProduct.image}
+                      alt={`${heroProduct.name} studio packshot on travertine plinth`}
+                      fill
+                      sizes="(max-width: 768px) 300px, 340px"
+                      className="object-contain group-hover:scale-105 transition-transform duration-700 animate-in fade-in"
+                      priority
+                    />
+                  </div>
 
-                  {/* Floating Quick Action Badge */}
-                  <div className="absolute bottom-3 inset-x-0 flex justify-center pointer-events-auto">
+                  {/* Floating Quick Action Badge: Anchored cleanly below container with zero text obstruction */}
+                  <div className="absolute -bottom-4 inset-x-0 flex justify-center pointer-events-auto z-10">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         addToCart(heroProduct);
                       }}
-                      className="px-6 py-2 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-colors duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md"
+                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-all duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md active:scale-95"
                     >
-                      <span>Quick Add · $30.00</span>
+                      <span>Quick Add · ${heroProduct.price}.00</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="relative group cursor-pointer" onClick={() => addToCart(heroProduct)}>
-                  <ChronoBottle phase="energy" size="hero" showRestingCapsules={true} />
+                  <ChronoBottle phase={heroProduct.phase} size="hero" showRestingCapsules={true} />
                   
                   {/* Floating Quick Action Badge */}
-                  <div className="absolute -bottom-3 inset-x-0 flex justify-center pointer-events-auto">
+                  <div className="absolute -bottom-4 inset-x-0 flex justify-center pointer-events-auto z-10">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         addToCart(heroProduct);
                       }}
-                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-lg transition-colors duration-200 flex items-center gap-1.5 border border-white/20 hover:border-white/40"
+                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-all duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md active:scale-95"
                     >
-                      <span>Quick Add · $30.00</span>
+                      <span>Quick Add · ${heroProduct.price}.00</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
