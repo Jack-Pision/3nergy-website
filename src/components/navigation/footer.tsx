@@ -87,17 +87,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Routine & Support */}
+          {/* Column 3: Support */}
           <div>
             <h4 className="text-xs font-semibold text-[#141b17] mb-3">
-              Routine
+              Support
             </h4>
             <ul className="space-y-2.5 text-xs text-[#5a6660]">
-              <li>
-                <Link href="/#routine" className="hover:text-[#1f3d2b] transition-colors">
-                  Your Routine Starts Here
-                </Link>
-              </li>
               <li>
                 <Link href="/science#faq" className="hover:text-[#1f3d2b] transition-colors">
                   Frequently Asked Questions
@@ -110,7 +105,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/shop" className="hover:text-[#1f3d2b] transition-colors">
-                  Routine Quiz
+                  Shop All Essentials
                 </Link>
               </li>
             </ul>
