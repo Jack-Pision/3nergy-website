@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useCircadianStore } from "@/store/circadian-store";
 import { ShoppingBag, Search, User, X } from "lucide-react";
@@ -236,13 +237,24 @@ export function Navbar() {
                       key={p.id}
                       href={`/shop#${p.id}`}
                       onClick={() => setIsSearchOpen(false)}
-                      className="flex items-center justify-between p-3 rounded-2xl hover:bg-[#f2f6f3] transition-colors"
+                      className="flex items-center justify-between p-2.5 rounded-2xl hover:bg-[#f2f6f3] transition-colors gap-3 group"
                     >
-                      <div>
-                        <div className="text-xs font-bold text-[#141b17]">{p.name}</div>
-                        <div className="text-[11px] text-[#5a6660]">{p.tagline}</div>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-10 h-12 rounded-xl bg-[#f4f6f4] relative overflow-hidden shrink-0 border border-black/5 shadow-2xs">
+                          <Image
+                            src={p.image}
+                            alt={p.name}
+                            fill
+                            sizes="40px"
+                            className="object-cover group-hover:scale-105 transition-transform"
+                          />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-xs font-bold text-[#141b17] truncate">{p.name}</div>
+                          <div className="text-[11px] text-[#5a6660] truncate">{p.tagline}</div>
+                        </div>
                       </div>
-                      <span className="text-xs font-bold text-[#1f3d2b]">${p.price}.00</span>
+                      <span className="text-xs font-bold text-[#1f3d2b] shrink-0">${p.price}.00</span>
                     </Link>
                   ))
                 ) : (
