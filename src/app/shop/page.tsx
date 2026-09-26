@@ -74,12 +74,12 @@ export function ShopPage() {
         </section>
 
         {/* Featured Flagship: Complete Daily Trio Bundle */}
-        <section id="trio-bundle" className="rounded-[2.5rem] bg-white p-8 sm:p-12 border border-black/[0.08] shadow-sm relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <section id="trio-bundle" className="max-w-6xl xl:max-w-7xl mx-auto rounded-[2.5rem] bg-white p-8 sm:p-10 lg:p-12 border border-black/[0.08] shadow-sm relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Visual Lineup: Real Trio Bundle Studio Photography */}
-            <div className="lg:col-span-6 flex justify-center py-2">
-              <div className="relative w-full max-w-lg aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-black/5 bg-[#f4f6f4] group">
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-black/5 bg-[#f4f6f4] group">
                 <Image
                   src="/images/trio_bundle_hero.png"
                   alt="The Complete 3NERGY Daily Trio supplement line on travertine plinth"

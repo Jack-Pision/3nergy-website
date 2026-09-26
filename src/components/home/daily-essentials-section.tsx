@@ -215,28 +215,28 @@ export function DailyEssentialsSection() {
         </div>
 
         {/* Clinical Rigor & Sourcing Banner */}
-        <div className="rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] p-8 sm:p-12 lg:p-14 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="max-w-6xl xl:max-w-7xl 2xl:max-w-[1520px] mx-auto rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] p-8 sm:p-10 lg:p-12 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content Column */}
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-semibold text-[#1f3d2b]">
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1f3d2b]/10 text-[#1f3d2b] text-xs font-semibold w-fit">
                 Clinical Rigor &amp; Honesty
-              </span>
+              </div>
               
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#141b17] leading-[1.05]">
-                Formulated by Physicians, <br />
+              <h3 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold tracking-tight text-[#141b17] leading-[1.12]">
+                Formulated by Physicians, <br className="hidden sm:inline" />
                 Verified by Clinical Data.
               </h3>
 
-              <p className="text-sm text-[#5a6660] leading-relaxed">
+              <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed max-w-xl">
                 You shouldn&apos;t need a chemistry degree to understand what&apos;s in your supplements. 3NERGY keeps every formula intentional, transparent, and easy to understand — so you can focus on feeling your best every single day.
               </p>
 
               {/* 3 Bullet Points with Checkmarks */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#eaf1ed] flex items-center justify-center text-[#1f3d2b]">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </div>
                   <span className="text-xs font-bold text-[#141b17]">
@@ -244,8 +244,8 @@ export function DailyEssentialsSection() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#eaf1ed] flex items-center justify-center text-[#1f3d2b]">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-[#1f3d2b] text-white shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </div>
                   <span className="text-xs font-bold text-[#141b17]">
@@ -253,8 +253,8 @@ export function DailyEssentialsSection() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#eaf1ed] flex items-center justify-center text-[#1f3d2b]">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-[#1f3d2b] text-white shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </div>
                   <span className="text-xs font-bold text-[#141b17]">
@@ -264,7 +264,7 @@ export function DailyEssentialsSection() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 flex flex-wrap items-center gap-3">
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <Link
                   href="/shop"
                   className="px-7 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold tracking-wide transition-colors duration-200 border border-transparent hover:border-white/10 active:opacity-90 shadow-sm flex items-center gap-2"
@@ -284,14 +284,14 @@ export function DailyEssentialsSection() {
             </div>
 
             {/* Right Graphic Column: Doctor with Consistency Gauge */}
-            <div className="lg:col-span-6 flex justify-center">
-              <div className="relative w-full max-w-md aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-black/5 bg-[#9dbca9]">
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-black/5 bg-[#9dbca9] group">
                 <Image
                   src="/images/doctor_gauge.png"
                   alt="Doctor with consistency metric"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </div>
