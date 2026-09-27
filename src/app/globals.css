@@ -106,3 +106,13 @@ body {
   animation-play-state: paused;
 }
 
+/* Calm 2026 Interaction Stability: Zero jump, zero layout-shift */
+button, a, input, select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-brand-forest);
+  outline-offset: 2px;
+}
+

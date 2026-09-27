@@ -59,7 +59,7 @@ export function QuizModal() {
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className={`flex-1 h-1 rounded-full transition-all duration-300 ${
+              className={`flex-1 h-1 rounded-full transition-colors duration-300 ${
                 i <= step ? "bg-[#1f3d2b]" : "bg-black/[0.08]"
               }`}
             />
@@ -101,7 +101,7 @@ export function QuizModal() {
                 <button
                   key={opt.id}
                   onClick={() => setPrimaryGoal(opt.id)}
-                  className={`w-full p-4 rounded-2xl text-left border transition-all ${
+                  className={`w-full p-4 rounded-2xl text-left border transition-colors duration-200 ${
                     primaryGoal === opt.id
                       ? "bg-[#eaf1ed] border-[#1f3d2b] text-[#141b17] shadow-sm"
                       : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-[#f4f6f4]"
@@ -118,7 +118,7 @@ export function QuizModal() {
 
             <button
               onClick={() => setStep(2)}
-              className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-1.5 shadow-sm"
+              className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-colors duration-200 flex items-center justify-center gap-1.5 shadow-sm"
             >
               <span>Next: Daily Rhythm</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -156,7 +156,7 @@ export function QuizModal() {
                 <button
                   key={opt.id}
                   onClick={() => setEnergyDip(opt.id)}
-                  className={`w-full p-4 rounded-2xl text-left border transition-all ${
+                  className={`w-full p-4 rounded-2xl text-left border transition-colors duration-200 ${
                     energyDip === opt.id
                       ? "bg-[#eaf1ed] border-[#1f3d2b] text-[#141b17] shadow-sm"
                       : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-[#f4f6f4]"
@@ -174,13 +174,13 @@ export function QuizModal() {
             <div className="flex gap-2 pt-2">
               <button
                 onClick={() => setStep(1)}
-                className="w-1/3 py-3 rounded-full bg-[#f4f6f4] text-[#5a6660] hover:text-black text-xs font-semibold transition-colors"
+                className="w-1/3 py-3 rounded-full bg-[#f4f6f4] text-[#5a6660] hover:text-black text-xs font-semibold transition-colors duration-200"
               >
                 Back
               </button>
               <button
                 onClick={() => setStep(3)}
-                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-colors duration-200 flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <span>Next: Sleep Habits</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -220,7 +220,7 @@ export function QuizModal() {
                 <button
                   key={opt.id}
                   onClick={() => setSleepQuality(opt.id)}
-                  className={`w-full p-4 rounded-2xl text-left border transition-all ${
+                  className={`w-full p-4 rounded-2xl text-left border transition-colors duration-200 ${
                     sleepQuality === opt.id
                       ? "bg-[#eaf1ed] border-[#1f3d2b] text-[#141b17] shadow-sm"
                       : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-[#f4f6f4]"
@@ -238,13 +238,13 @@ export function QuizModal() {
             <div className="flex gap-2 pt-2">
               <button
                 onClick={() => setStep(2)}
-                className="w-1/3 py-3 rounded-full bg-[#f4f6f4] text-[#5a6660] hover:text-black text-xs font-semibold transition-colors"
+                className="w-1/3 py-3 rounded-full bg-[#f4f6f4] text-[#5a6660] hover:text-black text-xs font-semibold transition-colors duration-200"
               >
                 Back
               </button>
               <button
                 onClick={() => setStep(4)}
-                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                className="w-2/3 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-colors duration-200 flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <span>Generate My Routine</span>
                 <Sparkles className="w-3.5 h-3.5" />

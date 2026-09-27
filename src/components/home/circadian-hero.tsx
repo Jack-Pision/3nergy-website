@@ -54,9 +54,9 @@ export function CircadianHero() {
             {/* Circular Green Shop Button */}
             <Link
               href="/shop"
-              className="group w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white flex flex-col items-center justify-center transition-colors duration-200 shadow-xl border border-white/20 hover:border-white/40"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white flex flex-col items-center justify-center transition-colors duration-200 shadow-lg border border-white/20 hover:border-white/35"
             >
-              <ArrowUpRight className="w-5 h-5 text-white/90 group-hover:text-white transition-colors" />
+              <ArrowUpRight className="w-5 h-5 text-white/90 transition-colors" />
               <span className="text-[11px] font-semibold tracking-tight mt-0.5">Shop Now</span>
             </Link>
           </div>
@@ -99,7 +99,7 @@ export function CircadianHero() {
                     key={prod.id}
                     type="button"
                     onClick={() => setSelectedPhaseIndex(idx)}
-                    className={`flex-1 py-1.5 px-2 rounded-xl text-[11px] font-semibold transition-all ${
+                    className={`flex-1 py-1.5 px-2 rounded-xl text-[11px] font-semibold transition-colors duration-200 ${
                       selectedPhaseIndex === idx
                         ? "bg-white text-[#1b3a27] shadow-sm"
                         : "text-white/75 hover:text-white"
@@ -119,9 +119,9 @@ export function CircadianHero() {
                 <button
                   type="button"
                   onClick={() => setHeroVisual("photo")}
-                  className={`px-3 py-1 rounded-full transition-all ${
+                  className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-colors duration-200 ${
                     heroVisual === "photo"
-                      ? "bg-white text-[#1b3a27] font-bold shadow-sm"
+                      ? "bg-white text-[#1b3a27] shadow-sm"
                       : "text-white/80 hover:text-white"
                   }`}
                 >
@@ -130,9 +130,9 @@ export function CircadianHero() {
                 <button
                   type="button"
                   onClick={() => setHeroVisual("spec")}
-                  className={`px-3 py-1 rounded-full transition-all ${
+                  className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-colors duration-200 ${
                     heroVisual === "spec"
-                      ? "bg-white text-[#1b3a27] font-bold shadow-sm"
+                      ? "bg-white text-[#1b3a27] shadow-sm"
                       : "text-white/80 hover:text-white"
                   }`}
                 >
@@ -142,11 +142,11 @@ export function CircadianHero() {
 
               {heroVisual === "photo" ? (
                 <div
-                  className="relative group cursor-pointer"
+                  className="relative cursor-pointer"
                   onClick={() => addToCart(heroProduct)}
                 >
                   {/* Photo Container: Matches 3:4 Aspect Ratio Perfectly with ZERO Cropping */}
-                  <div className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/40 bg-[#f4efe8] transition-all duration-300 group-hover:shadow-[0_24px_50px_-12px_rgba(20,27,23,0.25)] group-hover:border-white/60">
+                  <div className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/40 bg-[#f4efe8]">
                     <Image
                       key={heroProduct.id}
                       src={heroProduct.image}
@@ -165,7 +165,7 @@ export function CircadianHero() {
                         e.stopPropagation();
                         addToCart(heroProduct);
                       }}
-                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-all duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md active:opacity-90"
+                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-lg transition-colors duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/40 backdrop-blur-md active:opacity-90"
                     >
                       <span>Quick Add · ${heroProduct.price}.00</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -173,7 +173,7 @@ export function CircadianHero() {
                   </div>
                 </div>
               ) : (
-                <div className="relative group cursor-pointer" onClick={() => addToCart(heroProduct)}>
+                <div className="relative cursor-pointer" onClick={() => addToCart(heroProduct)}>
                   <ChronoBottle phase={heroProduct.phase} size="hero" showRestingCapsules={true} />
                   
                   {/* Floating Quick Action Badge */}
@@ -183,7 +183,7 @@ export function CircadianHero() {
                         e.stopPropagation();
                         addToCart(heroProduct);
                       }}
-                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-all duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md active:opacity-90"
+                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-lg transition-colors duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/40 backdrop-blur-md active:opacity-90"
                     >
                       <span>Quick Add · ${heroProduct.price}.00</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />

@@ -138,7 +138,7 @@ export function WellnessCalculatorModal() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <button
                 onClick={() => setDailyFocus("trio")}
-                className={`py-2 px-2.5 rounded-xl text-xs text-center border transition-all ${
+                className={`py-2 px-2.5 rounded-xl text-xs text-center border transition-colors duration-200 ${
                   dailyFocus === "trio"
                     ? "bg-[#1f3d2b] text-white font-bold border-[#1f3d2b] shadow-xs"
                     : "bg-[#fcfcfb] border-black/10 text-[#5a6660]"
@@ -148,7 +148,7 @@ export function WellnessCalculatorModal() {
               </button>
               <button
                 onClick={() => setDailyFocus("energy")}
-                className={`py-2 px-2.5 rounded-xl text-xs text-center border transition-all ${
+                className={`py-2 px-2.5 rounded-xl text-xs text-center border transition-colors duration-200 ${
                   dailyFocus === "energy"
                     ? "bg-[#eaf1ed] text-[#1f3d2b] font-bold border-[#1f3d2b]"
                     : "bg-[#fcfcfb] border-black/10 text-[#5a6660]"
@@ -158,7 +158,7 @@ export function WellnessCalculatorModal() {
               </button>
               <button
                 onClick={() => setDailyFocus("recovery")}
-                className={`py-2 px-2.5 rounded-xl text-xs text-center border transition-all ${
+                className={`py-2 px-2.5 rounded-xl text-xs text-center border transition-colors duration-200 ${
                   dailyFocus === "recovery"
                     ? "bg-[#f7f2ea] text-[#8b6a3e] font-bold border-[#8b6a3e]"
                     : "bg-[#fcfcfb] border-black/10 text-[#5a6660]"
@@ -168,7 +168,7 @@ export function WellnessCalculatorModal() {
               </button>
               <button
                 onClick={() => setDailyFocus("sleep")}
-                className={`py-2 px-2.5 rounded-xl text-xs text-center border transition-all ${
+                className={`py-2 px-2.5 rounded-xl text-xs text-center border transition-colors duration-200 ${
                   dailyFocus === "sleep"
                     ? "bg-[#f1eff6] text-[#5b4e78] font-bold border-[#5b4e78]"
                     : "bg-[#fcfcfb] border-black/10 text-[#5a6660]"

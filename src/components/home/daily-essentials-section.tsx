@@ -68,9 +68,9 @@ export function DailyEssentialsSection() {
               <button
                 type="button"
                 onClick={() => setDisplayMode("photo")}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 ${
                   displayMode === "photo"
-                    ? "bg-white text-[#1f3d2b] font-bold shadow-xs"
+                    ? "bg-white text-[#1f3d2b] shadow-xs"
                     : "text-[#5a6660] hover:text-[#1f3d2b]"
                 }`}
               >
@@ -79,9 +79,9 @@ export function DailyEssentialsSection() {
               <button
                 type="button"
                 onClick={() => setDisplayMode("bottle")}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 ${
                   displayMode === "bottle"
-                    ? "bg-white text-[#1f3d2b] font-bold shadow-xs"
+                    ? "bg-white text-[#1f3d2b] shadow-xs"
                     : "text-[#5a6660] hover:text-[#1f3d2b]"
                 }`}
               >
@@ -93,9 +93,9 @@ export function DailyEssentialsSection() {
             <div className="flex items-center gap-1.5 p-1 bg-[#f4f6f4] rounded-full self-start">
               <button
                 onClick={() => setFilter("all")}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 ${
                   filter === "all"
-                    ? "bg-white text-[#1f3d2b] font-bold shadow-sm"
+                    ? "bg-white text-[#1f3d2b] shadow-sm"
                     : "text-[#5a6660] hover:text-[#1f3d2b]"
                 }`}
               >
@@ -103,9 +103,9 @@ export function DailyEssentialsSection() {
               </button>
               <button
                 onClick={() => setFilter("new")}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 ${
                   filter === "new"
-                    ? "bg-white text-[#1f3d2b] font-bold shadow-sm"
+                    ? "bg-white text-[#1f3d2b] shadow-sm"
                     : "text-[#5a6660] hover:text-[#1f3d2b]"
                 }`}
               >
@@ -113,9 +113,9 @@ export function DailyEssentialsSection() {
               </button>
               <button
                 onClick={() => setFilter("popular")}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 ${
                   filter === "popular"
-                    ? "bg-[#1f3d2b] text-white font-bold shadow-sm"
+                    ? "bg-[#1f3d2b] text-white shadow-sm"
                     : "text-[#5a6660] hover:text-[#1f3d2b]"
                 }`}
               >
@@ -132,7 +132,7 @@ export function DailyEssentialsSection() {
             return (
               <div
                 key={product.id}
-                className={`group rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border ${product.bgColorClass} ${product.borderColorClass} hover:border-black/20 hover:shadow-[0_16px_40px_-12px_rgba(20,27,23,0.08)]`}
+                className={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-colors duration-200 border ${product.bgColorClass} ${product.borderColorClass} hover:border-black/20 shadow-xs`}
               >
                 {/* Card Top: Price & Quick Add Button */}
                 <div className="flex items-center justify-between">
@@ -141,7 +141,7 @@ export function DailyEssentialsSection() {
                   </span>
                   <button
                     onClick={() => handleQuickAdd(product)}
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 border border-black/5 shadow-xs ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 border border-black/5 shadow-xs ${
                       isAdded
                         ? "bg-[#1f3d2b] text-white"
                         : "bg-white/80 hover:bg-[#1f3d2b] text-[#1f3d2b] hover:text-white active:bg-[#14281c]"
@@ -159,7 +159,7 @@ export function DailyEssentialsSection() {
                 {/* Card Center: Real Studio Photograph or Spec Bottle */}
                 <div className="my-5 flex justify-center relative">
                   {displayMode === "photo" ? (
-                    <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs transition-colors duration-300 group-hover:border-black/10">
+                    <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs">
                       <Image
                         src={product.image}
                         alt={`${product.name} luxury packshot`}
@@ -196,14 +196,14 @@ export function DailyEssentialsSection() {
                   <div className="pt-3 flex items-center justify-between">
                     <Link
                       href={`/shop#${product.id}`}
-                      className="text-[11px] font-semibold text-[#1f3d2b] hover:underline flex items-center gap-1"
+                      className="text-[11px] font-semibold text-[#1f3d2b] hover:text-[#102417] transition-colors duration-200 flex items-center gap-1"
                     >
                       <span>View Ingredients</span>
                       <ArrowUpRight className="w-3 h-3" />
                     </Link>
                     <button
                       onClick={() => handleQuickAdd(product)}
-                      className="text-[11px] font-bold text-[#1f3d2b] group-hover:bg-[#1f3d2b] group-hover:text-white bg-white/80 px-3.5 py-1 rounded-full border border-black/5 transition-all duration-200 shadow-xs"
+                      className="text-[11px] font-bold text-[#1f3d2b] hover:bg-[#1f3d2b] hover:text-white bg-white/80 px-3.5 py-1 rounded-full border border-black/5 transition-colors duration-200 shadow-xs"
                     >
                       + Add
                     </button>

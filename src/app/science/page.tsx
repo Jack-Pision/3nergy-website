@@ -115,9 +115,9 @@ export function SciencePage() {
               <button
                 key={prod.id}
                 onClick={() => setSelectedProductId(prod.id)}
-                className={`p-4 rounded-2xl text-left border transition-all ${
+                className={`p-4 rounded-2xl text-left border transition-colors duration-200 ${
                   selectedProductId === prod.id
-                    ? `${prod.bgColorClass} border-[#1f3d2b] shadow-sm font-bold`
+                    ? `${prod.bgColorClass} border-[#1f3d2b] shadow-sm`
                     : "bg-[#fcfcfb] border-black/10 text-[#5a6660] hover:bg-gray-50"
                 }`}
               >
@@ -144,8 +144,8 @@ export function SciencePage() {
                 <button
                   type="button"
                   onClick={() => setScienceView("photo")}
-                  className={`px-3 py-1 rounded-full transition-colors ${
-                    scienceView === "photo" ? "bg-[#1f3d2b] text-white font-bold" : "text-[#5a6660] hover:text-[#1f3d2b]"
+                  className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-200 ${
+                    scienceView === "photo" ? "bg-[#1f3d2b] text-white" : "text-[#5a6660] hover:text-[#1f3d2b]"
                   }`}
                 >
                   Studio Still
@@ -153,8 +153,8 @@ export function SciencePage() {
                 <button
                   type="button"
                   onClick={() => setScienceView("spec")}
-                  className={`px-3 py-1 rounded-full transition-colors ${
-                    scienceView === "spec" ? "bg-[#1f3d2b] text-white font-bold" : "text-[#5a6660] hover:text-[#1f3d2b]"
+                  className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-200 ${
+                    scienceView === "spec" ? "bg-[#1f3d2b] text-white" : "text-[#5a6660] hover:text-[#1f3d2b]"
                   }`}
                 >
                   Formula Spec
@@ -373,7 +373,7 @@ export function SciencePage() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white border border-black/[0.08] shadow-xs overflow-hidden transition-all"
+                  className="rounded-2xl bg-white border border-black/[0.08] shadow-xs overflow-hidden"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}

@@ -74,7 +74,7 @@ export function ShopPage() {
         </section>
 
         {/* Featured Flagship: Complete Daily Trio Bundle */}
-        <section id="trio-bundle" className="max-w-6xl xl:max-w-7xl mx-auto rounded-[2.5rem] bg-white border border-black/[0.08] shadow-sm relative overflow-hidden transition-all duration-300 hover:border-black/20 hover:shadow-[0_20px_48px_-12px_rgba(20,27,23,0.08)]">
+        <section id="trio-bundle" className="max-w-6xl xl:max-w-7xl mx-auto rounded-[2.5rem] bg-white border border-black/[0.08] hover:border-black/20 shadow-sm relative overflow-hidden transition-colors duration-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* Visual Lineup: Real Trio Bundle Studio Photography (Full Bleed Left) */}
@@ -187,9 +187,9 @@ export function ShopPage() {
                 <button
                   type="button"
                   onClick={() => setCatalogView("photo")}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                  className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-200 ${
                     catalogView === "photo"
-                      ? "bg-white text-[#1f3d2b] font-bold shadow-xs"
+                      ? "bg-white text-[#1f3d2b] shadow-xs"
                       : "text-[#5a6660] hover:text-[#1f3d2b]"
                   }`}
                 >
@@ -198,9 +198,9 @@ export function ShopPage() {
                 <button
                   type="button"
                   onClick={() => setCatalogView("spec")}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                  className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-200 ${
                     catalogView === "spec"
-                      ? "bg-white text-[#1f3d2b] font-bold shadow-xs"
+                      ? "bg-white text-[#1f3d2b] shadow-xs"
                       : "text-[#5a6660] hover:text-[#1f3d2b]"
                   }`}
                 >
@@ -220,7 +220,7 @@ export function ShopPage() {
                 <div
                   key={product.id}
                   id={product.id}
-                  className={`group rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 border transition-all duration-300 hover:border-black/20 hover:shadow-[0_16px_40px_-12px_rgba(20,27,23,0.08)] ${product.bgColorClass} ${product.borderColorClass}`}
+                  className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 border shadow-xs transition-colors duration-200 hover:border-black/20 ${product.bgColorClass} ${product.borderColorClass}`}
                 >
                   {/* Top Phase Tag & Capsule Count */}
                   <div>
@@ -242,7 +242,7 @@ export function ShopPage() {
                   {/* Clean Grounded Bottle Visual / Real Studio Packshot */}
                   <div className="my-2 flex items-center justify-center">
                     {catalogView === "photo" ? (
-                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs transition-colors duration-300 group-hover:border-black/10">
+                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs">
                         <Image
                           src={product.image}
                           alt={`${product.name} studio packshot`}
@@ -270,7 +270,7 @@ export function ShopPage() {
                       </span>
                       <button
                         onClick={() => setSelectedProductDetails(product)}
-                        className="text-[11px] text-[#1f3d2b] font-bold hover:underline flex items-center gap-0.5"
+                        className="text-[11px] text-[#1f3d2b] font-bold hover:text-[#102417] transition-colors duration-200 flex items-center gap-0.5"
                       >
                         <Info className="w-3 h-3" />
                         <span>View Supplement Facts</span>
@@ -289,12 +289,12 @@ export function ShopPage() {
 
                   {/* Cadence Selection for this item */}
                   <div className="space-y-2 pt-1">
-                    <div className="grid grid-cols-3 gap-1 bg-white/70 p-1 rounded-xl text-[10px] font-medium border border-black/5">
+                    <div className="grid grid-cols-3 gap-1 bg-white/70 p-1 rounded-xl text-[10px] font-semibold border border-black/5">
                       <button
                         onClick={() => setProductCadence(product.id, "30-day")}
-                        className={`py-1.5 rounded-lg transition-colors ${
+                        className={`py-1.5 rounded-lg transition-colors duration-200 ${
                           currentCadence === "30-day"
-                            ? "bg-[#1f3d2b] text-white font-bold shadow-xs"
+                            ? "bg-[#1f3d2b] text-white shadow-xs"
                             : "text-[#5a6660] hover:text-[#141b17]"
                         }`}
                       >
@@ -302,9 +302,9 @@ export function ShopPage() {
                       </button>
                       <button
                         onClick={() => setProductCadence(product.id, "60-day")}
-                        className={`py-1.5 rounded-lg transition-colors ${
+                        className={`py-1.5 rounded-lg transition-colors duration-200 ${
                           currentCadence === "60-day"
-                            ? "bg-[#1f3d2b] text-white font-bold shadow-xs"
+                            ? "bg-[#1f3d2b] text-white shadow-xs"
                             : "text-[#5a6660] hover:text-[#141b17]"
                         }`}
                       >
@@ -312,9 +312,9 @@ export function ShopPage() {
                       </button>
                       <button
                         onClick={() => setProductCadence(product.id, "one-time")}
-                        className={`py-1.5 rounded-lg transition-colors ${
+                        className={`py-1.5 rounded-lg transition-colors duration-200 ${
                           currentCadence === "one-time"
-                            ? "bg-white text-[#141b17] font-bold shadow-xs"
+                            ? "bg-white text-[#141b17] shadow-xs"
                             : "text-[#5a6660] hover:text-[#141b17]"
                         }`}
                       >
@@ -450,7 +450,7 @@ export function ShopPage() {
                   addToCart(selectedProductDetails, 1, "30-day");
                   setSelectedProductDetails(null);
                 }}
-                className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-all shadow-sm"
+                className="w-full mt-4 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs tracking-wide transition-colors duration-200 shadow-sm"
               >
                 Add to Cart • $30.00
               </button>

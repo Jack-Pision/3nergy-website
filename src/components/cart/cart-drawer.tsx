@@ -128,7 +128,7 @@ export function CartDrawer() {
                     const firstProduct = PRODUCTS[0];
                     if (firstProduct) addToCart(firstProduct, 1, "30-day");
                   }}
-                  className="px-6 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs transition-all shadow-sm"
+                  className="px-6 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white font-semibold text-xs transition-colors duration-200 shadow-sm"
                 >
                   Add Daily Energy &amp; Focus ($30.00)
                 </button>
@@ -264,7 +264,7 @@ export function CartDrawer() {
                 <Link
                   href="/shop"
                   onClick={closeCart}
-                  className="text-xs text-[#1f3d2b] font-bold underline underline-offset-2 hover:opacity-80 transition-opacity inline-block"
+                  className="text-xs text-[#1f3d2b] font-bold hover:text-[#141b17] transition-colors duration-200 inline-block"
                 >
                   View Bundle in Shop &rarr;
                 </Link>
