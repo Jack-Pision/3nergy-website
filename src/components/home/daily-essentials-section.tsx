@@ -214,48 +214,48 @@ export function DailyEssentialsSection() {
           })}
         </div>
 
-        {/* Clinical Rigor & Sourcing Banner */}
-        <div className="max-w-6xl xl:max-w-7xl 2xl:max-w-[1520px] mx-auto rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] shadow-sm overflow-hidden">
+        {/* Clinical Rigor & Sourcing Banner - Compact & Flush to Edge */}
+        <div className="max-w-4xl lg:max-w-5xl mx-auto rounded-[2rem] sm:rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] shadow-sm overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* Left Content Column */}
-            <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6">
+            <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-center space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1f3d2b]/10 text-[#1f3d2b] text-xs font-semibold w-fit">
                 Clinical Rigor &amp; Honesty
               </div>
               
-              <h3 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold tracking-tight text-[#141b17] leading-[1.12]">
+              <h3 className="text-2xl sm:text-3xl lg:text-[2.2rem] font-bold tracking-tight text-[#141b17] leading-[1.12]">
                 Formulated by Physicians, <br className="hidden sm:inline" />
                 Verified by Clinical Data.
               </h3>
 
-              <p className="text-sm sm:text-base text-[#5a6660] leading-relaxed max-w-xl">
+              <p className="text-xs sm:text-sm text-[#5a6660] leading-relaxed max-w-md">
                 You shouldn&apos;t need a chemistry degree to understand what&apos;s in your supplements. 3NERGY keeps every formula intentional, transparent, and easy to understand — so you can focus on feeling your best every single day.
               </p>
 
               {/* 3 Bullet Points with Checkmarks */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
-                    <Check className="w-3 h-3 stroke-[2.5]" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
+                    <Check className="w-2.5 h-2.5 stroke-[2.5]" />
                   </div>
                   <span className="text-xs font-bold text-[#141b17]">
                     Purposeful formulas
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
-                    <Check className="w-3 h-3 stroke-[2.5]" />
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
+                    <Check className="w-2.5 h-2.5 stroke-[2.5]" />
                   </div>
                   <span className="text-xs font-bold text-[#141b17]">
                     Transparent labels
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
-                    <Check className="w-3 h-3 stroke-[2.5]" />
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
+                    <Check className="w-2.5 h-2.5 stroke-[2.5]" />
                   </div>
                   <span className="text-xs font-bold text-[#141b17]">
                     Made for consistency
@@ -264,10 +264,10 @@ export function DailyEssentialsSection() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+              <div className="pt-1.5 flex flex-wrap items-center gap-3">
                 <Link
                   href="/shop"
-                  className="px-7 py-3 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold tracking-wide transition-colors duration-200 border border-transparent hover:border-white/10 active:opacity-90 shadow-sm flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-full bg-[#1f3d2b] hover:bg-[#162e20] text-white text-xs font-semibold tracking-wide transition-colors duration-200 border border-transparent hover:border-white/10 active:opacity-90 shadow-sm flex items-center gap-2"
                 >
                   <span>Shop Now</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -275,7 +275,7 @@ export function DailyEssentialsSection() {
 
                 <button
                   onClick={openCalculator}
-                  className="px-7 py-3 rounded-full bg-white hover:bg-gray-50 text-[#141b17] border border-black/15 hover:border-black/30 text-xs font-semibold tracking-wide transition-colors duration-200 active:bg-gray-100 shadow-sm flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-full bg-white hover:bg-gray-50 text-[#141b17] border border-black/15 hover:border-black/30 text-xs font-semibold tracking-wide transition-colors duration-200 active:bg-gray-100 shadow-sm flex items-center gap-2"
                 >
                   <Calculator className="w-3.5 h-3.5 text-[#1f3d2b]" />
                   <span>Fitness Calculator</span>
@@ -283,8 +283,8 @@ export function DailyEssentialsSection() {
               </div>
             </div>
 
-            {/* Right Graphic Column: Full-Bleed Doctor with Consistency Gauge */}
-            <div className="lg:col-span-5 relative min-h-[380px] lg:min-h-full w-full bg-[#9dbca9]">
+            {/* Right Graphic Column: Full-Bleed Flush to Right Edge */}
+            <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full w-full bg-[#9dbca9]">
               <Image
                 src="/images/doctor_gauge.png"
                 alt="Doctor with consistency metric"
