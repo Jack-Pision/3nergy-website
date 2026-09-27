@@ -215,11 +215,11 @@ export function DailyEssentialsSection() {
         </div>
 
         {/* Clinical Rigor & Sourcing Banner */}
-        <div className="max-w-6xl xl:max-w-7xl 2xl:max-w-[1520px] mx-auto rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] p-8 sm:p-10 lg:p-12 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="max-w-6xl xl:max-w-7xl 2xl:max-w-[1520px] mx-auto rounded-[2.5rem] bg-[#f9faf9] border border-black/[0.06] shadow-sm overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* Left Content Column */}
-            <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
+            <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1f3d2b]/10 text-[#1f3d2b] text-xs font-semibold w-fit">
                 Clinical Rigor &amp; Honesty
               </div>
@@ -245,7 +245,7 @@ export function DailyEssentialsSection() {
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-[#1f3d2b] text-white shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </div>
                   <span className="text-xs font-bold text-[#141b17]">
@@ -254,7 +254,7 @@ export function DailyEssentialsSection() {
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-[#1f3d2b] text-white shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#1f3d2b] flex items-center justify-center text-white shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </div>
                   <span className="text-xs font-bold text-[#141b17]">
@@ -283,17 +283,15 @@ export function DailyEssentialsSection() {
               </div>
             </div>
 
-            {/* Right Graphic Column: Doctor with Consistency Gauge */}
-            <div className="lg:col-span-5 flex items-center justify-center">
-              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-black/5 bg-[#9dbca9] group">
-                <Image
-                  src="/images/doctor_gauge.png"
-                  alt="Doctor with consistency metric"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
+            {/* Right Graphic Column: Full-Bleed Doctor with Consistency Gauge */}
+            <div className="lg:col-span-5 relative min-h-[380px] lg:min-h-full w-full bg-[#9dbca9]">
+              <Image
+                src="/images/doctor_gauge.png"
+                alt="Doctor with consistency metric"
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover object-center"
+              />
             </div>
 
           </div>
