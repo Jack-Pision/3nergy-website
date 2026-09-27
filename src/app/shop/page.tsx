@@ -74,17 +74,17 @@ export function ShopPage() {
         </section>
 
         {/* Featured Flagship: Complete Daily Trio Bundle */}
-        <section id="trio-bundle" className="max-w-6xl xl:max-w-7xl mx-auto rounded-[2.5rem] bg-white border border-black/[0.08] shadow-sm relative overflow-hidden">
+        <section id="trio-bundle" className="max-w-6xl xl:max-w-7xl mx-auto rounded-[2.5rem] bg-white border border-black/[0.08] shadow-sm relative overflow-hidden transition-all duration-300 hover:border-black/20 hover:shadow-[0_20px_48px_-12px_rgba(20,27,23,0.08)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* Visual Lineup: Real Trio Bundle Studio Photography (Full Bleed Left) */}
-            <div className="lg:col-span-6 relative min-h-[360px] lg:min-h-full w-full bg-[#f4f6f4] group">
+            <div className="lg:col-span-6 relative min-h-[360px] lg:min-h-full w-full bg-[#f4f6f4]">
               <Image
                 src="/images/trio_bundle_hero.png"
                 alt="The Complete 3NERGY Daily Trio supplement line on travertine plinth"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                className="object-cover object-center"
                 priority
               />
             </div>
@@ -220,7 +220,7 @@ export function ShopPage() {
                 <div
                   key={product.id}
                   id={product.id}
-                  className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 border transition-colors duration-200 hover:border-black/25 ${product.bgColorClass} ${product.borderColorClass}`}
+                  className={`group rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 border transition-all duration-300 hover:border-black/20 hover:shadow-[0_16px_40px_-12px_rgba(20,27,23,0.08)] ${product.bgColorClass} ${product.borderColorClass}`}
                 >
                   {/* Top Phase Tag & Capsule Count */}
                   <div>
@@ -242,13 +242,13 @@ export function ShopPage() {
                   {/* Clean Grounded Bottle Visual / Real Studio Packshot */}
                   <div className="my-2 flex items-center justify-center">
                     {catalogView === "photo" ? (
-                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs">
+                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs transition-colors duration-300 group-hover:border-black/10">
                         <Image
                           src={product.image}
                           alt={`${product.name} studio packshot`}
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover"
                         />
                       </div>
                     ) : (

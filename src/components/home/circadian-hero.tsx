@@ -146,14 +146,14 @@ export function CircadianHero() {
                   onClick={() => addToCart(heroProduct)}
                 >
                   {/* Photo Container: Matches 3:4 Aspect Ratio Perfectly with ZERO Cropping */}
-                  <div className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/40 bg-[#f4efe8]">
+                  <div className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/40 bg-[#f4efe8] transition-all duration-300 group-hover:shadow-[0_24px_50px_-12px_rgba(20,27,23,0.25)] group-hover:border-white/60">
                     <Image
                       key={heroProduct.id}
                       src={heroProduct.image}
                       alt={`${heroProduct.name} studio packshot on travertine plinth`}
                       fill
                       sizes="(max-width: 768px) 300px, 340px"
-                      className="object-contain group-hover:scale-105 transition-transform duration-700 animate-in fade-in"
+                      className="object-contain animate-in fade-in"
                       priority
                     />
                   </div>
@@ -165,7 +165,7 @@ export function CircadianHero() {
                         e.stopPropagation();
                         addToCart(heroProduct);
                       }}
-                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-all duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md active:scale-95"
+                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-all duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md active:opacity-90"
                     >
                       <span>Quick Add · ${heroProduct.price}.00</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -183,7 +183,7 @@ export function CircadianHero() {
                         e.stopPropagation();
                         addToCart(heroProduct);
                       }}
-                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-all duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md active:scale-95"
+                      className="px-6 py-2.5 rounded-full bg-[#1b3a27] hover:bg-[#102417] text-white text-xs font-semibold shadow-xl transition-all duration-200 flex items-center gap-1.5 border border-white/30 hover:border-white/50 backdrop-blur-md active:opacity-90"
                     >
                       <span>Quick Add · ${heroProduct.price}.00</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />

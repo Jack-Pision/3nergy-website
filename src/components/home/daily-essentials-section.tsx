@@ -132,7 +132,7 @@ export function DailyEssentialsSection() {
             return (
               <div
                 key={product.id}
-                className={`group rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-colors duration-200 border ${product.bgColorClass} ${product.borderColorClass} hover:border-black/25`}
+                className={`group rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border ${product.bgColorClass} ${product.borderColorClass} hover:border-black/20 hover:shadow-[0_16px_40px_-12px_rgba(20,27,23,0.08)]`}
               >
                 {/* Card Top: Price & Quick Add Button */}
                 <div className="flex items-center justify-between">
@@ -141,7 +141,7 @@ export function DailyEssentialsSection() {
                   </span>
                   <button
                     onClick={() => handleQuickAdd(product)}
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 border border-black/5 shadow-sm ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 border border-black/5 shadow-xs ${
                       isAdded
                         ? "bg-[#1f3d2b] text-white"
                         : "bg-white/80 hover:bg-[#1f3d2b] text-[#1f3d2b] hover:text-white active:bg-[#14281c]"
@@ -159,13 +159,13 @@ export function DailyEssentialsSection() {
                 {/* Card Center: Real Studio Photograph or Spec Bottle */}
                 <div className="my-5 flex justify-center relative">
                   {displayMode === "photo" ? (
-                    <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs">
+                    <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 border border-black/5 shadow-xs transition-colors duration-300 group-hover:border-black/10">
                       <Image
                         src={product.image}
                         alt={`${product.name} luxury packshot`}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover"
                       />
                     </div>
                   ) : (
@@ -203,7 +203,7 @@ export function DailyEssentialsSection() {
                     </Link>
                     <button
                       onClick={() => handleQuickAdd(product)}
-                      className="text-[11px] font-bold text-[#1f3d2b] hover:text-[#162e20] bg-white/70 hover:bg-white px-3 py-1 rounded-full border border-black/5 transition-colors"
+                      className="text-[11px] font-bold text-[#1f3d2b] group-hover:bg-[#1f3d2b] group-hover:text-white bg-white/80 px-3.5 py-1 rounded-full border border-black/5 transition-all duration-200 shadow-xs"
                     >
                       + Add
                     </button>
