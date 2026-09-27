@@ -74,25 +74,23 @@ export function ShopPage() {
         </section>
 
         {/* Featured Flagship: Complete Daily Trio Bundle */}
-        <section id="trio-bundle" className="max-w-6xl xl:max-w-7xl mx-auto rounded-[2.5rem] bg-white p-8 sm:p-10 lg:p-12 border border-black/[0.08] shadow-sm relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <section id="trio-bundle" className="max-w-6xl xl:max-w-7xl mx-auto rounded-[2.5rem] bg-white border border-black/[0.08] shadow-sm relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
-            {/* Visual Lineup: Real Trio Bundle Studio Photography */}
-            <div className="lg:col-span-6 flex justify-center">
-              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-black/5 bg-[#f4f6f4] group">
-                <Image
-                  src="/images/trio_bundle_hero.png"
-                  alt="The Complete 3NERGY Daily Trio supplement line on travertine plinth"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  priority
-                />
-              </div>
+            {/* Visual Lineup: Real Trio Bundle Studio Photography (Full Bleed Left) */}
+            <div className="lg:col-span-6 relative min-h-[360px] lg:min-h-full w-full bg-[#f4f6f4] group">
+              <Image
+                src="/images/trio_bundle_hero.png"
+                alt="The Complete 3NERGY Daily Trio supplement line on travertine plinth"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                priority
+              />
             </div>
 
             {/* Bundle Details & Purchase */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 p-8 sm:p-10 lg:p-12 flex flex-col justify-center space-y-6">
               <div className="flex items-center gap-2">
                 <span className="px-3.5 py-1 rounded-full text-xs font-semibold bg-[#eaf1ed] text-[#1f3d2b] border border-[#1f3d2b]/15">
                   Best Value • Save $15.00
