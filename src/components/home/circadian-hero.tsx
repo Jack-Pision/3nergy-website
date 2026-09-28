@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Star, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 import { ChronoBottle } from "@/components/visuals/chrono-bottle";
 import { useCircadianStore } from "@/store/circadian-store";
 import { PRODUCTS } from "@/data/products";
@@ -78,11 +78,10 @@ export function CircadianHero() {
             
             {/* Left Feature Pill & Phase Switcher */}
             <div className="md:col-span-3 flex flex-col justify-start order-2 md:order-1 space-y-3">
-              <div className="bg-white/30 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/40 shadow-sm flex items-center gap-3.5 w-fit">
-                <span className="text-xl font-bold text-white tracking-tight font-mono shrink-0">
+              <div className="bg-white/30 backdrop-blur-md rounded-2xl p-4 border border-white/40 shadow-sm flex items-center gap-3.5">
+                <div className="w-9 h-11 rounded-lg bg-[#1a221c] flex items-center justify-center text-white text-[11px] font-bold">
                   {heroProduct.phaseNumber}
-                </span>
-                <div className="w-px h-6 bg-white/30 shrink-0" />
+                </div>
                 <div>
                   <div className="text-xs font-bold text-white leading-tight">
                     {heroProduct.name}
@@ -196,8 +195,20 @@ export function CircadianHero() {
 
             {/* Right Clean Label / Clinical Certification Emblem */}
             <div className="md:col-span-3 flex justify-end order-3">
-              <div className="flex items-center gap-3 text-right bg-white/20 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/30 shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-emerald-200 shrink-0" />
+              <div className="flex items-center gap-3 text-right bg-white/20 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/30">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-emerald-200 shrink-0"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 3v2M12 19v2M3 12h2M19 12h2" strokeOpacity="0.5" />
+                  <path d="m8.5 12 2.5 2.5 4.5-5" />
+                </svg>
                 <div className="text-xs font-semibold text-white leading-tight">
                   Clean Label Certified <br />
                   <span className="text-white/80 font-normal">100% Third-Party Tested</span>
