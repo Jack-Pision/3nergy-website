@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 3NERGY
+
+A premium e-commerce concept project built for a fictitious clean supplement brand, focusing on minimal aesthetics, high-performance web architecture, and seamless user experiences. This project serves as a portfolio piece demonstrating advanced frontend capabilities.
+
+## Overview
+
+3NERGY is designed around the core philosophy of clean, science-backed wellness without unnecessary extras. The interface reflects this ideology with a clean, high-contrast, nature-inspired palette (Forest Green, Sage, Sand, Lavender) and an edge-to-edge full-bleed layout.
+
+## Screenshots
+
+### Home Page
+![3NERGY Home Hero](assets/home-hero.png)
+
+### Shop Page
+![3NERGY Shop](assets/shop-hero.png)
+
+### Science Page
+![3NERGY Science](assets/science-hero.png)
+
+## Technical Architecture
+
+* **Framework:** Next.js (App Router)
+* **Library:** React 19
+* **Styling:** Tailwind CSS v4
+* **Language:** TypeScript
+* **Typography:** Satoshi (Custom optimized local font)
+
+## Key Features
+
+* **Zero-Gap Viewport Architecture:** Custom global layout configuration that completely eliminates cross-browser scrollbar gutters to achieve true edge-to-edge full bleed designs across all devices and operating systems.
+* **Responsive Interactions:** Slide-over cart drawer and interactive modal systems tailored for fluid mobile and desktop interactions.
+* **Component-Driven Design:** Highly reusable, modular architecture for product cards, trust ribbons, and dynamic navigation.
+* **Performance Focused:** Built using Next.js Turbopack for rapid development cycles and optimized static payload generation.
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally, clone the repository and install the dependencies:
 
 ```bash
+# Clone the repository
+git clone https://github.com/Jack-Pision/3nergy.git
+
+# Navigate into the project directory
+cd 3nergy
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Author
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Designed and built by Jack Pision. 
+* GitHub: [github.com/Jack-Pision](https://github.com/Jack-Pision)
+* X: [x.com/Jack_pision](https://x.com/Jack_pision)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a concept project created for portfolio demonstration purposes. All branding and product information is fictitious.
