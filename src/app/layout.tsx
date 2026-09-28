@@ -67,6 +67,12 @@ export default function RootLayout({
       className={`${satoshi.variable} ${satoshi.className} overflow-x-hidden`}
       suppressHydrationWarning
     >
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: `
+          ::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+          html, body { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+        `}} />
+      </head>
       <body className="min-h-screen bg-[#fcfcfb] text-[#141b17] font-sans antialiased selection:bg-[#1f3d2b]/15 selection:text-[#1f3d2b] overflow-x-hidden relative flex flex-col w-full max-w-full">
         <Providers>
           {/* Minimalist Floating Navigation */}
