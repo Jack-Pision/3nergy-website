@@ -26,7 +26,7 @@ export function GreenCtaSection() {
     <section className="w-full bg-[#142d1e] py-24 sm:py-32 px-6 sm:px-12 lg:px-16 text-white relative overflow-hidden">
       
       {/* Real Atmospheric Misty Forest Canopy Banner */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           src="/images/green_cta_banner.png"
           alt="Tranquil alpine pine forest canopy in morning mist"

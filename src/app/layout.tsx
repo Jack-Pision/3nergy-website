@@ -64,10 +64,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${satoshi.variable} ${satoshi.className}`}
+      className={`${satoshi.variable} ${satoshi.className} overflow-x-hidden`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-[#fcfcfb] text-[#141b17] font-sans antialiased selection:bg-[#1f3d2b]/15 selection:text-[#1f3d2b] overflow-x-hidden relative flex flex-col">
+      <body className="min-h-screen bg-[#fcfcfb] text-[#141b17] font-sans antialiased selection:bg-[#1f3d2b]/15 selection:text-[#1f3d2b] overflow-x-hidden relative flex flex-col w-full max-w-full">
         <Providers>
           {/* Minimalist Floating Navigation */}
           <Navbar />
