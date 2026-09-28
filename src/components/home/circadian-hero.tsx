@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Star, Award } from "lucide-react";
+import { ArrowUpRight, Star, ShieldCheck } from "lucide-react";
 import { ChronoBottle } from "@/components/visuals/chrono-bottle";
 import { useCircadianStore } from "@/store/circadian-store";
 import { PRODUCTS } from "@/data/products";
@@ -77,16 +77,16 @@ export function CircadianHero() {
           <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
             {/* Left Feature Pill & Phase Switcher */}
-            <div className="md:col-span-3 flex flex-col justify-start order-2 md:order-1 space-y-3">
-              <div className="bg-white/30 backdrop-blur-md rounded-2xl p-4 border border-white/40 shadow-sm flex items-center gap-3.5">
-                <div className="w-9 h-11 rounded-lg bg-[#1a221c] flex items-center justify-center text-white text-[11px] font-bold">
+            <div className="md:col-span-3 flex flex-col justify-center items-start order-2 md:order-1 space-y-3">
+              <div className="bg-white/20 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/30 shadow-sm flex items-center gap-3">
+                <div className="w-7 h-7 rounded-full bg-[#18261d] flex items-center justify-center text-white text-[11px] font-bold shrink-0">
                   {heroProduct.phaseNumber}
                 </div>
-                <div>
-                  <div className="text-xs font-bold text-white leading-tight">
+                <div className="leading-snug">
+                  <div className="text-xs font-bold text-white">
                     {heroProduct.name}
                   </div>
-                  <div className="text-[11px] text-white/80 font-medium mt-0.5">
+                  <div className="text-[11px] text-white/80 font-medium">
                     {heroProduct.timeWindow}
                   </div>
                 </div>
@@ -99,7 +99,7 @@ export function CircadianHero() {
                     key={prod.id}
                     type="button"
                     onClick={() => setSelectedPhaseIndex(idx)}
-                    className={`flex-1 py-1.5 px-2 rounded-xl text-[11px] font-semibold transition-colors duration-200 ${
+                    className={`flex-1 py-1.5 px-2.5 rounded-xl text-[11px] font-semibold transition-colors duration-200 ${
                       selectedPhaseIndex === idx
                         ? "bg-white text-[#1b3a27] shadow-sm"
                         : "text-white/75 hover:text-white"
@@ -194,12 +194,18 @@ export function CircadianHero() {
             </div>
 
             {/* Right Clean Label / Clinical Certification Emblem */}
-            <div className="md:col-span-3 flex justify-end order-3">
-              <div className="flex items-center gap-3 text-right bg-white/20 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/30">
-                <Award className="w-5 h-5 text-amber-200 shrink-0" />
-                <div className="text-xs font-semibold text-white leading-tight">
-                  Awarded Clean Label <br />
-                  <span className="text-white/80 font-normal">100% Third-Party Tested</span>
+            <div className="md:col-span-3 flex justify-start md:justify-end items-center order-3">
+              <div className="bg-white/20 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/30 shadow-sm flex items-center gap-3 text-left md:text-right">
+                <div className="order-2 md:order-1 leading-snug">
+                  <div className="text-xs font-bold text-white">
+                    Clean Label Certified
+                  </div>
+                  <div className="text-[11px] text-white/80 font-medium">
+                    100% Third-Party Tested
+                  </div>
+                </div>
+                <div className="order-1 md:order-2 w-7 h-7 rounded-full bg-white/15 flex items-center justify-center text-emerald-300 shrink-0 border border-white/20">
+                  <ShieldCheck className="w-4 h-4" />
                 </div>
               </div>
             </div>
